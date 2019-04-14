@@ -26,6 +26,7 @@ import { ServicesComponent } from './components/services/services.component';
 import { ListServicesComponent } from './components/list-services/list-services.component';
 import { AchievementsComponent } from './components/achievements/achievements.component';
 import { AchievementsListComponent } from './components/achievements-list/achievements-list.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 
 export function HttpLoaderFactory(http:HttpClient)
@@ -45,7 +46,8 @@ export function HttpLoaderFactory(http:HttpClient)
     ServicesComponent,
     ListServicesComponent,
     AchievementsComponent,
-    AchievementsListComponent
+    AchievementsListComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
