@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+
+@font-face
+{
+    font-family: RalewayBold;
+    src:url(./assets/fonts/Raleway-Bold.ttf);
+}
+
+@font-face
+{
+    font-family: RalewayMed;
+    src:url(./assets/fonts/Raleway-SemiBold.ttf);
+}
+
+@font-face
+{
+    font-family: RalewayReg;
+    src:url(./assets/fonts/Raleway-Regular.ttf);
+}
+
+@font-face
+{
+    font-family: RalewayLight;
+    src:url(./assets/fonts/Raleway-Light.ttf);
+}
+
+@font-face
+{
+    font-family: RalewayThin;
+    src:url(./assets/fonts/Raleway-Thin.ttf);
+}
+
+html { font-size: calc(1em + 1vw) }
+
+body
+{
+    font-family: RalewayMed !important;
+    margin:0 !important;
+}
+
+a
+{
+    text-decoration: none !important;
+    color:#989898 !important;
+    font-size: 0.44em;
+    /* font-weight: bold; */
+}

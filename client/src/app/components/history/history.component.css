@@ -1,0 +1,61 @@
+.containerHistory
+{
+    height:100vh;
+}
+
+.divHistory
+{    
+    padding-top:1em;
+    margin:auto auto;
+    height:80%;
+    display: grid;
+    grid-template-columns: 26% 54% 20%;
+    grid-template-rows: auto;
+    grid-template-areas: ". title ."
+                        ". subtitule ."
+                        ". textHistory .";
+    position:relative;
+    background-image: url('../../../assets/img/logo_back_mob.jpg');
+    background-size:auto;
+    background-repeat: no-repeat;
+    background-position-x: 20%;
+    background-position-y: 100%;
+}
+
+.titleHistory
+{
+    color:#79B9D9;
+    grid-area:title;    
+    font-family: RalewayLight;
+    font-size: 1.5em;
+}
+
+.subtitleHistory
+{
+    color:#4A95CD;
+    grid-area:subtitule;
+    font-family:RalewayBold;
+    font-size:0.6em;
+}
+
+.divTextHistory
+{
+    padding-top:1em;
+    grid-area:textHistory;
+    font-family: RalewayReg;
+}
+
+.divTextHistory > p
+{
+    font-size:0.5em;
+    color:#66B8DC;
+    margin-bottom:0.6em;    
+}
+
+.fa
+{
+    font-size:0.35em !important; 
+    vertical-align: middle;
+    padding-right:0.4em;
+}
+

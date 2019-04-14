@@ -1,0 +1,23 @@
+.principalHeader
+{
+    position:relative;    
+} 
+
+.imgHeader
+{
+    width:100%;
+}
+
+.textHeader
+{
+    position: absolute;
+    color:white;
+    bottom: 2em;
+    left: 2em;
+}
+
+.textHeaderTitle
+{
+    font-family:RalewayReg;
+    font-size:1.6em;
+}

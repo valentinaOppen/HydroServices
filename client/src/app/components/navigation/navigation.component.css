@@ -1,0 +1,31 @@
+.containerNavBarGrid
+{
+    display: grid;
+    grid-template-columns: 35% 65%;
+    margin: 1.5em 0.5em 1.5em 1.5em;
+    width:95%;
+}
+
+.logoNavBar
+{
+    width: 68%;
+}
+
+.itemsGrid
+{
+    display: grid !important;
+    grid-template-columns: repeat(8,auto);
+    column-gap: 0.5em;
+}
+
+.fa
+{
+    font-size: 1.6em;
+    margin-left:0.2em;
+}
+
+.itemLang > a
+{
+    color:#4A95CD !important;
+    font-size:0.47em !important;
+}

@@ -1,0 +1,35 @@
+div
+{   
+    display: block;
+}
+
+.containerClients
+{
+    padding:4em 0 3em 0; 
+    text-align: center;    
+}
+
+.titleClients
+{
+    color:#76B1C9;
+    font-family:RalewayLight;
+    font-size:1.4em;    
+}
+
+.subtitleClients
+{
+    color:#3874A0;
+    font-family:RalewayBold;
+    font-size:1.2em;
+    padding-bottom:2em;
+}
+
+.gridClients
+{
+    width:80%;
+    display:grid;
+    grid-template-columns: 30% 30% 30%;
+    column-gap: 5%;
+    row-gap: 1em;
+    margin: auto auto;
+}

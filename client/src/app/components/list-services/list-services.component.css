@@ -1,0 +1,38 @@
+div
+{   
+    display:block;
+}
+
+.containerServices
+{
+    background-color:#5FA1C3;
+    color:white;
+    text-align:center;
+    padding:2em;
+}
+
+.capacity
+{
+    font-family: RalewayThin;        
+    font-size:1.2em;
+}
+
+.textServices
+{
+    font-family:RalewayBold;
+    font-size:0.8em;
+}
+
+.gridServices
+{
+    display:grid;
+    grid-template-columns: 25% 25% 25% 25%;    
+    padding:1em;
+}
+
+.titleService
+{
+    font-size: 0.65em;
+    font-family: RalewayReg;
+    padding-top:1em;
+}

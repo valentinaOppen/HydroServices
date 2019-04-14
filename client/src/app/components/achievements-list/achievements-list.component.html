@@ -1,0 +1,40 @@
+<div class="containerAchievements">  
+  <div class="gridAchievements" *ngFor="let achiv of achiev">
+    <div class="worksAchiev">
+      <div class="divImgAchiv">
+          <img src="../../../assets/img/achiev/works.jpg" alt="" class="imgAchiv">
+        </div>
+        <div class="numberAchiev">
+          {{achiv.achiv_works}}
+        </div>
+        <div class="titleAchiev">{{"OBRAS TERMINADAS" | translate}}</div>
+      </div>
+      <div class="hoursAchiev">
+      <div class="divImgAchiv">
+          <img src="../../../assets/img/achiev/works.jpg" alt="" class="imgAchiv">
+        </div>
+        <div class="numberAchiev">
+          {{achiv.achiv_hours}}
+        </div>
+        <div class="titleAchiev">{{"HORAS SUMERGIDOS" | translate}}</div>
+      </div>
+      <div class="customAchiev">
+      <div class="divImgAchiv">
+          <img src="../../../assets/img/achiev/works.jpg" alt="" class="imgAchiv">
+        </div>
+        <div class="numberAchiev">
+          {{achiv.achiv_clients}}
+        </div>
+        <div class="titleAchiev">{{"CLIENTES SATISFECHOS" | translate}}</div>
+      </div>
+      <div class="yearsAchiev">
+      <div class="divImgAchiv">
+          <img src="../../../assets/img/achiev/works.jpg" alt="" class="imgAchiv">
+        </div>
+        <div class="numberAchiev">
+          {{achiv.achiv_years}}
+        </div>
+        <div class="titleAchiev">{{"AÑOS BUCEANDO" | translate}}</div>
+      </div>
+  </div>
+</div>

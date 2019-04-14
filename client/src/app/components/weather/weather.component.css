@@ -1,0 +1,63 @@
+div{
+    width:fit-content;
+    display: block !important;
+    margin:auto auto;
+}
+
+.containerWeather
+{
+    background-color:#4A95CD;
+    color:white;
+    font-size:0.4em;
+    /* width: fit-content; */
+    position:absolute;
+    top:2em;
+    right: 2em;
+    /* text-align: center; */
+    padding:2em;    
+}
+
+.divImg
+{    
+    margin:auto auto;
+}
+
+.containerWeather
+{
+    width:fit-content;
+}
+
+.city   
+{
+    font-size:1.35em;
+}
+
+.weatherCond
+{
+    font-family:RalewayLight;
+    font-size:1.35em;
+}
+
+.textWeather
+{    
+    display: grid !important;
+    grid-template-columns: 50% 50%;   
+    font-family:RalewayLight;
+    font-size:1.2em;
+    white-space: nowrap;
+    margin:0 !important;
+    padding:1.5em 1.5em 0 0;
+}
+
+.weatherTitle
+{
+    text-align: left !important;
+    margin:0 !important;
+}
+
+.weather
+{
+    text-align: right !important;
+    margin:0 0 0 30%;
+    /* margin:0 !important; */
+}

@@ -1,0 +1,31 @@
+div
+{
+    display:block;
+}
+
+.containerAchievements
+{
+    background-color:#1E4359;
+    text-align: center;
+    color:white;
+}
+
+.gridAchievements
+{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    padding:1em 1.3em 1em 1.3em;    
+}
+
+.numberAchiev
+{
+    font-size:1.5em;
+    font-family:RalewayBold;    
+}
+
+.titleAchiev
+{
+    font-family:RalewayLight;
+    word-wrap: break-word;
+    word-spacing: 1000px;    
+}

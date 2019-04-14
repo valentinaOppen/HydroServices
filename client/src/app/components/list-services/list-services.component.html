@@ -1,0 +1,17 @@
+<div class="containerServices">
+  <div class="capacity">{{"CAPACIDADES" | translate }}</div>
+  <div class="textServices">{{"ALGUNOS DE NUESTROS SERVICIOS" | translate }}</div>
+<div class="containerGridServices">
+  <div class="gridServices">
+    <div class="service" *ngFor="let service of services">
+      <div class="divImgService">
+        <img src="{{service.serv_img}}" alt="">
+      </div>
+      <div class="titleService" *ngIf="this.language=='es'">{{service.serv_name}}</div>
+      <div class="titleService" *ngIf="this.language=='en'">{{service.serv_name_eng}}</div>
+    </div>
+  </div>
+</div>
+</div>
+
+

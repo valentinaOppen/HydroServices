@@ -1,0 +1,13 @@
+<div class="containerClients">
+  <div class="titleClients">{{ "CLIENTES" | translate }}</div>
+  <div class="subtitleClients">{{ "NOS SUMERGIMOS PARA" | translate }}</div>
+  <div class="containerGridClients">
+    <div class="gridClients">      
+        <div class="client" *ngFor="let client of clients">
+        <div class="divImgClient">          
+          <img src="{{client.clie_name}}" alt="">                    
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
