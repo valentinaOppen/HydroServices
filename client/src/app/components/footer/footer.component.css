@@ -1,0 +1,42 @@
+p
+{
+    margin-bottom:0;
+}
+
+.paddingTop
+{
+    padding-top:1em;
+}
+
+.containerFooter
+{
+    background-color:#193A54;    
+    color:white;
+    font-size:0.5em;
+    font-family:RalewayLight;    
+}
+
+.gridFooter
+{
+    display:grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    column-gap: 3em;
+    margin:auto auto;
+    width:80%;        
+    padding:3em 0 3em 0;    
+}
+
+.title
+{
+    font-family:RalewayMed;
+}
+
+.fab
+{
+    font-size:4em;    
+}
+
+.fa-facebook
+{
+    width:25%;
+}
