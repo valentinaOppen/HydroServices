@@ -1,7 +1,7 @@
 .containerNavBarGrid
 {
     display: grid;
-    grid-template-columns: 35% 65%;
+    grid-template-columns: 33% 67%;
     margin: 1.5em 0.5em 1.5em 1.5em;
     width:95%;
 }
@@ -22,10 +22,28 @@
 {
     font-size: 1.6em;
     margin-left:0.2em;
+    margin-bottom: 0.5em;
 }
 
 .itemLang > a
 {
     color:#4A95CD !important;
-    font-size:0.47em !important;
+    font-size:0.47em !important;    
 }
+
+a
+{
+    white-space: nowrap;
+}
+
+.divSelect .Links
+{    
+    width:350px;
+}
+
+.divSelect
+{
+    padding-left:1em;
+}
+
+

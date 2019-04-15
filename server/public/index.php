@@ -12,6 +12,7 @@ $app = new \Slim\App;
 require '../src/routes/services.php';
 require '../src/routes/clients.php';
 require '../src/routes/achievements.php';
+require '../src/routes/news.php';
 
 
 

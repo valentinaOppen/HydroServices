@@ -7,6 +7,12 @@
     "MULTIMEDIA":"MEDIA",
     "CONTACTENOS":"CONTACT US",
     "EN":"ES",
+    "Renar":"Renar Marítima",
+    "Asociación Bonaerense de la industria Naval":"Naval Industry Association of Buenos Aires",
+    "Histarmar":"Naval History and Maritime Arqueology",
+    "Meysupply Representaciones": "Meysupply Representations",
+    "Videos":"Videos",
+    "Fotos":"Photos",
     "SALVAMENTO Y BUCÉO":"RESCUE AND DIVING",
     "SOBRE HIDROSERVICE":"ABOUT HYDROSERVICE",
     "CONOCE NUESTRA HISTORIA":"OUR HISTORY",
@@ -31,6 +37,21 @@
     "CLIENTES SATISFECHOS": "SATISFIED CUSTOMERS",
     "AÑOS BUCEANDO": "YEARS DIVING",
     "CONTACTO": "CONTACT",
-    "ESCIRBINOS TUS CONSULTAS": "WRITE YOUR QUESTIONS"    
+    "ESCRIBINOS TUS CONSULTAS": "WRITE YOUR QUESTIONS",
+    "NOMBRE":"NAME",
+    "TELEFONO":"PHONE NUMBER",
+    "ASUNTO":"SUBJECT",
+    "MENSAJE":"MESSAGE",
+    "BORRAR":"DELETE",
+    "ENVIAR":"SEND",
+    "Contacto":"Contact",
+    "Celular":"Cell Phone",
+    "Representante":"Representative",
+    "Tel/Fax":"Phone/Fax",
+    "Teléfono":"Phone",
+    "Certificaciones":"Certifications",
+    "Enterate de las últimas novedades":"Find out the latest news",
+    "Seguinos":"Follow us"
 
+    
 }

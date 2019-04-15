@@ -1,0 +1,67 @@
+div
+{
+    display:block;
+}
+
+.titleNews
+{
+    color:#A3C9DA;  
+    padding-top: 2em;
+    text-align: center;
+    font-size: 1.3em;
+    font-family: RalewayLight;  
+}
+
+.subtituleNews
+{
+    color:#3B78A2;
+    text-align: center;
+    font-size: 0.6em;
+    font-family: RalewayBold;
+}
+
+.desc
+{
+    font-size:0.5em;
+    color:#3874A0;
+    padding: 0.4em;
+}
+
+.gridNewsVideos
+{
+    padding:2em 2em 0em 2em;
+}
+
+.gridNewsImgs
+{
+    padding:0em 2em 2em 2em;
+}
+
+.news{
+    padding:0.5em;  
+    width: 33.3%;
+    display: inline-block;
+}
+
+.videoNews{
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+}
+
+iframe
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;     
+}
+
+img
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;     
+}
+

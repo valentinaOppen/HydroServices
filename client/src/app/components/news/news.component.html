@@ -1,0 +1,28 @@
+<div class="containerNews">
+  <div class="titleNews">{{"NOVEDADES"|translate}}</div>
+  <div class="subtituleNews">{{"MIRÁ TODAS LAS NOVEDADES Y VIDEOS" | translate}}</div>
+  <div class="divGridNews">    
+    <div class="gridNewsVideos">
+      <div class="news" *ngFor="let new of newsVideos">       
+          <div class="videoNews">
+            <iframe [src]="getEmbedUrl(new)" frameborder="0" allowfullscreen></iframe>                   
+          </div>
+          <div class="divDesc">
+              <div class="desc descEs" *ngIf="this.language=='es'">{{new.news_desc}}</div>
+              <div class="desc descEn" *ngIf="this.language=='en'">{{new.news_desc_eng}}</div>
+          </div>
+      </div>  
+    </div>  
+    <div class="gridNewsImgs">
+      <div class="news" *ngFor="let new of newsImgs">          
+        <div class="videoNews">
+          <img src="{{new.news_img}}" alt="" class="imgNews">
+        </div>
+        <div class="divDesc">
+            <div class="desc descEs" *ngIf="this.language=='es'">{{new.news_desc}}</div>
+            <div class="desc descEn" *ngIf="this.language=='en'">{{new.news_desc_eng}}</div>
+        </div>
+      </div>      
+    </div>              
+  </div>
+</div>

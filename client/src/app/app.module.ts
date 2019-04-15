@@ -28,7 +28,10 @@ import { AchievementsComponent } from './components/achievements/achievements.co
 import { AchievementsListComponent } from './components/achievements-list/achievements-list.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { IndexComponent } from './components/index/index.component';
+import { NewsComponent } from './components/news/news.component';
 
+import { EmbedVideo } from 'ngx-embed-video';
 
 export function HttpLoaderFactory(http:HttpClient)
 {
@@ -49,7 +52,9 @@ export function HttpLoaderFactory(http:HttpClient)
     AchievementsComponent,
     AchievementsListComponent,
     ContactComponent,
-    FooterComponent
+    FooterComponent,
+    IndexComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,
@@ -58,7 +63,8 @@ export function HttpLoaderFactory(http:HttpClient)
     MatMenuModule,
     MatButtonModule,
     BrowserAnimationsModule,
-    Ng2WeatherIconsModule,
+    Ng2WeatherIconsModule,    
+    EmbedVideo.forRoot(),
     TranslateModule.forRoot({
       loader:
       {

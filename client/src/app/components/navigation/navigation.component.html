@@ -1,32 +1,44 @@
 <div class="containerNavBarGrid">
   <div class="containerLogo">
-    <img src="../../../assets/img/logo.jpg" alt="" class="logoNavBar">
+    <img src="../../../assets/img/logo.JPG" alt="" class="logoNavBar">
   </div>
   <div class="containerNavItems">
     <div class="itemsGrid">
       <div class="itemNavBar">
-        <a href="">{{ "INICIO" | translate}}</a>
+        <a mat-button routerLink='/index'>{{ "INICIO" | translate}}</a>
       </div>      
       <div class="itemNavBar">
-        <a href="">{{ "CAPACIDADES" | translate}}</a>
+        <a mat-button routerLink='/services'>{{ "CAPACIDADES" | translate}}</a>
       </div>      
       <div class="itemNavBar">
-        <a href="">{{ "NUESTROS CLIENTES" | translate}}</a>
+        <a mat-button routerLink='/clients'>{{ "NUESTROS CLIENTES" | translate}}</a>
+      </div>      
+      <div class="itemNavBar">        
+        <a mat-button [matMenuTriggerFor]="belowMenuLinks">{{ "LINKS DE INTERES" | translate}}<i class="fa fa-sort-down"></i></a>
+        <mat-menu class="linksPanel" #belowMenuLinks="matMenu" yPosition="below">
+          <div class="divSelect Links"><a href="http://www.renar-naviera.com.ar/" target="_blank">{{"Renar" | translate}}</a></div>
+          <div class="divSelect Links"><a href="http://www.industrianaval.org.ar/inicio.php" target="_blank">
+            {{"Asociación Bonaerense de la industria Naval"|translate}}
+          </a></div>
+          <div class="divSelect Links"><a href="http://www.histarmar.org/" target="_blank">{{"Histarmar" | translate}}</a></div>
+          <div class="divSelect Links"><a href="http://www.meysupply.net/" target="_blank">{{"Meysupply Representaciones" | translate }}</a></div>
+        </mat-menu>        
       </div>      
       <div class="itemNavBar">
-        <a>{{ "LINKS DE INTERES" | translate}}<i class="fa fa-sort-down"></i></a>
+        <a mat-button>{{ "NOVEDADES" | translate}}</a>
       </div>      
       <div class="itemNavBar">
-        <a href="">{{ "NOVEDADES" | translate}}</a>
+        <a mat-button [matMenuTriggerFor]="belowMenu">{{ "MULTIMEDIA" | translate}}<i class="fa fa-sort-down"></i></a>
+        <mat-menu #belowMenu="matMenu" yPosition="below">
+          <div class="divSelect"><a routerLink='/videos'>{{"Videos" | translate}}</a></div>
+          <div class="divSelect"><a routerLink='/photos'>{{"Fotos" | translate}}</a></div>
+        </mat-menu>
       </div>      
       <div class="itemNavBar">
-        <a href="">{{ "MULTIMEDIA" | translate}}<i class="fa fa-sort-down"></i></a>
-      </div>      
-      <div class="itemNavBar">
-        <a href="">{{ "CONTACTENOS" | translate}}</a>
+        <a mat-button>{{ "CONTACTENOS" | translate}}</a>
       </div>      
       <div class="itemNavBar itemLang">
-        <a href="">{{ "EN" | translate}}<i class="fa fa-sort-down"></i></a>
+        <a mat-button class="itemLang" (click)="changeLanguage()">{{ "EN" | translate}}<i class="fa fa-sort-down"></i></a>
       </div>      
     </div>
   </div>

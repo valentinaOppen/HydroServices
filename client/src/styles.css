@@ -47,3 +47,34 @@ a
     font-size: 0.44em;
     /* font-weight: bold; */
 }
+
+.linksPanel
+{
+    min-width: 350px !important;
+    max-width: unset !important;
+}
+
+.mat-button-wrapper
+{
+    text-decoration: none !important;
+    color:#989898 !important;
+    font-size: 0.95em;
+    font-family: RalewayMed !important;    
+}
+
+.mat-button
+{
+    padding:0 !important;
+}
+
+.mat-button-focus-overlay 
+{
+    background-color: transparent;
+    transition: unset !important;
+}
+
+.itemLang > .mat-button-wrapper
+{
+    color:#4A95CD !important;
+    font-size:0.9em !important;  
+}

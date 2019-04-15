@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicesService } from '../../services/services.service';
-import { TranslateCompiler } from '@ngx-translate/core';
-import { TranslateService } from '@ngx-translate/core';
 import { AppComponent } from '../../app.component';
 
 @Component({
@@ -22,7 +20,8 @@ export class ListServicesComponent implements OnInit
 
   ngOnInit() 
   {
-    this.language = this.appComponent.languageSelected;        
+    // this.language = this.appComponent.languageSelected;   
+    this.language = this.appComponent.translate.getDefaultLang();     
     this.getServices();    
   }
   
