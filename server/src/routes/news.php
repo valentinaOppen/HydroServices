@@ -6,7 +6,7 @@ use Psr\Http\Message\ResponseInterface as Response;
 
 $app->get('/api/newsVideos', function(Request $req, Response $res)
 {    
-    $sql = "SELECT * FROM news WHERE news_img = ''";
+    $sql = "SELECT * FROM news WHERE news_video != ''";
     try {
         $db = new db();
         $db = $db->connectDB();
@@ -29,7 +29,7 @@ $app->get('/api/newsVideos', function(Request $req, Response $res)
 
 $app->get('/api/newsImages', function(Request $req, Response $res)
 {    
-    $sql = "SELECT * FROM news WHERE news_video = ''";
+    $sql = "SELECT * FROM news WHERE news_img != ''";
     try {
         $db = new db();
         $db = $db->connectDB();
