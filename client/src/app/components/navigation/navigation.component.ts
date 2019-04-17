@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppComponent } from '../../app.component';
+import { AppService } from '../../services/appService.service';
 
 @Component({
   selector: 'app-navigation',
@@ -11,8 +11,8 @@ export class NavigationComponent implements OnInit {
   language:string;
 
 
-  constructor(private appComponent:AppComponent) {
-    this.language = this.appComponent.languageSelected;
+  constructor(private appService:AppService) {
+    // this.language = this.appService.languageSelected;
    }
 
   ngOnInit() {    
@@ -20,7 +20,7 @@ export class NavigationComponent implements OnInit {
 
   changeLanguage()
   {
-    this.appComponent.changeLanguage();
+    this.appService.changeLanguage();    
   }
 
   

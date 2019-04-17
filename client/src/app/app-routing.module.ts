@@ -16,13 +16,17 @@ const routes: Routes = [
     component: IndexComponent
   },
   {
+    path:'index/:lang',
+    component: IndexComponent,    
+  },
+  {
     path:'services',
     component:ListServicesComponent
   },
   {
     path:'clients',
     component: ClientsListComponent
-  }  
+  }
 ];
 
 @NgModule({

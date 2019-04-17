@@ -38,7 +38,13 @@
         <a mat-button>{{ "CONTACTENOS" | translate}}</a>
       </div>      
       <div class="itemNavBar itemLang">
-        <a mat-button class="itemLang" (click)="changeLanguage()">{{ "EN" | translate}}<i class="fa fa-sort-down"></i></a>
+        <!-- <a mat-button class="itemLang" routerLink="/index/2">{{ "EN" | translate}}<i class="fa fa-sort-down"></i></a> -->
+        <a mat-button [matMenuTriggerFor]="belowMenuLang">{{ "EN" | translate}}<i class="fa fa-sort-down"></i></a>
+        <mat-menu #belowMenuLang="matMenu" yPosition="below">
+          <div class="divSelect"><a routerLink='/index/1'>EN</a></div>
+          <div class="divSelect"><a routerLink='/index/2'>ES</a></div>
+        </mat-menu>
+        <!-- <a mat-button class="itemLang" (click)="changeLanguage()">{{ "EN" | translate}}<i class="fa fa-sort-down"></i></a> -->
       </div>      
     </div>
   </div>

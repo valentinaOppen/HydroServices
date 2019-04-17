@@ -5,7 +5,10 @@ div
 
 .containerAchievements
 {
-    background-color:#1E4359;
+    /* background-color:#1E4359; */
+    background-image: url(../../../assets/img/achiev/datos-pc.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
     text-align: center;
     color:white;
 }

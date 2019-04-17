@@ -21,20 +21,20 @@ export class AppComponent {
     this.translate.addLangs(['es', 'en']);
     this.translate.setDefaultLang('es');
     
-    this.languageSelected = this.translate.getDefaultLang();    
+    // this.languageSelected = this.translate.getDefaultLang();    
   }
 
-  changeLanguage()
-  {    
-    if(this.languageSelected=='es')
-    {      
-      this.translate.setDefaultLang('en');
-      this.languageSelected = this.translate.getDefaultLang();                    
-    }
-    else
-    {          
-      this.translate.setDefaultLang('es');
-      this.languageSelected = this.translate.getDefaultLang();       
-    }    
-  }
+  // changeLanguage()
+  // {    
+  //   if(this.languageSelected=='es')
+  //   {      
+  //     this.translate.setDefaultLang('en');
+  //     this.languageSelected = this.translate.getDefaultLang();                    
+  //   }
+  //   else
+  //   {          
+  //     this.translate.setDefaultLang('es');
+  //     this.languageSelected = this.translate.getDefaultLang();       
+  //   }    
+  // }
 }

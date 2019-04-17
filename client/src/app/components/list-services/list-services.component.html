@@ -3,15 +3,28 @@
   <div class="textServices">{{"ALGUNOS DE NUESTROS SERVICIOS" | translate }}</div>
 <div class="containerGridServices">
   <div class="gridServices">
-    <div class="service" *ngFor="let service of services">
+    <div class="service" *ngFor="let service of services" (click)="open(content)">        
       <div class="divImgService">
         <img src="{{service.serv_img}}" alt="">
       </div>
-      <div class="titleService" *ngIf="this.language=='es'">{{service.serv_name}}</div>
-      <div class="titleService" *ngIf="this.language=='en'">{{service.serv_name_eng}}</div>
+      <div class="titleService" *ngIf="this.appService.translate.getDefaultLang()=='es'">{{service.serv_name}}</div>
+      <div class="titleService" *ngIf="this.appService.translate.getDefaultLang()=='en'">{{service.serv_name_eng}}</div>
+
+      <ng-template #content let-modal>
+          <div class="modal-header">
+            <img class="closeTitle" src="{{service.serv_img_ov}}" alt="">
+            <div class="divTitleText" *ngIf="this.appService.translate.getDefaultLang()=='es'"><h4 class="modal-title" id="modal-basic-title">{{service.serv_name}}</h4></div>            
+            <div class="divTitleText" *ngIf="this.appService.translate.getDefaultLang()=='en'"><h4 class="modal-title" id="modal-basic-title">{{service.serv_name_eng}}</h4></div>            
+          </div>
+          <div class="modal-body">
+            <div *ngIf="this.appService.translate.getDefaultLang()=='es'"><p>{{service.serv_desc_esp}}</p></div>            
+            <div *ngIf="this.appService.translate.getDefaultLang()=='en'"><p>{{service.serv_desc_eng}}</p></div>            
+          </div>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span class="btnClose">{{"CERRAR" | translate}}</span><span class="btnCloseCross">&times;</span>
+          </button>
+        </ng-template>  
     </div>
   </div>
 </div>
 </div>
-
-

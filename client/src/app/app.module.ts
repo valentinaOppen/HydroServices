@@ -5,7 +5,6 @@ import { MatMenuModule } from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
@@ -32,6 +31,10 @@ import { IndexComponent } from './components/index/index.component';
 import { NewsComponent } from './components/news/news.component';
 
 import { EmbedVideo } from 'ngx-embed-video';
+import { AppService } from './services/appService.service';
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbdModalBasic } from './components/list-services/modal-basic';
 
 export function HttpLoaderFactory(http:HttpClient)
 {
@@ -54,7 +57,8 @@ export function HttpLoaderFactory(http:HttpClient)
     ContactComponent,
     FooterComponent,
     IndexComponent,
-    NewsComponent
+    NewsComponent,
+    NgbdModalBasic
   ],
   imports: [
     BrowserModule,
@@ -63,7 +67,8 @@ export function HttpLoaderFactory(http:HttpClient)
     MatMenuModule,
     MatButtonModule,
     BrowserAnimationsModule,
-    Ng2WeatherIconsModule,    
+    Ng2WeatherIconsModule,   
+    NgbModule,     
     EmbedVideo.forRoot(),
     TranslateModule.forRoot({
       loader:
@@ -74,7 +79,7 @@ export function HttpLoaderFactory(http:HttpClient)
       }
     })
   ],
-  providers: [GeolocationService, WeatherService],
+  providers: [GeolocationService, WeatherService, AppService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
