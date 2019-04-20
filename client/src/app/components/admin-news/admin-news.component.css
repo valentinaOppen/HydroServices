@@ -1,0 +1,37 @@
+.divHeader
+{
+    /* display: flex; */
+}
+
+.titleNews
+{
+    text-align: center;
+    color: #468BCF;
+    margin-bottom: 1em;
+    width: 95%;
+}
+
+.containerNewsAdmin
+{
+    width:90%;
+    margin:auto auto;
+    
+}
+
+.news
+{
+    display:flex;
+    margin-bottom:2em;
+}
+
+.divDesc
+{    
+    color:grey;
+    display:flex;
+    font-size:0.6em;
+}
+
+.desc
+{
+    margin:1em;
+}

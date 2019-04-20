@@ -14,6 +14,16 @@ export class NewsService
   
   constructor(private http:HttpClient) { }
 
+  getNew(id:number)
+  {
+    return this.http.get(`${this.API_URI}/news/${id}`);    
+  }
+
+  getNews()
+  {
+    return this.http.get(`${this.API_URI}/news`);    
+  }
+
   getNewsVideos()
   {    
     return this.http.get(`${this.API_URI}/newsVideos`);    
@@ -22,6 +32,16 @@ export class NewsService
   getNewsImgs()
   {    
     return this.http.get(`${this.API_URI}/newsImages`);    
+  }
+
+  saveNews(news:News)
+  {
+    return this.http.post(`${this.API_URI}/news`, news);    
+  }
+
+  updateNews(id:number, news:News)
+  {
+    return this.http.put(`${this.API_URI}/news/${id}`, news);    
   }
 
 

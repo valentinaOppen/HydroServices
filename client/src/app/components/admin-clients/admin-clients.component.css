@@ -1,0 +1,55 @@
+/* div
+{   
+    display:inline-block;
+
+} */
+
+.containerClients
+{
+    width:80%;
+    margin: auto auto;
+    text-align: center;
+}
+
+.divImgClient
+{
+    display:inline-block;
+}
+
+.title
+{
+    color:#5B9CD8;;
+    font-size:1.3em;
+}
+
+.gridClients
+{    
+    width: fit-content;
+    margin: 1.5em auto;    
+    display: grid;
+    width: fit-content;
+    grid-template-columns: 50% 50%;
+}
+
+.client{
+    font-size:0.4em;
+    padding:2em;
+    display:flex;
+}
+
+.custom-file
+{
+    width:40%;
+    margin-right:2em;
+}
+
+.fa
+{
+    font-size: 1.6em;
+}
+
+.btn
+{
+    font-size:1em !important;
+    margin-right:1em;
+}

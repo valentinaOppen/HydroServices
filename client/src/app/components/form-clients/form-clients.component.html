@@ -1,0 +1,13 @@
+<div class="containerForm">
+  <div class="titleForm">
+    Cargar Nuevo Cliente
+  </div>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">    
+    <div class="form-group">
+      <!-- <label for="avatar">Logo</label> -->
+      <input type="file" id="avatar" (change)="onFileChange($event)" #fileInput>      
+    </div>
+    <button type="submit" [disabled]="form.invalid || loading" class="btn btn-primary">Guardar <i class="fa fa-spinner fa-spin fa-fw" *ngIf="loading"></i></button>
+  </form>
+</div>
+

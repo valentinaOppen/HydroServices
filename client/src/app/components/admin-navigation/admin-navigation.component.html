@@ -1,0 +1,26 @@
+<div class="containerNavBarGrid">
+    <div class="containerLogo">
+      <img src="../../../assets/img/logo.JPG" alt="" class="logoNavBar">
+    </div>
+    <div class="containerNavItems">
+      <div class="itemsGrid">                       
+        <div class="itemNavBar">
+          <a mat-button routerLink='/admin/clients'>CLIENTES</a>
+        </div>              
+        <div class="itemNavBar">
+          <a mat-button routerLink='/admin/novedades'>{{ "NOVEDADES" | translate}}</a>
+        </div>   
+        <div class="itemNavBar">
+            <a mat-button routerLink='/admin/logros'>LOGROS</a>
+          </div>    
+        <div class="itemNavBar">
+          <a mat-button [matMenuTriggerFor]="belowMenu">{{ "MULTIMEDIA" | translate}}<i class="fa fa-sort-down"></i></a>
+          <mat-menu #belowMenu="matMenu" yPosition="below">
+            <div class="divSelect"><a routerLink='admin/videos'>{{"Videos" | translate}}</a></div>
+            <div class="divSelect"><a routerLink='admin/photos'>{{"Fotos" | translate}}</a></div>
+          </mat-menu>
+        </div>              
+        </div>            
+    </div>
+  </div>
+  

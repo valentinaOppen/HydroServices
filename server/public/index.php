@@ -1,20 +1,27 @@
 <?php
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
+use slim\slim\Slim\Http\UploadedFile;
 
 require '../vendor/autoload.php';
 
 require '../src/config/db.php';
 
 $app = new \Slim\App;
+// $config['displayErrorDetails'] = true;
+// $config['addContentLengthHeader'] = false;
+// $app = new \Slim\App(["settings" => $config]);
 
-// require '../src/routes/clients.php';
 require '../src/routes/services.php';
 require '../src/routes/clients.php';
 require '../src/routes/achievements.php';
 require '../src/routes/news.php';
+// require 'auth.php';
+// require 'database.php';
+// require 'islogged.php';
+// require 'logout.php';
 
-
+$app->run();
 
 // $app->options('/{routes:.+}', function ($request, $response, $args) {
 //     return $response;
@@ -69,5 +76,3 @@ require '../src/routes/news.php';
 // $app->map(["DELETE", "PATCH"], "/api/{id}", function($request, $response, $arguments) {
 // });
 
-
-$app->run();

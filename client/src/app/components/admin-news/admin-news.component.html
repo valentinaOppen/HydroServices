@@ -1,0 +1,29 @@
+<div class="containerNewsAdmin">
+  <div class="divHeader">
+      <div class="titleNews">Novedades</div>
+      <a [routerLink]="['/novedades/new']" mat-button>Nuevo</a>      
+  </div>
+  
+  <div class="containerNews">
+    <div class="news" *ngFor="let new of news">       
+      <div class="divVideo" *ngIf="new.news_video">
+        <div class="videoNews"><iframe [src]="getEmbedUrl(new)" frameborder="0" allowfullscreen></iframe></div>
+        <!-- <div class="urlVideo">https://www.youtube.com/watch?v={{new.news_video}}</div> -->
+      </div>     
+      <div class="divImg"  *ngIf="new.news_img">
+        <div class="videoNews">
+          <img src="{{new.news_img}}" alt="" class="imgNews">
+        </div>
+      </div>
+      <div class="divDesc">
+        <div class="desc">{{new.news_desc}}</div>
+        <div class="desc">{{new.news_desc_eng}}</div>
+      </div> 
+      <div class="divBtn">
+          <a [routerLink]="['/novedades/edit', new.id]" mat-button>Editar</a>      
+          <button mat-button (click)="deleteNew(new.news_id)">Borrar</button>
+      </div>             
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

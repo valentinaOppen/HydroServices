@@ -27,25 +27,33 @@ $app->get('/api/achievements', function(Request $req, Response $res)
     }
 });
 
-// $app->PUT('/api/achievements/edit/{id}', function(Request $req, Response $res)
-// {
-//     $id = $req->getAttribute('id');
-//     $name = $req->getParam('name');
-//     $sql = "UPDATE achievements SET clie_name=:name WHERE clie_id=$id";
-    
-//     try {
-//         $db = new db();
-//         $db = $db->connectDB();
-        
-//         $result = $db->prepare($sql);
-//         $result->bindParam(':name', $name);        
-//         $result->execute();
-//         echo json_encode("Cliente modificado.");        
-//         $result = null;
-//         $db = null;
+$app->PUT('/api/achievements/edit', function(Request $req, Response $res)
+{            
+    $works = $req->getParam('achiv_works');
+    $hours = $req->getParam("achiv_hours");
+    $clients = $req->getParam("achiv_clients");
+    $years = $req->getParam("achiv_years");
 
-//     } catch (PDOException $e) {
-//         echo '{"error : {"text:'.$e->getMessage().'}';
-//     }
-// });
+    $sql = "UPDATE achievements SET 
+    achiv_works=$works,
+    achiv_hours=$hours,
+    achiv_clients=$clients,
+    achiv_years=$years
+    WHERE achiv_id='1'";        
+
+    try {
+        $db = new db();
+        $db = $db->connectDB();
+        
+        $result = $db->prepare($sql);
+        $result->bindParam(':name', $name);        
+        $result->execute();
+        echo json_encode("Cliente modificado.");        
+        $result = null;
+        $db = null;
+
+    } catch (PDOException $e) {
+        echo '{"error : {"text:'.$e->getMessage().'}';
+    }
+});
 

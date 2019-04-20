@@ -1,8 +1,12 @@
 <?php
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
+use slim\slim\Slim\Http\UploadedFile;
 
 // $app = new \Slim\App;
+
+$container = $app->getContainer();
+$container['upload_directory'] =  'api/clients/uploads';
 
 $app->get('/api/clients', function(Request $req, Response $res)
 {    
@@ -28,16 +32,41 @@ $app->get('/api/clients', function(Request $req, Response $res)
 });
 
 $app->POST('/api/clients/new', function(Request $req, Response $res)
-{
-    $name = $req->getParam('name');
-    $sql = "INSERT INTO clients (clie_name) VALUES (:name)";
+{           
+    $name = $req->getParam('clie_name');
+    $data = $req->getParam('clie_img');
+
+    // $data = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $img));
+
+    if (preg_match('/^data:image\/(\w+);base64,/', $data, $type)) {
+        $data = substr($data, strpos($data, ',') + 1);
+        $type = strtolower($type[1]); // jpg, png, gif
+    
+        if (!in_array($type, [ 'jpg', 'jpeg', 'gif', 'png' ])) {
+            throw new \Exception('invalid image type');
+        }
+    
+        $data = base64_decode($data);
+    
+        if ($data === false) {
+            throw new \Exception('base64_decode failed');
+        }
+    } else {
+        throw new \Exception('did not match data URI with image data');
+    }
+        
+    file_put_contents('C:\xampp\htdocs\HydroServices\client\src\assets\clientsImgs\image.png', $data);
+    
+    $sql = "INSERT INTO clients (clie_name, clie_img) VALUES ('$name', '../../../assets/clientsImgs/image.png')";
     
     try {
         $db = new db();
         $db = $db->connectDB();
         
         $result = $db->prepare($sql);
-        $result->bindParam(':name', $name);        
+        echo $sql;
+        // $result->bindParam(':name', $name);    
+        // $result->bindParam(':img',$img);
         $result->execute();
         echo json_encode("Nuevo cliente guardado.");        
         $result = null;
@@ -48,34 +77,12 @@ $app->POST('/api/clients/new', function(Request $req, Response $res)
     }
 });
 
-$app->PUT('/api/clients/edit/{id}', function(Request $req, Response $res)
-{
-    $id = $req->getAttribute('id');
-    $name = $req->getParam('name');
-    $sql = "UPDATE clients SET clie_name=:name WHERE clie_id=$id";
-    
-    try {
-        $db = new db();
-        $db = $db->connectDB();
-        
-        $result = $db->prepare($sql);
-        $result->bindParam(':name', $name);        
-        $result->execute();
-        echo json_encode("Cliente modificado.");        
-        $result = null;
-        $db = null;
-
-    } catch (PDOException $e) {
-        echo '{"error : {"text:'.$e->getMessage().'}';
-    }
-});
-
 $app->delete('/api/clients/delete/{id}', function(Request $req, Response $res)
 {
-    $id = $req->getAttribute('id');
-    
-    $sql = "DELETE FROM clients WHERE clie_id=$id";
-    
+    $id = $req->getAttribute('id');       
+
+    $sql = "DELETE FROM clients WHERE clie_id=$id";        
+
     try 
     {
         $db = new db();
@@ -99,3 +106,5 @@ $app->delete('/api/clients/delete/{id}', function(Request $req, Response $res)
     $result = null;
     $db = null;
 });
+
+

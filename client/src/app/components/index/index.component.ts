@@ -13,21 +13,24 @@ export class IndexComponent implements OnInit {
   language:string;
   constructor(public route:ActivatedRoute, public appService:AppService) { }
 
-  ngOnInit() {
-    const lang = +this.route.snapshot.paramMap.get('lang'); 
-
-    console.log(lang);
+  ngOnInit() 
+  {
+    let lang = +this.route.snapshot.paramMap.get('lang');     
 
     if(lang == 1)
     {
       console.log("EN");
       this.appService.translate.setDefaultLang('en');
+      // lang = 0;
+      // location.reload();
     }
 
     if(lang == 2)
     {
       console.log("ES");
       this.appService.translate.setDefaultLang('es');
+      // lang = 0;
+      // location.reload();
     }
     // if(lang== "ES")
     // {
@@ -43,7 +46,7 @@ export class IndexComponent implements OnInit {
     //     this.appService.translate.setDefaultLang('es');
     //   }
     // }
-    console.log(lang);    
+    // console.log(lang);    
   }
 
 }

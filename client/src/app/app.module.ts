@@ -35,6 +35,20 @@ import { AppService } from './services/appService.service';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbdModalBasic } from './components/list-services/modal-basic';
+import { LoginComponent } from './components/login/login.component';
+import { AuthService } from './services/auth.service';
+
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { AdminComponent } from './components/admin/admin.component';
+import { AdminHeaderComponent } from './components/admin-header/admin-header.component';
+import { AdminNavigationComponent } from './components/admin-navigation/admin-navigation.component';
+import { AdminClientsComponent } from './components/admin-clients/admin-clients.component';
+import { FormClientsComponent } from './components/form-clients/form-clients.component';
+
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { AdminNewsComponent } from './components/admin-news/admin-news.component';
+import { FormNewsComponent } from './components/form-news/form-news.component';
+import { AdminNewsIndexComponent } from './components/admin-news-index/admin-news-index.component';
 
 export function HttpLoaderFactory(http:HttpClient)
 {
@@ -58,7 +72,16 @@ export function HttpLoaderFactory(http:HttpClient)
     FooterComponent,
     IndexComponent,
     NewsComponent,
-    NgbdModalBasic
+    NgbdModalBasic,
+    LoginComponent,
+    AdminComponent,
+    AdminHeaderComponent,
+    AdminNavigationComponent,
+    AdminClientsComponent,
+    FormClientsComponent,
+    AdminNewsComponent,
+    FormNewsComponent,
+    AdminNewsIndexComponent,    
   ],
   imports: [
     BrowserModule,
@@ -69,6 +92,9 @@ export function HttpLoaderFactory(http:HttpClient)
     BrowserAnimationsModule,
     Ng2WeatherIconsModule,   
     NgbModule,     
+    FormsModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
     EmbedVideo.forRoot(),
     TranslateModule.forRoot({
       loader:
@@ -79,7 +105,7 @@ export function HttpLoaderFactory(http:HttpClient)
       }
     })
   ],
-  providers: [GeolocationService, WeatherService, AppService ],
+  providers: [GeolocationService, WeatherService, AppService, AuthService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

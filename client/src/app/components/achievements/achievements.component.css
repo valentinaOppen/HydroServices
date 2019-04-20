@@ -1,0 +1,35 @@
+
+.containerForm
+{
+  width: 80%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  margin: 1.5em auto;
+  font-size: 0.5em;
+  row-gap: 15%;
+}
+
+.form-group
+{
+  width:80%;
+  margin:auto auto;
+}
+
+::-webkit-input-placeholder 
+{
+    /* color: white;    
+    padding-left:1em;
+    margin:auto auto; */
+    font-size:0.5em;
+}
+
+label
+{
+  margin-left: .2rem;
+}
+
+.divBtn
+{
+  margin: auto auto;
+  width: 80%;
+}

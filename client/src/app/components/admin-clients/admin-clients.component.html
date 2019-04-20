@@ -1,0 +1,20 @@
+<app-form-clients></app-form-clients>
+
+<div class="containerClients">  
+  <div class="title">CLIENTES</div>  
+    <div class="containerGridClients">
+      <div class="gridClients">      
+          <div class="client" *ngFor="let client of clients">
+          <!-- <div class="nameClient">{{client.clie_name}}</div> -->
+          <div class="divImgClient">          
+            <!-- <img src="{{client.clie_name}}" alt="">   -->
+            <!-- <img src="../../../../../server/tmp/image.png" alt="">               -->
+            <img src="{{client.clie_img}}" alt="">
+          </div>                    
+          <!-- <a [routerLink]="['edit', client.clie_id]" class="btn btn-secondary"><i class="fa fa-edit"></i></a>           -->
+          <!-- <button type="button" class="btn btn-secondary" (click)="editClient(client)"><i class="fa fa-edit"></i></button> -->
+          <button type="button" class="btn btn-primary" (click)="deleteClient(client.clie_id)"><i class="fa fa-trash-alt"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
