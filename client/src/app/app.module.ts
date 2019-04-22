@@ -51,6 +51,8 @@ import { AdminNewsComponent } from './components/admin-news/admin-news.component
 import { FormNewsComponent } from './components/form-news/form-news.component';
 import { AdminNewsIndexComponent } from './components/admin-news-index/admin-news-index.component';
 
+import { AgmCoreModule } from '@agm/core';
+
 export function HttpLoaderFactory(http:HttpClient)
 {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -104,6 +106,9 @@ export function HttpLoaderFactory(http:HttpClient)
         useFactory:HttpLoaderFactory,
         deps:[HttpClient]
       }
+    }),
+    AgmCoreModule.forRoot({
+      apiKey: 'YOUR_KEY'
     })
   ],
   providers: [GeolocationService, WeatherService, AppService, AuthService, UserService, ServicesComponent, NewsComponent ],

@@ -100,9 +100,7 @@ $app->get('/api/newsImages', function(Request $req, Response $res)
 });
 
 $app->POST('/api/news/savenews', function(Request $req, Response $res)
-{    
-    echo "POST";
-    var_dump($req);
+{        
     $desc = $req->getParam('news_desc');
     $desc_eng = $req->getParam('news_desc_eng');
     $video = $req->getParam('news_video');
@@ -127,8 +125,7 @@ $app->POST('/api/news/savenews', function(Request $req, Response $res)
     }
 
     $urlImage = "../../../assets/NewsImgs/".$img_name.".".$type;
-
-    // file_put_contents('C:\xampp\htdocs\HydroServices\client\src\assets\NewsImgs\image.png', $data);
+    
     file_put_contents('C:\xampp\htdocs\HydroServices\client\src\assets\NewsImgs\\'.$img_name.'.'.$type, $data);
     
     $sql = "INSERT INTO news (news_desc, news_desc_eng, news_video, news_img, news_img_name) VALUES ('$desc', '$desc_eng', '$video', '$urlImage', '$img_name')";        

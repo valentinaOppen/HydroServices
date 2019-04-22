@@ -13,6 +13,8 @@ export class ContactService
 
   sendForm(contact:Contact)
   {
-    return this.http.put(`${this.API_URI}/form`, contact);
+    console.log("SERV");
+    console.log(contact);
+    return this.http.post(`${this.API_URI}/contact`, contact);
   }
 }

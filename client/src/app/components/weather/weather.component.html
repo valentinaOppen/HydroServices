@@ -1,11 +1,20 @@
 <div class="containerWeather">
      <div class="city text-uppercase">{{cityName}}</div>        
      <div class="divImg" [ngSwitch]="weatherCondition">
-        <div *ngSwitchCase="'Sunny'" class="divImgWeather"><img class="imgWeather" width="90px" src="../../../assets/img/weather/cloudy.png" alt=""></div>
-        <div *ngSwitchCase="'Rainy'" class="divImgWeather"><img class="imgWeather" width="90px" src="../../../assets/img/weather/cloudy.png" alt=""></div>
-        <div *ngSwitchCase="'Clouds'" class="divImgWeather"><img class="imgWeather" width="90px" src="../../../assets/img/weather/cloudy.png" alt=""></div>
+        <div *ngSwitchCase="'Clear'" class="divImgWeather"><img class="imgWeather" width="90px" src="../../../assets/img/weather/wi-day-sunny.svg" alt=""></div>
+        <div *ngSwitchCase="'Rain'" class="divImgWeather"><img class="imgWeather" width="90px" src="../../../assets/img/weather/wi-day-rain.svg" alt=""></div>
+        <div *ngSwitchCase="'Clouds'" class="divImgWeather"><img class="imgWeather" width="90px" src="../../../assets/img/weather/wi-day-cloudy.svg" alt=""></div>  
+        <div *ngSwitchCase="'Thunderstorm'" class="divImgWeather"><img class="imgWeather" width="90px" src="../../../assets/img/weather/wi-day-sunny.svg" alt=""></div>              
+        <div *ngSwitchCase="'Drizzle'" class="divImgWeather"><img class="imgWeather" width="90px" src="../../../assets/img/weather/wi-raindrop.svg" alt=""></div>                              
+     </div>     
+     <div class="weatherCond text-uppercase" [ngSwitch]="weatherCondition">
+          <div *ngSwitchCase="'Clear'">{{"Sol" | translate}}</div>
+          <div *ngSwitchCase="'Rain'">{{"Lluvia" | translate}}</div>
+          <div *ngSwitchCase="'Clouds'">{{"Nubes" | translate}}</div>
+          <div *ngSwitchCase="'Thunderstorm'">{{"Tormentas" | translate}}</div>
+          <div *ngSwitchCase="'Drızzle'">{{"Llovizna" | translate}}</div>
      </div>
-     <div class="weatherCond text-uppercase">{{weatherCondition}}</div>
+
      <div class="textWeather">
           <div class="weatherTitle">{{"Viento" | translate}}</div><div class="weather">{{wind}} km/h</div>
           <div class="weatherTitle">{{"Humedad" | translate }}</div><div class="weather">{{humidity}} %</div>

@@ -22,6 +22,11 @@ div{
     margin:auto auto;
 }
 
+.imgWeather
+{
+    filter: invert(100%);
+}
+
 .containerWeather
 {
     width:fit-content;

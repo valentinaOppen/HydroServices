@@ -17,7 +17,7 @@ require '../src/routes/clients.php';
 require '../src/routes/achievements.php';
 require '../src/routes/news.php';
 require '../src/routes/users.php';
-require '../src/routes/contact.php';
+require '../src/routes/formContact.php';
 
 $app->run();
 

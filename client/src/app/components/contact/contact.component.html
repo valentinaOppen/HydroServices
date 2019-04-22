@@ -8,7 +8,7 @@
     <div class="inputText subject"><input type="text" placeholder="{{'ASUNTO' | translate}}"></div>
     <div class="inputMessage message"><textarea name="message" id="" placeholder="{{'MENSAJE' | translate}}"></textarea></div>
     <button class="btnContact delete">{{"BORRAR" | translate}}</button>
-    <button class="btnContact send">{{"ENVIAR" | translate}}</button>
+    <button class="btnContact" (click)="sendForm()">{{"ENVIAR" | translate}}</button>
     <div class="mapContact"><img src="../../../assets/img/map.JPG" alt=""></div>
   </div>
   

@@ -24,8 +24,14 @@ export class ContactComponent implements OnInit {
   }
 
   sendForm()
-  {
-    this.contactService.sendForm(this.contact);
+  {    
+    this.contactService.sendForm(this.contact).subscribe(
+      res => 
+      {                 
+      },
+      err => console.error(err)
+    );
   }
+
 
 }

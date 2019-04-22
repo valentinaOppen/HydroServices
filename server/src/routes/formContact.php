@@ -1,36 +1,64 @@
 <?php
 
-    require("PHPMailer/class.phpmailer.php");
-    use Psr\Http\Message\ServerRequestInterface as Request;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 
-    $nombre = $_POST['name'];
-    $mail = $_POST['email'];
-    $telef = $_POST['phone'];
-    $asunto = $_POST['subject'];
-    $comentario = $_POST['message'];
+// Import PHPMailer classes into the global namespace
+// These must be at the top of your script, not inside a function
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-    echo $nombre;
+// Load Composer's autoloader
+require '../vendor/autoload.php';
 
-    $mail = new PHPMailer(); // create a new object
-    $mail->IsSMTP(); // enable SMTP
-    $mail->SMTPDebug = 1; // debugging: 1 = errors and messages, 2 = messages only
-    $mail->SMTPAuth = true; // authentication enabled
-    $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for Gmail
-    $mail->Host = "smtp.gmail.com";
-    $mail->Port = 465; // or 587
-    $mail->IsHTML(true);
-    $mail->Username = "hydroservice.div@gmail.com";
-    $mail->Password = "hydro2019";
-    $mail->SetFrom("hydroservice.div@gmail.com");
-    $mail->Subject = $asunto;
-    $mail->Body = "hello" . PHP_EOL . "cosas";
-    $mail->AddAddress("hydroservice.div@gmail.com");
-    
-     if(!$mail->Send()) {
-        echo "Mailer Error: " . $mail->ErrorInfo;
-     } else {
-        echo "Message has been sent<br/>".$nombre."<br/>nombre";
-     }    
+// Instantiation and passing `true` enables exceptions
+$mail = new PHPMailer(true);
 
+
+    $app->POST('/api/contact', function(Request $req, Response $res)
+    { 
+        $nombre = $req->getParam('name');
+        $email = $req->getParam('email');
+        $telef = $req->getParam('phone');
+        $asunto = $req->getParam('subject');
+        $comentario = $req->getParam('message');        
+
+        $mail = new PHPMailer(true);
+        
+        try {
+            //Server settings
+            $mail->SMTPDebug = 2;                                       // Enable verbose debug output
+            $mail->isSMTP();                                            // Set mailer to use SMTP
+            $mail->Host       = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+            $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+            $mail->Username   = 'hydroservice.div@gmail.com';                     // SMTP username
+            $mail->Password   = 'hydro2019';                               // SMTP password
+            $mail->SMTPSecure = 'tls';                                  // Enable TLS encryption, `ssl` also accepted
+            $mail->Port       = 587;                                    // TCP port to connect to
+        
+            //Recipients
+            $mail->setFrom('hydroservice.div@gmail.com', 'Mailer');
+            $mail->addAddress('hydroservice.div@gmail.com', 'Joe User');     // Add a recipient                
+            $mail->addReplyTo('hydroservice.div@gmail.com', 'Information');                            
+        
+            // Content
+            $mail->isHTML(true);                                  // Set email format to HTML
+            $mail->Subject = 'Here is the subject';
+            
+            $body = 
+            "<br/>Nombre: "  . $nombre    . 
+            "<br/>Email: "   . $email   . 
+            "<br/>Celular: " . $telef . 
+            "<br/>"           . $comentario;
+            
+            $mail->Body    = $body;            
+
+            
+        
+            $mail->send();
+            echo 'Message has been sent';
+        } catch (Exception $e) {
+            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        }       
+    });
 ?>
