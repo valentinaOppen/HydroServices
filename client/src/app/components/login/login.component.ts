@@ -1,6 +1,8 @@
+import { AuthService } from 'src/app/services/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
+import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
+import { UserInterface } from '../../models/user';
 
 @Component({
   selector: 'app-login',
@@ -10,27 +12,48 @@ import { Router } from '@angular/router';
 
 export class LoginComponent implements OnInit {
 
-  constructor(private authService: AuthService, private router: Router) { }
+  user:UserInterface = 
+  {
+    email:'',
+    password:''
+  }
+
+  constructor(private router: Router,              
+              private userService:UserService ) { }
+  
 
   ngOnInit(){}
 
-  loginUser(event) {    
-    event.preventDefault()
-    const target = event.target;
-    const username = target.querySelector('#username').value;
-    const password = target.querySelector('#password').value;
+
+  enviar()
+  {    
+    this.userService.post(this.user)
+    .subscribe(                 
+      res => 
+      {      
+        console.log("ENT");  
+        if(res['token'])
+        {
+          console.log("TOKEN:"+res['token']);
+          localStorage.setItem('token', res['token']);
+          this.router.navigate(['/admin']);
+        }        
+      },
+      err => console.error(err)
+    );    
     
-    this.authService.getUserDetails(username, password).subscribe(data => 
-      {  
-        console.log(data);      
-      if(data.success) {        
-        this.authService.setLoggedId(true);
-        this.router.navigate(['admin']);        
-      } else {
-        window.alert(data.message)        
-      }
-    })    
   }
 
+  public logOut()
+  {
+    try {
+      localStorage.setItem('token', null);
+      this.router.navigate(['/index']);
+    } catch (error) {
+      return false;
+    }
+  }
+
+  
 }
 

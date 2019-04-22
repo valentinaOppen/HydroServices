@@ -16,10 +16,8 @@ require '../src/routes/services.php';
 require '../src/routes/clients.php';
 require '../src/routes/achievements.php';
 require '../src/routes/news.php';
-// require 'auth.php';
-// require 'database.php';
-// require 'islogged.php';
-// require 'logout.php';
+require '../src/routes/users.php';
+require '../src/routes/contact.php';
 
 $app->run();
 

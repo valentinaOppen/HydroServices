@@ -30,16 +30,20 @@ div
 .gridNewsVideos
 {
     padding:2em 2em 0em 2em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .gridNewsImgs
 {
-    padding:0em 2em 2em 2em;
+    padding:0em 2em 2em 2em;    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .news{
     padding:0.5em;  
-    width: 33.3%;
+    /* width: 33.3%; */
     display: inline-block;
 }
 

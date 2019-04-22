@@ -1,6 +1,6 @@
 <div class="containerNavBarGrid">
     <div class="containerLogo">
-      <img src="../../../assets/img/logo.JPG" alt="" class="logoNavBar">
+      <a routerLink='/index'><img src="../../../assets/img/logo.JPG" alt="" class="logoNavBar"></a>      
     </div>
     <div class="containerNavItems">
       <div class="itemsGrid">                       
@@ -12,14 +12,17 @@
         </div>   
         <div class="itemNavBar">
             <a mat-button routerLink='/admin/logros'>LOGROS</a>
-          </div>    
+        </div>    
         <div class="itemNavBar">
           <a mat-button [matMenuTriggerFor]="belowMenu">{{ "MULTIMEDIA" | translate}}<i class="fa fa-sort-down"></i></a>
           <mat-menu #belowMenu="matMenu" yPosition="below">
             <div class="divSelect"><a routerLink='admin/videos'>{{"Videos" | translate}}</a></div>
             <div class="divSelect"><a routerLink='admin/photos'>{{"Fotos" | translate}}</a></div>
           </mat-menu>
-        </div>              
+        </div>            
+        <div class="itemNavBar">
+            <button mat-button (click)="logOut()">Cerrar Sesion</button>
+        </div> 
         </div>            
     </div>
   </div>

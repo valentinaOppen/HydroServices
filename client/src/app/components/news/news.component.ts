@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NewsService } from '../../services/news.service';
 import { EmbedVideoService } from 'ngx-embed-video';
 import { DomSanitizer } from '@angular/platform-browser';
-import { AppComponent } from '../../app.component';
 import { News } from 'src/app/models/news';
+import { AppService } from '../../services/appService.service';
 
 @Component({
   selector: 'app-news',
@@ -19,7 +19,7 @@ export class NewsComponent implements OnInit
   constructor(private newsService: NewsService,
     private embedService: EmbedVideoService,
     public sanitizer: DomSanitizer,
-    private appComponent:AppComponent) 
+    public appService:AppService) 
     { }
 
     language:string;
@@ -27,8 +27,7 @@ export class NewsComponent implements OnInit
   ngOnInit() 
   {
     this.getNewsVideos();
-    this.getNewsImgs();
-    this.language = this.appComponent.translate.getDefaultLang();
+    this.getNewsImgs();        
   }
 
   getNewsVideos()

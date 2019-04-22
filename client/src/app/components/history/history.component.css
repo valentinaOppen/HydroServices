@@ -1,6 +1,7 @@
 .containerHistory
 {
-    height:100vh;
+    height: fit-content;
+    padding-bottom: 1em;
 }
 
 .divHistory

@@ -34,15 +34,17 @@ $app->get('/api/clients', function(Request $req, Response $res)
 $app->POST('/api/clients/new', function(Request $req, Response $res)
 {           
     $name = $req->getParam('clie_name');
-    $data = $req->getParam('clie_img');
+    $data = $req->getParam('clie_img');    
 
     // $data = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $img));
 
-    if (preg_match('/^data:image\/(\w+);base64,/', $data, $type)) {
+    if (preg_match('/^data:image\/(\w+);base64,/', $data, $type)) 
+    {
         $data = substr($data, strpos($data, ',') + 1);
         $type = strtolower($type[1]); // jpg, png, gif
     
-        if (!in_array($type, [ 'jpg', 'jpeg', 'gif', 'png' ])) {
+        if (!in_array($type, [ 'jpg', 'jpeg', 'gif', 'png' ])) 
+        {
             throw new \Exception('invalid image type');
         }
     
@@ -51,13 +53,16 @@ $app->POST('/api/clients/new', function(Request $req, Response $res)
         if ($data === false) {
             throw new \Exception('base64_decode failed');
         }
-    } else {
+    } 
+    else 
+    {
         throw new \Exception('did not match data URI with image data');
-    }
-        
-    file_put_contents('C:\xampp\htdocs\HydroServices\client\src\assets\clientsImgs\image.png', $data);
+    }    
     
-    $sql = "INSERT INTO clients (clie_name, clie_img) VALUES ('$name', '../../../assets/clientsImgs/image.png')";
+    $urlImage = "../../../assets/clientsImgs/".$name.".".$type;
+    file_put_contents('C:\xampp\htdocs\HydroServices\client\src\assets\clientsImgs\\'.$name.'.'.$type, $data);
+        
+    $sql = "INSERT INTO clients (clie_name, clie_img) VALUES ('$name', '$urlImage')";
     
     try {
         $db = new db();

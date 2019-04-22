@@ -1,0 +1,36 @@
+.divContainerForm
+{
+    font-size: 0.5em;
+    width: 80%;
+    margin: auto auto;
+    
+}
+
+.titleForm
+{
+    text-align: center;
+    padding-bottom: 2em;
+    font-size: 1.5em !important;
+}
+
+textarea
+{
+    width: 90%;
+    height: 40%;
+}
+
+form
+{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.form-group
+{
+    display: grid;
+}
+
+.btn
+{
+    width:30%;
+}

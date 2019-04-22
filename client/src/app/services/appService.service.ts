@@ -22,13 +22,13 @@ export class AppService
     {      
       this.translate.setDefaultLang('en');
       this.languageSelected = this.translate.getDefaultLang();  
-      this.language.next(false);                        
+      // this.language.next(false);                              
     }
     else
     {          
       this.translate.setDefaultLang('es');
       this.languageSelected = this.translate.getDefaultLang();       
-      this.language.next(true);                 
+      // this.language.next(true);                       
     }    
   }
 }

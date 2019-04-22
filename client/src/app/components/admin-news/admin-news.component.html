@@ -1,7 +1,7 @@
 <div class="containerNewsAdmin">
   <div class="divHeader">
       <div class="titleNews">Novedades</div>
-      <a [routerLink]="['/novedades/new']" mat-button>Nuevo</a>      
+      <a [routerLink]="['new']" mat-button>Nuevo</a>      
   </div>
   
   <div class="containerNews">
@@ -20,10 +20,9 @@
         <div class="desc">{{new.news_desc_eng}}</div>
       </div> 
       <div class="divBtn">
-          <a [routerLink]="['/novedades/edit', new.id]" mat-button>Editar</a>      
+          <a [routerLink]="['edit', new.news_id]" mat-button>Editar</a>      
           <button mat-button (click)="deleteNew(new.news_id)">Borrar</button>
       </div>             
     </div>
   </div>
 </div>
-<router-outlet></router-outlet>

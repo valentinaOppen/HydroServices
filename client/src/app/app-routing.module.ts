@@ -14,6 +14,7 @@ import { FormClientsComponent } from './components/form-clients/form-clients.com
 import { AchievementsComponent } from './components/achievements/achievements.component';
 import { AdminNewsComponent } from './components/admin-news/admin-news.component';
 import { FormNewsComponent } from './components/form-news/form-news.component';
+import { AuthService } from './services/auth.service';
 
 const routes: Routes = [
   { 
@@ -48,34 +49,39 @@ const routes: Routes = [
   {
     path:'admin',
     component:AdminComponent,
+    canActivate: [ AuthService ],    
     children:[
     {
       path:'clients',
-      component:AdminClientsComponent     
+      component:AdminClientsComponent,
+      canActivate: [ AuthService ]     
     },
     {
       path:'logros',
-      component: AchievementsComponent
+      component: AchievementsComponent,
+      canActivate: [ AuthService ]
     },
     {
       path:'novedades',
       component: AdminNewsComponent,
-      children:
-      [{
-        path:'novedades/new',
-        component: FormNewsComponent
-      },
-      {
-        path:'edit',
-        component:FormNewsComponent
-      }]
+      canActivate: [ AuthService ]      
+    },
+    {
+      path:'novedades/new',
+      component: FormNewsComponent,
+      canActivate: [ AuthService ]
+    },
+    {
+      path:'novedades/edit/:id',
+      component: FormNewsComponent,
+      canActivate: [ AuthService ]
     }]
   },
   
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

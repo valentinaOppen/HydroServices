@@ -1,4 +1,4 @@
-<div class="containerNews">
+<div class="containerNews" id="news">
   <div class="titleNews">{{"NOVEDADES"|translate}}</div>
   <div class="subtituleNews">{{"MIRÁ TODAS LAS NOVEDADES Y VIDEOS" | translate}}</div>
   <div class="divGridNews">    
@@ -8,8 +8,8 @@
             <iframe [src]="getEmbedUrl(new)" frameborder="0" allowfullscreen></iframe>                   
           </div>
           <div class="divDesc">
-              <div class="desc descEs" *ngIf="this.language=='es'">{{new.news_desc}}</div>
-              <div class="desc descEn" *ngIf="this.language=='en'">{{new.news_desc_eng}}</div>
+              <div class="desc descEs" *ngIf="this.appService.translate.getDefaultLang()=='es'">{{new.news_desc}}</div>
+              <div class="desc descEn" *ngIf="this.appService.translate.getDefaultLang()=='en'">{{new.news_desc_eng}}</div>
           </div>
       </div>  
     </div>  
@@ -19,8 +19,8 @@
           <img src="{{new.news_img}}" alt="" class="imgNews">
         </div>
         <div class="divDesc">
-            <div class="desc descEs" *ngIf="this.language=='es'">{{new.news_desc}}</div>
-            <div class="desc descEn" *ngIf="this.language=='en'">{{new.news_desc_eng}}</div>
+            <div class="desc descEs" *ngIf="this.appService.translate.getDefaultLang()=='es'">{{new.news_desc}}</div>
+            <div class="desc descEn" *ngIf="this.appService.translate.getDefaultLang()=='en'">{{new.news_desc_eng}}</div>
         </div>
       </div>      
     </div>    

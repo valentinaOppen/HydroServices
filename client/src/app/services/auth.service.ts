@@ -1,42 +1,91 @@
-// import { AuthService } from 'src/app/services/auth.service';
 
+import * as jwt_decode from "jwt-decode";
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
-interface myData
-{
-  success:boolean,
-  message:string
-}
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { Router }  from '@angular/router';
+import { decode } from 'punycode';
+import { getToken } from '@angular/router/src/utils/preactivation';
 
 @Injectable(
   {
     providedIn:'root'
   }
 )
-export class AuthService
+
+export class AuthService implements CanActivate
 {
-  private loggedInStatus = false;
-  private ret;
+ 
+  public name: string;
+  private _token: string;  
 
-  constructor(private http:HttpClient){}
-
-  setLoggedId(value: boolean)
+  constructor(private router: Router)
   {
-    this.loggedInStatus = value;
+    this._token = localStorage.getItem('token');
   }
 
-  get isLoggedIn()
-  {
-    return this.loggedInStatus;
-  }
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Promise<boolean> {
 
-  getUserDetails(username,password)
-  {
-    return this.http.post<myData>('http://localhost:8080/HydroServices/server/public/api/auth.php',    
-    {
-      username, 
-      password
-    })
-  }
+      let url: string = state.url;      
+      if ( this.isLogued() )
+      {        
+        this.router.navigate[url];
+        return true;
+      }
+      else
+      {                
+        this.router.navigate(['/login']);
+        return !true;
+      }
 }
+
+getToken(): string {
+  return localStorage.getItem('token');
+}
+
+isTokenExpired(token?: string): boolean 
+{
+  try 
+  {
+   token = this.getToken();
+   const date = this.getTokenExpirationDate(token);
+  console.log("DATE"+date);
+  if(date === undefined) return false;
+  
+  return (date.valueOf() > new Date().valueOf());
+  } catch (error) 
+  {
+    return false;
+  }
+  
+  
+}
+
+getTokenExpirationDate(token: string): Date {
+  const decoded = jwt_decode(token);
+
+  if (decoded.exp === undefined) return null;
+
+  const date = new Date(0); 
+  date.setUTCSeconds(decoded.exp);
+  return date;
+}
+
+  public isLogued()
+  {
+    return this.isTokenExpired();
+  }
+
+  public logOut()
+  {
+    try {
+      localStorage.setItem('token', null);
+      this.router.navigate(['/login']);
+    } catch (error) {
+      return false;
+    }
+  }
+
+
+}
+  

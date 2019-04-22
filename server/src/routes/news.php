@@ -99,23 +99,49 @@ $app->get('/api/newsImages', function(Request $req, Response $res)
     }
 });
 
-$app->POST('/api/news/new', function(Request $req, Response $res)
-{
+$app->POST('/api/news/savenews', function(Request $req, Response $res)
+{    
+    echo "POST";
+    var_dump($req);
     $desc = $req->getParam('news_desc');
     $desc_eng = $req->getParam('news_desc_eng');
     $video = $req->getParam('news_video');
-    $img = $req->getParam('news_img');
+    $data = $req->getParam('news_img');   
+    $img_name = $req->getParam('news_img_name');
+
+    if (preg_match('/^data:image\/(\w+);base64,/', $data, $type)) {
+        $data = substr($data, strpos($data, ',') + 1);
+        $type = strtolower($type[1]); // jpg, png, gif
     
-    $sql = "INSERT INTO news 
-    (news_desc, news_desc_eng, news_video, news_img) 
-    VALUES ('$desc', '$desc_eng', '$video', '$img')";
+        if (!in_array($type, [ 'jpg', 'jpeg', 'gif', 'png' ])) {
+            throw new \Exception('invalid image type');
+        }
     
+        $data = base64_decode($data);        
+    
+        if ($data === false) {
+            throw new \Exception('base64_decode failed');
+        }
+    } else {
+        throw new \Exception('did not match data URI with image data');
+    }
+
+    $urlImage = "../../../assets/NewsImgs/".$img_name.".".$type;
+
+    // file_put_contents('C:\xampp\htdocs\HydroServices\client\src\assets\NewsImgs\image.png', $data);
+    file_put_contents('C:\xampp\htdocs\HydroServices\client\src\assets\NewsImgs\\'.$img_name.'.'.$type, $data);
+    
+    $sql = "INSERT INTO news (news_desc, news_desc_eng, news_video, news_img, news_img_name) VALUES ('$desc', '$desc_eng', '$video', '$urlImage', '$img_name')";        
+
     try {
         $db = new db();
-        $db = $db->connectDB();
-        
+        $db = $db->connectDB();        
+
         $result = $db->prepare($sql);
-        $result->bindParam(':name', $name);        
+        // $result->bindParam(':news_desc', $desc);        
+        // $result->bindParam(':news_desc_eng', $desc_eng);        
+        // $result->bindParam(':news_video', $video);        
+        // $result->bindParam(':news_img', $data);        
         $result->execute();
         echo json_encode("Nuevo cliente guardado.");        
         $result = null;
@@ -127,43 +153,62 @@ $app->POST('/api/news/new', function(Request $req, Response $res)
 });
 
 
-$app->PUT('/api/news/edit/{id}', function(Request $req, Response $res)
-{
-    $id = $req->getAttribute('id');
-    $desc = $req->getParam('news_desc');
-    $desc_eng = $req->getParam('news_desc_eng');
-    $video = $req->getParam('news_video');
-    $img = $req->getParam('news_img');
-            
-    $sql = "UPDATE news SET 
-    news_desc=$desc,
-    news_desc_eng=$desc_eng,
-    news_video=$video,
-    news_img=$img
-    WHERE news_id=$id";       
-    
-    try {
-        $db = new db();
-        $db = $db->connectDB();
-        
-        $result = $db->prepare($sql);
-        $result->bindParam(':news_desc', $name);        
-        $result->bindParam(':news_desc_eng', $name);        
-        $result->bindParam(':news_video', $name);        
-        $result->bindParam(':news_img', $name);        
-        $result->execute();
-        echo json_encode("Cliente modificado.");        
-        $result = null;
-        $db = null;
+// $app->PUT('/api/news/edit/{id}', function(Request $req, Response $res)
+// {
+//     $id = $req->getAttribute('id');
+//     $desc = $req->getParam('news_desc');
+//     $desc_eng = $req->getParam('news_desc_eng');
+//     $video = $req->getParam('news_video');
+//     $data = $req->getParam('news_img');
 
-    } catch (PDOException $e) {
-        echo '{"error : {"text:'.$e->getMessage().'}';
-    }
-});
+//     if (preg_match('/^data:image\/(\w+);base64,/', $data, $type)) {
+//         $data = substr($data, strpos($data, ',') + 1);
+//         $type = strtolower($type[1]); // jpg, png, gif
+    
+//         if (!in_array($type, [ 'jpg', 'jpeg', 'gif', 'png' ])) {
+//             throw new \Exception('invalid image type');
+//         }
+    
+//         $data = base64_decode($data);
+    
+//         if ($data === false) {
+//             throw new \Exception('base64_decode failed');
+//         }
+//     } else {
+//         throw new \Exception('did not match data URI with image data');
+//     }
+        
+//     file_put_contents('C:\xampp\htdocs\HydroServices\client\src\assets\NewsImgs\image.png', $data);
+            
+//     $sql = "UPDATE news SET 
+//     news_desc=$desc,
+//     news_desc_eng=$desc_eng,
+//     news_video=$video,
+//     news_img=$data
+//     WHERE news_id=$id";       
+    
+//     try {
+//         $db = new db();
+//         $db = $db->connectDB();
+        
+//         $result = $db->prepare($sql);
+//         $result->bindParam(':news_desc', $name);        
+//         $result->bindParam(':news_desc_eng', $name);        
+//         $result->bindParam(':news_video', $name);        
+//         $result->bindParam(':news_img', $name);        
+//         $result->execute();
+//         echo json_encode("Cliente modificado.");        
+//         $result = null;
+//         $db = null;
+
+//     } catch (PDOException $e) {
+//         echo '{"error : {"text:'.$e->getMessage().'}';
+//     }
+// });
 
 
 $app->delete('/api/news/delete/{id}', function(Request $req, Response $res)
-{
+{    
     $id = $req->getAttribute('id');
     
     $sql = "DELETE FROM news WHERE news_id=$id";

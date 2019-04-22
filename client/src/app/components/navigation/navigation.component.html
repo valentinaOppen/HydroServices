@@ -5,13 +5,13 @@
   <div class="containerNavItems">
     <div class="itemsGrid">
       <div class="itemNavBar">
-        <a mat-button routerLink='/index'>{{ "INICIO" | translate}}</a>
+        <a mat-button>{{ "INICIO" | translate}}</a>
       </div>      
       <div class="itemNavBar">
-        <a mat-button routerLink='/services'>{{ "CAPACIDADES" | translate}}</a>
+        <a mat-button (click)=divServices()>{{ "CAPACIDADES" | translate}}</a>
       </div>      
       <div class="itemNavBar">
-        <a mat-button routerLink='/clients'>{{ "NUESTROS CLIENTES" | translate}}</a>
+        <a mat-button (click)=divClients()>{{ "NUESTROS CLIENTES" | translate}}</a>
       </div>      
       <div class="itemNavBar">        
         <a mat-button [matMenuTriggerFor]="belowMenuLinks">{{ "LINKS DE INTERES" | translate}}<i class="fa fa-sort-down"></i></a>
@@ -25,7 +25,7 @@
         </mat-menu>        
       </div>      
       <div class="itemNavBar">
-        <a mat-button>{{ "NOVEDADES" | translate}}</a>
+        <a mat-button (click)=divNews()>{{ "NOVEDADES" | translate}}</a>
       </div>      
       <div class="itemNavBar">
         <a mat-button [matMenuTriggerFor]="belowMenu">{{ "MULTIMEDIA" | translate}}<i class="fa fa-sort-down"></i></a>
@@ -35,16 +35,16 @@
         </mat-menu>
       </div>      
       <div class="itemNavBar">
-        <a mat-button routerLink='/contact'>{{ "CONTACTENOS" | translate}}</a>
+        <a mat-button (click)=divContact()>{{ "CONTACTENOS" | translate}}</a>
       </div>      
       <div class="itemNavBar itemLang">
         <!-- <a mat-button class="itemLang" routerLink="/index/2">{{ "EN" | translate}}<i class="fa fa-sort-down"></i></a> -->
-        <a mat-button [matMenuTriggerFor]="belowMenuLang">{{ "EN" | translate}}<i class="fa fa-sort-down"></i></a>
+        <!-- <a mat-button [matMenuTriggerFor]="belowMenuLang">{{ "EN" | translate}}<i class="fa fa-sort-down"></i></a>
         <mat-menu #belowMenuLang="matMenu" yPosition="below">
           <div class="divSelect"><a routerLink='/index/1'>EN</a></div>
           <div class="divSelect"><a routerLink='/index/2'>ES</a></div>
-        </mat-menu>
-        <!-- <a mat-button class="itemLang" (click)="changeLanguage()">{{ "EN" | translate}}<i class="fa fa-sort-down"></i></a> -->
+        </mat-menu> -->
+        <a mat-button class="itemLang" (click)="changeLanguage()">{{ "EN" | translate}}<i class="fa fa-sort-down"></i></a>
       </div>      
     </div>
   </div>

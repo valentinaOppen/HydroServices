@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ContactService } from '../../services/contact.service';
+import { Contact } from '../../models/contact';
 
 @Component({
   selector: 'app-contact',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+  contact:Contact =
+  {
+    name:'',
+    email:'',
+    phone:'',
+    subject:'',
+    message:''
+  }
+
+  constructor(private contactService:ContactService) { }
 
   ngOnInit() {
+  }
+
+  sendForm()
+  {
+    this.contactService.sendForm(this.contact);
   }
 
 }

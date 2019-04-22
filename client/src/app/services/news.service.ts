@@ -16,7 +16,7 @@ export class NewsService
 
   getNew(id:number)
   {
-    return this.http.get(`${this.API_URI}/news/${id}`);    
+    return this.http.get(`${this.API_URI}/new/${id}`);    
   }
 
   getNews()
@@ -35,13 +35,13 @@ export class NewsService
   }
 
   saveNews(news:News)
-  {
-    return this.http.post(`${this.API_URI}/news`, news);    
+  {    
+    return this.http.post(`${this.API_URI}/news/savenews`, news);    
   }
 
   updateNews(id:number, news:News)
   {
-    return this.http.put(`${this.API_URI}/news/${id}`, news);    
+    return this.http.put(`${this.API_URI}/news/edit/${id}`, news);    
   }
 
 

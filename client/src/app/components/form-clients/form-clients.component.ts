@@ -50,9 +50,9 @@ export class FormClientsComponent implements OnInit {
 
   createForm()
   {
-    this.form = this.fb.group({
-      name:['', Validators.required],
-      avatar:null
+    this.form = this.fb.group({      
+      name:[''],
+      avatar:null     
     });
   }
 
@@ -80,9 +80,9 @@ export class FormClientsComponent implements OnInit {
         
     this.client.clie_name = this.form.get('name').value;
     this.client.clie_img = this.form.get('avatar').value.value;
-    
-    console.log(this.client);
 
+    console.log(this.form);
+    console.log(this.client);
     setTimeout(() => 
     {
       this.loading = false;

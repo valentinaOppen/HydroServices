@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { MatMenuModule } from '@angular/material/menu';
+import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
@@ -37,6 +37,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbdModalBasic } from './components/list-services/modal-basic';
 import { LoginComponent } from './components/login/login.component';
 import { AuthService } from './services/auth.service';
+import { UserService } from './services/user.service';
 
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AdminComponent } from './components/admin/admin.component';
@@ -81,7 +82,7 @@ export function HttpLoaderFactory(http:HttpClient)
     FormClientsComponent,
     AdminNewsComponent,
     FormNewsComponent,
-    AdminNewsIndexComponent,    
+    AdminNewsIndexComponent    
   ],
   imports: [
     BrowserModule,
@@ -105,7 +106,7 @@ export function HttpLoaderFactory(http:HttpClient)
       }
     })
   ],
-  providers: [GeolocationService, WeatherService, AppService, AuthService ],
+  providers: [GeolocationService, WeatherService, AppService, AuthService, UserService, ServicesComponent, NewsComponent ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

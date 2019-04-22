@@ -38,6 +38,7 @@ body
 {
     font-family: RalewayMed !important;
     margin:0 !important;
+    scroll-behavior: smooth;
 }
 
 a
