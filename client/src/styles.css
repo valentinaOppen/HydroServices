@@ -79,3 +79,37 @@ a
     color:#4A95CD !important;
     font-size:0.9em !important;  
 }
+
+
+.gm-style .place-card-medium
+{
+    display: none !important;
+}
+
+
+.place-card .place-card-medium
+{
+    display: none !important;
+}
+
+
+.modalMultimedia .modal-dialog
+{    
+    max-width: unset !important;
+    width: 65vw;
+}
+
+.modalMultimedia .modal-body
+{
+    width:75vw !important;
+    max-width: unset !important;
+    margin: auto;
+    padding-bottom:0rem;
+}
+
+.modalMultimedia .modal-content
+{
+    margin:auto auto;
+    width:90%;
+    height: 100vh;
+}

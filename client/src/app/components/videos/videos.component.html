@@ -1,0 +1,30 @@
+<app-principal-header></app-principal-header>
+<div class="containerPhotos" id="photos">    
+    <div class="gridPhotosImgs">      
+      <div class="divPhoto" *ngFor="let video of videos" (click)="open(content)">                                           
+        <div class="btnModal">
+          <div class="iframe">
+            <iframe [src]="getEmbedUrl(video)" frameborder="0" allowfullscreen></iframe>                   
+          </div>       
+        </div>
+        <ng-template #content let-modal>
+          <div class="modal-body">
+            <div class="divImgModal">                
+              <iframe [src]="getEmbedUrl(video)" frameborder="0" allowfullscreen class="imgModal"></iframe>
+            </div>
+            <div class="descr" *ngIf="this.appService.translate.getDefaultLang()=='es'"><p>{{video.video_desc}}</p></div>            
+            <div class="descr" *ngIf="this.appService.translate.getDefaultLang()=='en'"><p>{{video.video_desc_eng}}</p></div>            
+          </div>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span class="btnClose">{{"CERRAR" | translate}}</span><span class="btnCloseCross">&times;</span>
+          </button>
+        </ng-template> 
+      </div>       
+    </div>        
+    <div class="btnMostrarMas" (click)="getVideosAll()" *ngIf="this.enableEdit=='true'">{{"CARGAR MAS VIDEOS" | translate}}</div>            
+    <div class="btnMostrarMas" (click)="getVideos()" *ngIf="this.enableEdit=='false'">{{"CARGAR MENOS VIDEOS" | translate}}</div>                  
+</div>
+
+
+
+  

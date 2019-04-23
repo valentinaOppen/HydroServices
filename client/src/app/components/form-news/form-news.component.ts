@@ -119,7 +119,7 @@ export class FormNewsComponent implements OnInit {
     this.newsService.saveNews(this.news).subscribe(
       res => 
       {         
-        // this.router.navigate(['/novedades']); 
+        this.router.navigate(['admin/novedades']); 
       },
       err => console.error(err)
     );

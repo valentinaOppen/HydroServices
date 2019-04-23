@@ -18,6 +18,7 @@ require '../src/routes/achievements.php';
 require '../src/routes/news.php';
 require '../src/routes/users.php';
 require '../src/routes/formContact.php';
+require '../src/routes/multimedia.php';
 
 $app->run();
 

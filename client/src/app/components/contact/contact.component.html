@@ -7,9 +7,12 @@
     <div class="inputText phone"><input type="text" placeholder="{{'TELEFONO' | translate}}"></div>
     <div class="inputText subject"><input type="text" placeholder="{{'ASUNTO' | translate}}"></div>
     <div class="inputMessage message"><textarea name="message" id="" placeholder="{{'MENSAJE' | translate}}"></textarea></div>
+    <div class="buttons">
     <button class="btnContact delete">{{"BORRAR" | translate}}</button>
     <button class="btnContact" (click)="sendForm()">{{"ENVIAR" | translate}}</button>
-    <div class="mapContact"><img src="../../../assets/img/map.JPG" alt=""></div>
+    </div>
+    <!-- <div class="mapContact"><img src="../../../assets/img/map.JPG" alt=""></div> -->
+    <div class="mapContact"><iframe src="http://maps.google.com/maps?q=-38.045905,-57.535072&z=15&output=embed"></iframe></div>
   </div>
   
 </div>

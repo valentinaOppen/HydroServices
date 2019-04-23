@@ -1,0 +1,24 @@
+<div class="divContainerForm">
+  <div class="titleForm">Cargar Foto</div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="divImagen">
+        <div class="form-group">        
+            <input placeholder="Nombre Foto" type="text" id="photoImagenName" formControlName="photo_name">       
+        </div>
+        <div class="form-group">
+            <label for="avatar">Foto</label>
+            <input type="file" id="photoImagen" (change)="onFileChange($event)" formControlName="photo_url"  #fileInput>       
+        </div>
+    </div>
+    
+    <div class="descr">
+        <label for="avatar">Descripcion</label>
+      <textarea cols="30" rows="10"  formControlName="photo_desc"></textarea>
+    </div>
+    <div class="descr">
+        <label for="avatar">Traduccion</label>
+      <textarea cols="30" rows="10" formControlName="photo_desc_eng"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>  
+  </form>
+</div>

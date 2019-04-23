@@ -1,0 +1,20 @@
+<div class="containerNewsAdmin">
+  <div class="divHeader">
+      <div class="titleNews">Fotos</div>
+      <a [routerLink]="['new']" mat-button>Nuevo</a>      
+  </div>  
+  <div class="containerNews">
+    <div class="news" *ngFor="let photo of photos">       
+      <div class="divVideo">
+          <img src="{{photo.photo_url}}" alt="">            
+      </div>           
+      <div class="divDesc">
+        <div class="desc">{{photo.photo_desc}}</div>
+        <div class="desc">{{photo.photo_desc_eng}}</div>
+      </div> 
+      <div class="divBtn">            
+          <button mat-button (click)="deletePhoto(photo.photo_id)">Borrar</button>
+      </div>             
+    </div>
+  </div>
+</div>

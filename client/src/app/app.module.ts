@@ -52,6 +52,12 @@ import { FormNewsComponent } from './components/form-news/form-news.component';
 import { AdminNewsIndexComponent } from './components/admin-news-index/admin-news-index.component';
 
 import { AgmCoreModule } from '@agm/core';
+import { VideosComponent } from './components/videos/videos.component';
+import { PhotosComponent } from './components/photos/photos.component';
+import { AdminVideosComponent } from './components/admin-videos/admin-videos.component';
+import { AdminPhotosComponent } from './components/admin-photos/admin-photos.component';
+import { FormPhotosComponent } from './components/form-photos/form-photos.component';
+import { FormVideosComponent } from './components/form-videos/form-videos.component';
 
 export function HttpLoaderFactory(http:HttpClient)
 {
@@ -84,7 +90,13 @@ export function HttpLoaderFactory(http:HttpClient)
     FormClientsComponent,
     AdminNewsComponent,
     FormNewsComponent,
-    AdminNewsIndexComponent    
+    AdminNewsIndexComponent,
+    VideosComponent,
+    PhotosComponent,
+    AdminVideosComponent,
+    AdminPhotosComponent,
+    FormPhotosComponent,
+    FormVideosComponent    
   ],
   imports: [
     BrowserModule,

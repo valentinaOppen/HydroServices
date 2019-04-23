@@ -37,7 +37,7 @@ div
     "inputName inputEmail map"
     "inputPhone inputSubject map"
     "textarea textarea map"
-    "btnDelete btnSend map"
+    "btn . map"
 }
 
 input
@@ -54,9 +54,16 @@ button
 {
     background-color:white;
     color:#4A95CD;
-    width:50%;
+    width:48%;
     height: 45px;
     font-size:0.5em;
+    border:none;
+}
+
+.buttons
+{
+    grid-area: btn;
+    display: flex;
 }
 
 ::-webkit-input-placeholder 
@@ -106,6 +113,7 @@ textarea
 .delete
 {
     grid-area: btnDelete;
+    margin-right: 2%;
 }
 
 .send
@@ -117,9 +125,19 @@ textarea
 {
     grid-area:map;
     display: block;
-    width: fit-content;
+    width: 100%;
 }
 
 img{
     display:block;
+}
+
+iframe{
+    width:inherit;
+    height: 100%;
+}
+
+.place-card .place-card-medium
+{
+    display: none;
 }

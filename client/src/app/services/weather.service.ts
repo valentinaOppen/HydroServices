@@ -11,8 +11,9 @@ export class WeatherService {
   appId:string = 'dcf6d484219a81c3db429c65cb9587e7';
   constructor(private http: HttpClient) { }
 
+  // ?lat=-38.004339&lon=-57.546306
   getTodayWeather(lat, long ): Observable<any> {
-    const param: any = {'lat': lat, 'lon': long, 'APPID': this.appId };
+    const param: any = {'lat': -38.004339, 'lon': -57.546306, 'APPID': this.appId };
     return this.http.get(this.configUrl, { params: param });
  }
 }

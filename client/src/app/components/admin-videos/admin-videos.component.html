@@ -1,0 +1,22 @@
+<div class="containerNewsAdmin">
+  <div class="divHeader">
+      <div class="titleNews">Videos</div>
+      <a [routerLink]="['new']" mat-button>Nuevo</a>      
+  </div>
+  
+  <div class="containerNews">
+    <div class="news" *ngFor="let video of videos">       
+      <div class="divVideo">
+        <div class="videoNews"><iframe [src]="getEmbedUrl(videos)" frameborder="0" allowfullscreen></iframe></div>
+        <!-- <div class="urlVideo">https://www.youtube.com/watch?v={{new.news_video}}</div> -->
+      </div>           
+      <div class="divDesc">
+        <div class="desc">{{video.video_desc}}</div>
+        <div class="desc">{{video.video_desc_eng}}</div>
+      </div> 
+      <div class="divBtn">            
+          <button mat-button (click)="deleteVideo(video.video_id)">Borrar</button>
+      </div>             
+    </div>
+  </div>
+</div>
