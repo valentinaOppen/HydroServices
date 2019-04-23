@@ -90,8 +90,11 @@ img
     padding-bottom:2vh;
     border:none !important;
     width:fit-content ;
-    margin: auto auto !important;
+    /* margin: auto auto !important; */
     outline: none !important;    
+    position: absolute;
+    bottom: 0;
+    right: 50px;
 }
 
 .closeTitle
