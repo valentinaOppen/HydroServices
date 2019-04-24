@@ -1,21 +1,26 @@
+<div class="divContainer">
+        <div class="titleAchiev">Administración de logros</div>
 <div class="containerForm"> 
+    
     <div class="form-group">
-        <label for="exampleInputEmail1">Obras Terminadas</label>
-        <input type="text" name="works" [(ngModel)]="achiev.achiv_works" placeHolder="Obras" class="form-control" autofocus/>
+        <div class="textField">Obras Terminadas</div>        
+        <input type="text" name="works" [(ngModel)]="achiev.achiv_works" placeHolder="Obras" class="inputTextField" autofocus/>
     </div> 
     <div class="form-group">
-        <label for="exampleInputEmail1">Horas sumergidos</label>
-        <input type="text" name="hours" [(ngModel)]="achiev.achiv_clients" placeHolder="Horas" class="form-control"/>
+        <div class="textField">Horas sumergidos</div>        
+        <input type="text" name="hours" [(ngModel)]="achiev.achiv_clients" placeHolder="Horas" class="inputTextField"/>
     </div> 
     <div class="form-group">
-        <label for="exampleInputEmail1">Clientes Satisfechos</label>
-        <input type="text" name="clients" [(ngModel)]="achiev.achiv_hours" placeHolder="Clientes" class="form-control"/>
+            <div class="textField">Clientes Satisfechos</div>        
+        <input type="text" name="clients" [(ngModel)]="achiev.achiv_hours" placeHolder="Clientes" class="inputTextField"/>
     </div> 
     <div class="form-group">
-        <label for="exampleInputEmail1">Años Buceando</label>
-        <input type="text" name="years" [(ngModel)]="achiev.achiv_years" placeHolder="Años" class="form-control"/>
+            <div class="textField">Años Buceando</div>        
+        <input type="text" name="years" [(ngModel)]="achiev.achiv_years" placeHolder="Años" class="inputTextField"/>
     </div>   
-    <div class="divBtn">
-      <button class="btn btn-primary" (click)="saveAchiev()">Guardar</button>
-    </div>    
+     
+</div>
+<div class="divBtn">
+        <button class="btnGuardar" (click)="saveAchiev()">GUARDAR</button>
+      </div>  
 </div>

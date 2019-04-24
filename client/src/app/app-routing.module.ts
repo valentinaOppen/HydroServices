@@ -21,6 +21,7 @@ import { AdminVideosComponent } from './components/admin-videos/admin-videos.com
 import { AdminPhotosComponent } from './components/admin-photos/admin-photos.component';
 import { FormPhotosComponent } from './components/form-photos/form-photos.component';
 import { FormVideosComponent } from './components/form-videos/form-videos.component';
+import { AdminIndexComponent } from './components/admin-index/admin-index.component';
 
 const routes: Routes = [
   { 
@@ -65,6 +66,10 @@ const routes: Routes = [
     component:AdminComponent,
     // canActivate: [ AuthService ],    
     children:[
+    {
+      path:'index',
+      component:AdminIndexComponent
+    },
     {
       path:'clients',
       component:AdminClientsComponent

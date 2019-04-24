@@ -1,12 +1,100 @@
-.divContainer
+.headerLogin
 {
-    height: 100vh;
-    width: 100vw;
+    color: #DD4343;    
+    padding: 1% 0 1% 5%;
+    border: solid 2px grey;
 }
 
-.divForm
+.imgLogo
 {
-    width:40%;
-    margin:6em auto;
-    font-size:0.7em;
+    width:fit-content;
+    margin:1em auto;
+    padding-top:3%;
+    text-align: center;
 }
+.containerForm
+{
+    background-color:#4C4C4C;
+    color:#B4B4B4;
+    /* padding:2em;     */
+    width: 45%;
+    margin:auto auto;
+    font-size: 0.6em;
+}
+
+.title
+{
+    padding:2em 1em 1em 1em;
+    width: fit-content;
+    margin:auto auto;
+}
+
+.inputWithIcon
+{
+    position: relative;
+    padding-bottom:1em;
+    width: 90%;
+    margin: auto auto;
+}
+
+.inputWithIcon input[type=text]
+{
+    padding-left: 3.5vw;
+    font-size: 1em;
+    height: 8vh;
+    width:100%;
+    color: #818181;
+    border: solid 1px #B4B4B4;
+    background-color: transparent;
+}
+
+.inputWithIcon input[type=password]
+{
+    padding-left: 3.5vw;
+    font-size: 1em;
+    border: solid 1px #B4B4B4;
+    height: 8vh;
+    width:100%;
+    color: #818181;
+    background-color: transparent;
+}
+
+.inputWithIcon i
+{
+    position: absolute;
+    top: 19%;
+    left: 3%;
+    font-size: 1.4em;
+}
+
+.footerForm
+{
+    width:90%;
+    margin:auto auto;
+    display: flex;
+    position: relative;
+    padding-bottom:1.5em;
+}
+
+.imgFooter
+{
+    width:fit-content;
+    position:absolute;
+    bottom:1.5em;
+    right: 0;    
+}
+
+.imgMM
+{
+    width:100px;
+}
+
+.btnLogin
+{
+    background-color: transparent;
+    border: solid 1px #B4B4B4;
+    padding: 1em 3em;
+    font-size: 1em;
+    color: #B4B4B4;
+}
+

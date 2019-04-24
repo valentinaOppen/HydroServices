@@ -1,23 +1,48 @@
+.divContainer
+{
+  width: 80%;
+  position: absolute;
+  top: 10vh;
+  left: 20%;
+  padding: 1em;
+  box-sizing: border-box;
+  font-size: 0.8em;
+}
 
 .containerForm
 {
-  width: 80%;
+  
   display: grid;
-  grid-template-columns: 50% 50%;
-  margin: 1.5em auto;
-  font-size: 0.5em;
+  grid-template-columns: 25% 25% 25% 25%;
+  /* margin: 1.5em auto; */
+  font-size: 1em;
   row-gap: 15%;
+  width: 100%;
+  margin-top:1em;
+
+  
 }
 
 .form-group
 {
-  width:80%;
+  width:100%;
   margin:auto auto;
+}
+
+.textField
+{
+  margin-bottom: 0.5em;
+}
+
+.inputTextField
+{
+  width: 90%;
+  padding: 0.5em;
 }
 
 ::-webkit-input-placeholder 
 {
-    /* color: white;    
+    /* color: whi ;    
     padding-left:1em;
     margin:auto auto; */
     font-size:0.5em;
@@ -29,7 +54,22 @@ label
 }
 
 .divBtn
+{  
+  width: 97.5%;
+    font-size: 0.75em;
+    text-align: right;
+    margin-top: 1.5em;
+    font-family: RalewayLight;
+}
+
+.titleAchiev
 {
-  margin: auto auto;
-  width: 80%;
+  color:#DD4343;
+}
+
+.btnGuardar
+{
+  color:white;
+  background-color:#4D4D4D;  
+  padding: 0.8em 1em;
 }

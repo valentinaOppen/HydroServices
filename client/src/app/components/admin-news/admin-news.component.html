@@ -1,27 +1,54 @@
 <div class="containerNewsAdmin">
   <div class="divHeader">
-      <div class="titleNews">Novedades</div>
-      <a [routerLink]="['new']" mat-button>Nuevo</a>      
+      <div class="titleNews">Administración de Novedades</div>
+      <div class="divBtnAgregarNovedad" [routerLink]="['new']">
+          <i class="fas fa-plus"></i>AGREGAR NOVEDAD
+        </div>
+      <div class="divBuscarNovedades">
+        <div class="textBuscarNovedades"><i class="fas fa-search"></i>BUSCAR NOVEDAD</div>
+        <div class="divFormBusqueda">          
+            <div class="titleFieldTitulo">Por título</div>          
+            <div class="divInputTitulo"><input type="text" name="" id="" class="inputText"></div>                    
+              <div class="titleFieldDate">Por Fecha</div>          
+              <div class="divInputFecha"><input type="date" name="" id="" class="inputDate"></div>          
+          <div class="btnBuscar">
+              <button class="buscar">BUSCAR</button>
+            </div>
+        </div>
+        
+      </div>   
+  </div>
+
+  <div class="divHeaderNews">
+    <div class="titleHeaderNews">Novedades cargadas</div>
+    <div class="headerList">
+      <div class="titleListNews">Título</div>
+      <div class="dateNews">Fecha</div>
+      <div class="publicado">Publicado</div>
+      <div class="btns"></div>
+    </div>
   </div>
   
   <div class="containerNews">
+    
     <div class="news" *ngFor="let new of news">       
-      <div class="divVideo" *ngIf="new.news_video">
-        <div class="videoNews"><iframe [src]="getEmbedUrl(new)" frameborder="0" allowfullscreen></iframe></div>
-        <!-- <div class="urlVideo">https://www.youtube.com/watch?v={{new.news_video}}</div> -->
-      </div>     
-      <div class="divImg"  *ngIf="new.news_img">
+      <!-- <div class="divVideo" *ngIf="new.news_video">
+        <div class="videoNews"><iframe [src]="getEmbedUrl(new)" frameborder="0" allowfullscreen></iframe></div>        
+      </div>      -->
+      <!-- <div class="divImg"  *ngIf="new.news_img">
         <div class="videoNews">
           <img src="{{new.news_img}}" alt="" class="imgNews">
         </div>
-      </div>
+      </div> -->
       <div class="divDesc">
         <div class="desc">{{new.news_desc}}</div>
-        <div class="desc">{{new.news_desc_eng}}</div>
+        <!-- <div class="desc">{{new.news_desc_eng}}</div> -->
       </div> 
+      <div class="divDate">{{new.news_date}}</div>
+      <div class="pub">{{new.news_pub}}</div>
       <div class="divBtn">
-          <a [routerLink]="['edit', new.news_id]" mat-button>Editar</a>      
-          <button mat-button (click)="deleteNew(new.news_id)">Borrar</button>
+          <a [routerLink]="['edit', new.news_id]" mat-button><i class="fas fa-edit"></i></a>      
+          <button mat-button (click)="deleteNew(new.news_id)"><i class="fas fa-trash"></i></button>
       </div>             
     </div>
   </div>

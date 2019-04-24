@@ -1,0 +1,29 @@
+.footerAdmin
+{
+    background-color:#DD4343;
+    position: fixed;
+    width:100vw;
+    bottom:0;
+    color:white;
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;        
+    /* padding: 2em 0.5em; */
+    font-size: 0.4em;    
+    height: 8vh;
+}
+
+.itemFooter
+{
+    display:flex;    
+    margin:auto;
+}
+
+.textItemFooter
+{
+    margin-left:0.5em;    
+}
+
+.imgFooter
+{    
+    margin: auto 25%;
+}

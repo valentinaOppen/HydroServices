@@ -1,15 +1,28 @@
+<!-- <div class="headerLogin">HYDROSERVICE</div> -->
+<div class="containerGral">
 <div class="divContainer">
-<div class="divForm">
+    <div class="imgLogo"><img src="../../../assets/img/logo.JPG" alt=""></div>
+<div class="containerForm">
+    <div class="title">INGRESO AL SISTEMA</div>
 <form  (ngSubmit)="enviar()" class="form-horizontal">
-  <div class="label"><label for="inputEmail3" class="control-label">Usuario</label></div>
-    <div class="form-group row" >            
-      <input type="email" [(ngModel)]="user.email" name='email' required class="form-control" id="inputEmail3">
-    </div>
-    <div class="label"><label for="inputPassword3" class="control-label">Contraseña</label></div>    
-    <div class="form-group row">            
-      <input type="password" [(ngModel)]="user.password" name="clave" required class="form-control" id="inputPassword3">       
+  <!-- <div class="label"><label for="inputEmail3" class="control-label">Usuario</label></div> -->
+    <div class="inputWithIcon" >            
+      <input type="text" [(ngModel)]="user.email" placeholder="Usuario" name='email' required class="inputLogin" id="inputEmail3">      
+      <i class="fa fa-user"></i>
     </div>    
-    <button type="submit" class="btn-sm btn-secondary">Enviar</button>
+    <div class="inputWithIcon">            
+      <input type="password" class="inputLogin" [(ngModel)]="user.password" name="clave" required placeholder="Contraseña" class="inputLogin" id="inputPassword3">       
+      <i class="fas fa-lock"></i>
+    </div>    
+    <div class="footerForm">
+        <!-- <button type="submit" class="btnLogin">INGRESAR</button>                 -->
+        <button type="button" class="btnLogin" (click)=enviar()>INGRESAR</button>                
+        <div class="imgFooter">
+            <img src="../../../assets/img/mm_logo.png" alt="" class="imgMM">
+        </div>
+    </div>
+    <!-- <button type="submit" class="btn-sm btn-secondary">Enviar</button> -->
   </form>
 </div>
 </div>
+<app-admin-footer></app-admin-footer>

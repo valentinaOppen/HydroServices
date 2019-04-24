@@ -1,37 +1,204 @@
-.divHeader
-{
-    /* display: flex; */
-}
 
 .titleNews
 {
-    text-align: center;
-    color: #468BCF;
+    text-align: left;
+    color: #DD4343;
     margin-bottom: 1em;
     width: 95%;
 }
 
 .containerNewsAdmin
 {
-    width:90%;
-    margin:auto auto;
-    
+   position: absolute;    
+   top:10vh;
+   left:20%;
+   margin:1em;
 }
 
 .news
 {
     display:flex;
-    margin-bottom:2em;
+    /* margin-bottom:2em; */
 }
 
 .divDesc
 {    
-    color:grey;
-    display:flex;
-    font-size:0.6em;
+    color: grey;
+    display: flex;
+    font-size: 0.6em;
+    width: 90%;
+    text-align: left;
+}
+
+.divDate
+{
+    text-align: center;
+    font-size: 0.6em;
+}
+
+.pub
+{
+    text-align: center;
+    font-size: 0.6em;
 }
 
 .desc
 {
     margin:1em;
+}
+
+.divBtnAgregarNovedad
+{
+    background-color: #4D4D4D;
+    color: white;
+    width: 100%;
+    font-size: 0.7em;
+    padding: 0.4em 1em;
+    font-family: RalewayLight;
+    border-bottom: solid 3px #DD4343;
+    margin-bottom: 1em;
+}
+
+.textBuscarNovedades
+{
+    background-color: #4D4D4D;
+    color: white;
+    width: 100%;
+    font-size: 0.7em;
+    padding: 0.4em 1em;
+    font-family: RalewayLight;
+    border-bottom: solid 3px #DD4343;    
+    margin-bottom: 1em;
+}
+
+.fas
+{
+    margin-right:1em;
+}
+
+.fa-edit
+{
+    font-size:2em;
+}
+
+.fa-trash
+{
+    font-size:2em;
+}
+
+.titleFieldTitulo
+{
+    font-size: 0.7em;
+    color: #5B5B5B;
+    grid-area: title;
+}
+
+.titleFieldDate
+{
+    font-size: 0.7em;
+    color: #5B5B5B;
+    grid-area: date;
+}
+
+.divInputTitulo
+{
+    grid-area: fieldTitle;
+}
+
+.divInputFecha
+{
+    grid-area: fieldDate;
+}
+
+.inputText
+{
+    border: solid 2px #5B5B5B;
+    width: 90%;
+}
+
+.inputDate
+{
+    font-size: 0.5em;
+    font-family: RalewayLight;
+    width: 90%;
+    height: 100%;
+    border: solid 2px #5B5B5B;
+    text-align: center;
+}
+
+.divFormBusqueda
+{
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: "title date ."
+    "fieldTitle fieldDate btn";
+    width:70%;
+}
+
+.btnBuscar
+{
+    grid-area: btn;
+}
+
+.buscar
+{
+    background-color: #4D4D4D;
+    color: white;
+    width: 90%;
+    height: 100%;
+}
+
+
+::placeholder
+{
+    font-size: 0.5em;
+    color: #5B5B5B;
+}
+
+.titleHeaderNews
+{    
+    color: #DD4343;
+    padding-top: 2em;
+}
+
+.headerList
+{
+    background-color:#4D4D4D;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr 1fr;
+    color: white;
+    font-size: 0.8em;
+    font-family: RalewayLight;
+    padding: 0.5em;
+    padding-left: 1em;
+    margin-top: 0.5em;
+
+}
+
+.news
+{
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr 1fr;
+    /* font-size:0.6em;
+    font-size: 0.8em; */
+    font-family: RalewayLight;
+}
+
+.containerNews
+{
+    margin-top:1em;    
+    font-size: 0.8em;
+    font-family: RalewayLight;
+}
+
+.dateNews
+{
+    text-align: center;
+}
+
+.publicado
+{
+    text-align: center;
 }

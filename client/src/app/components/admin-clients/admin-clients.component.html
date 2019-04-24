@@ -1,11 +1,42 @@
-<app-form-clients></app-form-clients>
 
-<div class="containerClients">  
-  <div class="title">CLIENTES</div>  
+
+
+ 
+  <!-- <app-form-clients></app-form-clients> -->
+
+  <div class="containerClients"> 
+    <div class="containerClientsForm">
+      <div class="divContainerFormClients">
+          <div class="titleContainerForm">Administración de Clientes</div>
+        <div class="containerForm">
+          <div class="titleForm"><i class="fas fa-plus"></i>AGREGAR CLIENTE NUEVO</div>
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">    
+            
+            <div class="inputs">
+                <div class="divInput">        
+                    <input type="text" class="inputText" id="name" placeholder="Nombre Cliente" formControlName="name">
+                </div>      
+            <div class="divInputFile">
+                <label for="file-upload" class="custom-file-upload">
+                    Seleccionar Archivo
+                </label>
+                <input id="file-upload" type="file" (change)="onFileChange($event)" #fileInput/>      
+            </div>
+          </div>
+          <div class="divButton">
+            <button type="submit" [disabled]="form.invalid || loading" class="btnGuardar">AGREGAR <i class="fa fa-spinner fa-spin fa-fw" *ngIf="loading"></i></button>
+          </div>  
+          </form>
+        </div>
+        </div>
+
+  <div class="divClientes">
+  <div class="titleContainerForm">Clientes cargados</div>  
     <div class="containerGridClients">
       <div class="gridClients">      
           <div class="client" *ngFor="let client of clients">
           <!-- <div class="nameClient">{{client.clie_name}}</div> -->
+          <button type="button" class="btnDeleteClient" (click)="deleteClient(client.clie_id)"><i class="fa fa-trash-alt"></i></button>
           <div class="divImgClient">          
             <!-- <img src="{{client.clie_name}}" alt="">   -->
             <!-- <img src="../../../../../server/tmp/image.png" alt="">               -->
@@ -13,8 +44,10 @@
           </div>                    
           <!-- <a [routerLink]="['edit', client.clie_id]" class="btn btn-secondary"><i class="fa fa-edit"></i></a>           -->
           <!-- <button type="button" class="btn btn-secondary" (click)="editClient(client)"><i class="fa fa-edit"></i></button> -->
-          <button type="button" class="btn btn-primary" (click)="deleteClient(client.clie_id)"><i class="fa fa-trash-alt"></i></button>
+          
         </div>
       </div>
+      </div>
     </div>
+  </div>
   </div>

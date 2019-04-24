@@ -1,11 +1,26 @@
-<div class="containerNavBarGrid">
+<div class="divNavigationContainer">
+<div id="mySidenav" class="sidenav">    
+    <div class="titleMenu">MENU</div>
+      <a routerLink='/admin/clients' class="itemMenu"><i class="fas fa-chevron-down arrowMenu" ></i>CLIENTES</a>
+      <a routerLink='/admin/novedades' class="itemMenu"><i class="fas fa-chevron-down arrowMenu"></i>NOVEDADES</a>
+      <a routerLink='/admin/logros' class="itemMenu"><i class="fas fa-chevron-down arrowMenu"></i>LOGROS</a>
+      <a routerLink='videos' class="itemMenu"><i class="fas fa-chevron-down arrowMenu"></i>VIDEOS</a>
+      <a routerLink='photos' class="itemMenu"><i class="fas fa-chevron-down arrowMenu"></i>FOTOS</a>
+  </div>
+  
+</div>
+  
+  
+
+
+<!-- <div class="containerNavBarGrid">
     <div class="containerLogo">
       <a routerLink='/index'><img src="../../../assets/img/logo.JPG" alt="" class="logoNavBar"></a>      
     </div>
     <div class="containerNavItems">
       <div class="itemsGrid">                       
         <div class="itemNavBar">
-          <a mat-button routerLink='/admin/clients'>CLIENTES</a>
+          < mat-button routerLink='/admin/clients'>CLIENTES</a>
         </div>              
         <div class="itemNavBar">
           <a mat-button routerLink='/admin/novedades'>{{ "NOVEDADES" | translate}}</a>
@@ -26,4 +41,4 @@
         </div>            
     </div>
   </div>
-  
+   -->

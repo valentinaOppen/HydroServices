@@ -8,6 +8,8 @@ import { Router }  from '@angular/router';
 })
 export class AdminNavigationComponent implements OnInit {
 
+  btnOpen:string = 'true';
+
   constructor(private router: Router) { }
 
   ngOnInit() {
@@ -24,5 +26,16 @@ export class AdminNavigationComponent implements OnInit {
     }
   }
 
+  openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+    this.btnOpen = 'false';
+  }
+  
+  closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+    this.btnOpen = 'true';
+  }
 
 }

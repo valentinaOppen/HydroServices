@@ -58,6 +58,8 @@ import { AdminVideosComponent } from './components/admin-videos/admin-videos.com
 import { AdminPhotosComponent } from './components/admin-photos/admin-photos.component';
 import { FormPhotosComponent } from './components/form-photos/form-photos.component';
 import { FormVideosComponent } from './components/form-videos/form-videos.component';
+import { AdminFooterComponent } from './components/admin-footer/admin-footer.component';
+import { AdminIndexComponent } from './components/admin-index/admin-index.component';
 
 export function HttpLoaderFactory(http:HttpClient)
 {
@@ -96,7 +98,9 @@ export function HttpLoaderFactory(http:HttpClient)
     AdminVideosComponent,
     AdminPhotosComponent,
     FormPhotosComponent,
-    FormVideosComponent    
+    FormVideosComponent,
+    AdminFooterComponent,
+    AdminIndexComponent    
   ],
   imports: [
     BrowserModule,

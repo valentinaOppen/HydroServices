@@ -1,0 +1,64 @@
+.headerAdmin
+{
+    background-color:#DD4343; 
+    position: fixed;
+    width: 100%;
+    color: white;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-areas: "logo . usuario";
+    grid-template-rows: 8vh;
+    z-index: 1;
+}
+
+.usuario
+{
+    background-color:#DD4343;    
+    grid-area: usuario;
+}
+
+.usuarioRight
+{
+    display: flex;
+    height: 100%;
+    width: 90%;
+    margin: auto auto;
+}
+
+.logo
+{
+    background-color:#4D4D4D; 
+    text-align: center;
+    margin: auto auto;
+    width:100%;
+    grid-area:logo;
+    height: 100%;
+}
+
+.imgLogo
+{
+    width: 50px;
+    padding: 0.35em;
+    box-sizing: content-box;
+}
+
+.imgAdmin
+{
+    margin: auto 0;
+    height: 100%;
+}
+
+.textUsuario
+{
+    height: fit-content;
+    margin: auto 0;
+    font-family: RalewayLight;
+    font-size: 0.5em;
+}
+
+.arrow
+{
+    height: fit-content;
+    margin: auto 1em;
+    font-size: 0.5em;
+}
