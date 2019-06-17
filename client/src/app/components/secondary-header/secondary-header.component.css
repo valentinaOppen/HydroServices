@@ -1,0 +1,42 @@
+.principalHeader
+{
+    position:relative;    
+} 
+
+.imgHeader
+{
+    width:100%;
+}
+
+.textHeader
+{
+    position: absolute;
+    color:white;
+    bottom: 2em;
+    left: 2em;
+}
+
+.textHeaderTitle
+{
+    font-family:RalewayReg;
+    font-size:1.6em;
+}
+
+@media screen and (max-width: 500px) 
+{
+    .weatherPrincipal
+    {
+        display: none;
+    }
+
+    .titleHeader
+    {
+        font-size:0.7em;
+    }
+
+    .textHeader
+    {
+        bottom:1em;
+        left:1em;
+    }    
+}

@@ -4,7 +4,7 @@ use Psr\Http\Message\ResponseInterface as Response;
 
 $app->get('/api/videos', function(Request $req, Response $res)
 {    
-    $sql = "SELECT * FROM videos LIMIT 12";
+    $sql = "SELECT * FROM videos LIMIT 3";
     try {
         $db = new db();
         $db = $db->connectDB();

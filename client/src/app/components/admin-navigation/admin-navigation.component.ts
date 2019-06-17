@@ -1,3 +1,4 @@
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { Component, OnInit } from '@angular/core';
 import { Router }  from '@angular/router';
 
@@ -8,7 +9,7 @@ import { Router }  from '@angular/router';
 })
 export class AdminNavigationComponent implements OnInit {
 
-  btnOpen:string = 'true';
+  btnOpen:string = 'true';  
 
   constructor(private router: Router) { }
 

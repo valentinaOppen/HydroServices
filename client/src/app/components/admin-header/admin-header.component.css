@@ -4,8 +4,8 @@
     position: fixed;
     width: 100%;
     color: white;
-    display: grid;
-    grid-template-columns: 20% 60% 20%;
+    display: grid;    
+    grid-template-columns: calc(20% + 1px) 60% 20%;
     grid-template-areas: "logo . usuario";
     grid-template-rows: 8vh;
     z-index: 1;

@@ -1,11 +1,10 @@
-<div class="containerAchievements">  
-  <div class="gridAchievements" *ngFor="let achiv of achiev">
+<div class="containerAchievements" onfocus="activeCounter()">  
+  <div class="gridAchievements" *ngFor="let achiv of achiev" >
     <div class="worksAchiev">
       <div class="divImgAchiv">
           <img src="../../../assets/img/achiev/datos-01.png" alt="" class="imgAchiv">
         </div>
-        <div class="numberAchiev">
-          {{achiv.achiv_works}}
+        <div class="numberAchiev" id="works" counto [step]="33.4" [countTo]="achiv.achiv_works" [countFrom]="0" [duration]="10.02" (countoChange)="this.works = $event" (countoEnd)="onCountoEnd()">{{this.works}}          
         </div>
         <div class="titleAchiev">{{"OBRAS TERMINADAS" | translate}}</div>
       </div>
@@ -13,8 +12,8 @@
       <div class="divImgAchiv">
           <img src="../../../assets/img/achiev/datos-02.png" alt="" class="imgAchiv">
         </div>
-        <div class="numberAchiev">
-          {{achiv.achiv_hours}}
+        <div class="numberAchiev" counto [step]="32" [countTo]="achiv.achiv_hours" [countFrom]="0" [duration]="9.984" (countoChange)="this.hours = $event" (countoEnd)="onCountoEnd()">{{this.hours}}
+          <!-- {{achiv.achiv_hours}} -->
         </div>
         <div class="titleAchiev">{{"HORAS SUMERGIDOS" | translate}}</div>
       </div>
@@ -22,8 +21,7 @@
       <div class="divImgAchiv">
           <img src="../../../assets/img/achiev/datos-03.png" alt="" class="imgAchiv">
         </div>
-        <div class="numberAchiev">
-          {{achiv.achiv_clients}}
+        <div class="numberAchiev" counto [step]="125" [countTo]="achiv.achiv_clients" [countFrom]="0" [duration]="9.375" (countoChange)="this.clients = $event" (countoEnd)="onCountoEnd()">{{this.clients}}          
         </div>
         <div class="titleAchiev">{{"CLIENTES SATISFECHOS" | translate}}</div>
       </div>
@@ -31,8 +29,7 @@
       <div class="divImgAchiv">
           <img src="../../../assets/img/achiev/datos-04.png" alt="" class="imgAchiv">
         </div>
-        <div class="numberAchiev">
-          {{achiv.achiv_years}}
+        <div class="numberAchiev" counto [step]="250" [countTo]="achiv.achiv_years" [countFrom]="0" [duration]="9.25" (countoChange)="this.years = $event" (countoEnd)="onCountoEnd()">{{this.years}}          
         </div>
         <div class="titleAchiev">{{"AÑOS BUCEANDO" | translate}}</div>
       </div>

@@ -17,6 +17,10 @@ export class FormNewsComponent implements OnInit {
   news: News = 
   {
     news_id:0,
+    news_date:null,
+    news_title:'',
+    news_title_eng:'',
+    news_pub:'',
     news_desc:'',
     news_desc_eng:'',
     news_video:'',
@@ -41,7 +45,8 @@ export class FormNewsComponent implements OnInit {
     {                  
       this.newsService.getNew(params.id).subscribe(
         res => {                     
-          this.news = res[0];        
+          this.news = res[0];     
+          this.news.news_video = "https://www.youtube.com/watch?="+this.news.news_video;   
           this.edit = true;
         },
         err => console.error(err)
@@ -50,6 +55,8 @@ export class FormNewsComponent implements OnInit {
       this.form.setValue
       ({
           news_video:this.news.news_video,
+          news_title:this.news.news_title,
+          news_title_eng:this.news.news_title_eng,
           news_img: this.news.news_img,
           news_desc:this.news.news_desc,
           news_desc_eng:this.news.news_desc_eng,
@@ -62,6 +69,8 @@ export class FormNewsComponent implements OnInit {
   {
     this.form = this.fb.group({
       news_video:[''],
+      news_title:[''],
+      news_title_eng:[''],
       news_img:[''],
       news_desc:[''],
       news_desc_eng:[''],
@@ -96,7 +105,10 @@ export class FormNewsComponent implements OnInit {
     this.news.news_img = this.form.get('news_img').value.value;
     this.news.news_desc = this.form.get('news_desc').value;
     this.news.news_desc_eng = this.form.get('news_desc_eng').value;    
-    this.news.news_img_name = this.form.get('news_img_name').value;
+    this.news.news_img_name = this.form.get('news_title').value;    
+    this.news.news_date = new Date();
+    this.news.news_title = this.form.get('news_title').value;
+    this.news.news_title_eng = this.form.get('news_title_eng').value;
     
     console.log(this.news);
 

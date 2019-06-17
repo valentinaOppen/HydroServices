@@ -1,0 +1,191 @@
+.divNavigationContainerMobile
+{
+    display: none;
+}
+
+.containerLogo
+{
+    outline: none;
+}
+
+.containerNavBarGrid
+{
+    display: grid;
+    grid-template-columns: 33% 67%;
+    margin: 1.5em 0.5em 1.5em 1.5em;
+    width:95%;
+}
+
+.logoNavBar
+{
+    width: 68%;
+}
+
+.itemsGrid
+{
+    display: grid !important;
+    grid-template-columns: repeat(8,auto);
+    column-gap: 0.5em;
+}
+
+.fa
+{
+    font-size: 1.6em;
+    margin-left:0.2em;
+    margin-bottom: 0.5em;
+}
+
+.itemLang > a
+{
+    color:#4A95CD !important;
+    font-size:0.47em !important;    
+}
+
+a
+{
+    white-space: nowrap;
+}
+
+.divSelect .Links
+{    
+    width:350px;
+}
+
+.divSelect
+{
+    padding-left:1em;
+}
+
+
+
+
+@media only screen and (max-width: 768px) 
+{
+    .divNavigationContainerMobile
+    {
+        display: grid;
+        grid-template-columns: 60% 40%;
+        height: 9vh;
+    }
+}
+
+
+
+.divImgHeaderMobile
+{
+    width: inherit;
+}
+
+.imgHeaderMobile
+{
+    width:100%;
+    margin:0.5em;
+}
+
+.titleMenuMobile
+{
+    font-size: 1em !important;
+    cursor: pointer;
+    margin: auto 0.4em;
+    color:#4A95CD;    
+    text-align: right;
+}
+    
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    /* top: 9vh; */
+    right: 0;
+    background-color: white;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidenav {
+    position: absolute;
+    /* top: 0;
+    right: 25px; */
+    top: unset;
+    right: 0;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  .closebtn
+  {
+    /* border-bottom: solid 0.5px lightgrey; */
+    text-align: right;
+    margin-right: 1em;
+  }
+
+  .itemNavBarMobile
+  {
+    border-bottom: solid 0.5px lightgrey;
+  }
+  
+  @media screen and (max-width: 500px) 
+  {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+    .containerNavBarGrid
+    {
+        display: none;
+    }
+
+    .titleHeader
+    {
+        font-size:0.7em;
+    }
+
+    .textHeader
+    {
+        bottom:1em;
+        left:1em;
+    }
+
+    .containerWeather
+    {
+        position: relative;
+        margin:0;
+        width:100% !important;        
+    }
+
+    
+    .divSelect
+    {
+      /* font-size:1.4; */
+      text-transform: uppercase;
+      padding-left:0.5em;
+
+    }
+
+    .Links
+    {
+      font-size:1.3em;
+    }
+  } 
+
+
+
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+
+

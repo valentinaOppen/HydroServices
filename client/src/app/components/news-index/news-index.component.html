@@ -1,0 +1,91 @@
+<div *ngIf="this.router.url=='/novedades'">
+  <app-secondary-header></app-secondary-header>
+  </div>
+  
+  <div class="containerNews" id="news">
+      <div class="titleNews" *ngIf="this.router.url=='/index'">{{"NOVEDADES"|translate}}</div>
+      <div class="subtituleNews" *ngIf="this.router.url=='/index'">{{"MIRÁ TODAS LAS NOVEDADES Y VIDEOS" | translate}}</div>
+      <div class="divGridNews">    
+        <div class="gridNewsVideos">
+          <div class="news" *ngFor="let new of newsVideos" (click)="open(content)">       
+              <div class="videoNews" *ngIf="new.news_video && !new.news_img">
+                <div class="btnModal">    
+                    <i class="fab fa-youtube"></i>            
+                    <div class="iframe">  
+                  <img class="imgThumbnail" src={{getUrlImage(new)}} alt="Imagen no disponible">
+                  </div>
+                </div>
+              </div>
+              <div class="videoNews" *ngIf="new.news_img">
+                  <img src="{{new.news_img}}" alt="" class="imgNews">
+              </div>
+              <div class="divDesc">
+                  <div class="desc descEs" *ngIf="this.appService.translate.getDefaultLang()=='es'">{{new.news_title}}</div>
+                  <div class="desc descEn" *ngIf="this.appService.translate.getDefaultLang()=='en'">{{new.news_title_eng}}</div>
+              </div>
+  
+              <ng-template #content let-modal>          
+                  <div class="modal-body">
+                    <div class="divImgModal">                      
+                          <div class="videoNews" *ngIf="new.news_video">
+                            <div class="divIframeModal">
+                              <iframe [src]="getEmbedUrl(new)" frameborder="0" allowfullscreen></iframe>                                               
+                            </div>
+                          </div>                         
+                        <div class="videoNews" *ngIf="new.news_img">
+                            <img src="{{new.news_img}}" alt="" class="imgNews">
+                        </div>                
+                    </div>
+                    <div class="divTitleModal">
+                        <div class="titleModal descEs" *ngIf="this.appService.translate.getDefaultLang()=='es'">{{new.news_title}}</div>
+                        <div class="titleModal descEn" *ngIf="this.appService.translate.getDefaultLang()=='en'">{{new.news_title_eng}}</div>
+                    </div>
+                    <div class="descrModal" *ngIf="this.appService.translate.getDefaultLang()=='es'"><p>{{new.news_desc}}</p></div>            
+                    <div class="descrModal" *ngIf="this.appService.translate.getDefaultLang()=='en'"><p>{{new.news_desc_eng}}</p></div>            
+                  </div>
+                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span class="btnClose">{{"CERRAR" | translate}}</span><span class="btnCloseCross">&times;</span>
+                  </button>
+                </ng-template> 
+  
+          </div>  
+        </div>  
+      </div>
+      <div *ngIf="this.router.url!='/novedades'" routerLink='/novedades' class="btnMostrarMas">{{"CARGAR MAS NOVEDADES" | translate}}</div>
+    </div>
+    
+    <!-- <app-footer></app-footer> -->
+    
+  
+  
+  
+  
+  <!-- <div class="containerNews" id="news">
+    <div class="titleNews">{{"NOVEDADES"|translate}}</div>
+    <div class="subtituleNews">{{"MIRÁ TODAS LAS NOVEDADES Y VIDEOS" | translate}}</div>
+    <div class="divGridNews">    
+      <div class="gridNewsVideos">
+        <div class="news" *ngFor="let new of newsVideos">       
+            <div class="videoNews">
+              <iframe [src]="getEmbedUrl(new)" frameborder="0" allowfullscreen></iframe>                   
+            </div>
+            <div class="divDesc">
+                <div class="desc descEs" *ngIf="this.appService.translate.getDefaultLang()=='es'">{{new.news_desc}}</div>
+                <div class="desc descEn" *ngIf="this.appService.translate.getDefaultLang()=='en'">{{new.news_desc_eng}}</div>
+            </div>
+        </div>  
+      </div>  
+      <div class="gridNewsImgs">
+        <div class="news" *ngFor="let new of newsImgs">          
+          <div class="videoNews">
+            <img src="{{new.news_img}}" alt="" class="imgNews">
+          </div>
+          <div class="divDesc">
+              <div class="desc descEs" *ngIf="this.appService.translate.getDefaultLang()=='es'">{{new.news_desc}}</div>
+              <div class="desc descEn" *ngIf="this.appService.translate.getDefaultLang()=='en'">{{new.news_desc_eng}}</div>
+          </div>
+        </div>      
+      </div>    
+    </div>
+  </div> -->
+  

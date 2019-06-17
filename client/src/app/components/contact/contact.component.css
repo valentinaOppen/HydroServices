@@ -8,7 +8,7 @@ div
     background-color:#4A95CD;
     color:white;        
     text-align:center;
-    padding:2em 0 1em 0;
+    padding:4em 0 2em 0;
 }
 
 .titleContact
@@ -30,14 +30,14 @@ div
     width:80%;
     display: grid;
     grid-template-columns: 30% 30% 40%;
-    grid-template-rows: auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto;
     row-gap:0.5em;
     column-gap: 1em;
     grid-template-areas: 
     "inputName inputEmail map"
     "inputPhone inputSubject map"
     "textarea textarea map"
-    "btn . map"
+    "btn captcha map"        
 }
 
 input
@@ -48,6 +48,13 @@ input
     border: solid white 1px;
     width: 100%;
     height: 50px;
+    padding-left:1em;
+    border-radius: 0;
+}
+
+textarea
+{
+    border-radius: 0;
 }
 
 button
@@ -63,16 +70,50 @@ button
 .buttons
 {
     grid-area: btn;
-    display: flex;
+    display: inline;
+}
+
+.btnContact
+{
+    transition:.3s;
+}
+
+.btnContact:hover
+{
+    background-color: #193A54;
+    color: #FFFFFF;
 }
 
 ::-webkit-input-placeholder 
 {
     color: white;    
-    padding-left:1em;
+    /* padding-left:1em; */
     margin:auto auto;
 }
 
+::-webkit-textarea-placeholder 
+{    
+    padding-top:1em;    
+}
+
+::-moz-placeholder
+{
+    color: white;    
+    /* padding-left:1em; */
+    /* margin:auto auto; */
+    /* padding:5% 5%;
+    margin-left:5%; */
+    /* text-indent: 5% !important; */
+}
+
+  textarea::-moz-placeholder {
+    color: white;    
+    /* padding-left:1em; */
+    /* padding:5% 5%;
+    margin-left:5%; */
+    /* margin:auto auto; */
+    /* text-indent: 5% !important; */
+  }
 
 .name
 {
@@ -108,6 +149,8 @@ textarea
     border:solid white 1px;
     font-family:RalewayLight;
     font-size:0.5em;
+    padding-left:1em;
+    padding-top:0.6em;
 }
 
 .delete
@@ -121,11 +164,29 @@ textarea
     grid-area:btnSend;
     justify-self: right;
 }
+
+.msgEnviado 
+{
+    font-size:0.55em !important;        
+    text-align: left;
+    margin: 0.5em 0 0 0.3em;
+}
+
+.captchaRobot
+{
+    grid-area: captcha;
+}
+
 .mapContact
 {
     grid-area:map;
     display: block;
     width: 100%;
+}
+
+.mapContact iframe
+{
+    border:none;
 }
 
 img{
@@ -140,4 +201,69 @@ iframe{
 .place-card .place-card-medium
 {
     display: none;
+}
+
+.ErrorRobot
+{
+    color:#901111;   
+    font-size: 0.5em;
+    text-align: left;
+}
+
+@media screen and (max-width: 500px) 
+{
+    .containerContact
+    {
+        padding:2em 1em 1em 1em;
+    }
+
+    .gridContact
+    {
+        display: unset;
+    }
+
+    .inputText
+    {
+        margin-bottom: 0.5em;
+    }
+
+    .name
+    {
+        margin-top:1em;
+    }
+
+    .buttons
+    {
+        margin: 1em 0.5em;
+    }
+
+    .delete
+    {
+        margin-right: 5%;
+    }
+
+    .buttons
+    {
+        height: 35px;
+    }
+
+    iframe
+    {
+        border:none;
+    }
+
+    .mapContact
+    {
+        margin-top: 1.5em;
+    }
+
+    .fa-facebook
+    {
+        margin-right: 0.1em;
+    }
+
+    .textLeftFooterMM
+    {
+        text-align: center;
+    }
 }

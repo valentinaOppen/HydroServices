@@ -1,18 +1,21 @@
+::-webkit-inner-spin-button { display: none; }
 
 .titleNews
 {
     text-align: left;
     color: #DD4343;
-    margin-bottom: 1em;
+    /* margin-bottom: 1em; */
     width: 95%;
 }
 
 .containerNewsAdmin
 {
-   position: absolute;    
-   top:10vh;
-   left:20%;
-   margin:1em;
+    width: 80%;
+    float: right;
+    clear: none;
+    padding: 1em;
+    margin-top: 8vh;
+    border-left: solid 1px #EAEAEA;
 }
 
 .news
@@ -34,12 +37,14 @@
 {
     text-align: center;
     font-size: 0.6em;
+    margin:auto auto;
 }
 
 .pub
 {
     text-align: center;
     font-size: 0.6em;
+    margin: auto auto;
 }
 
 .desc
@@ -133,12 +138,14 @@
     grid-template-rows: auto auto;
     grid-template-areas: "title date ."
     "fieldTitle fieldDate btn";
-    width:70%;
+    width:100%;
 }
 
 .btnBuscar
 {
-    grid-area: btn;
+    grid-area: fieldDate;
+    text-align: right;
+    font-size:0.6em;
 }
 
 .buscar
@@ -173,7 +180,7 @@
     font-family: RalewayLight;
     padding: 0.5em;
     padding-left: 1em;
-    margin-top: 0.5em;
+    /* margin-top: 0.5em; */
 
 }
 
@@ -188,7 +195,7 @@
 
 .containerNews
 {
-    margin-top:1em;    
+    /* margin-top:1em;     */
     font-size: 0.8em;
     font-family: RalewayLight;
 }
@@ -201,4 +208,10 @@
 .publicado
 {
     text-align: center;
+}
+
+.divBtn
+{
+    text-align: right;
+    margin: auto auto;
 }

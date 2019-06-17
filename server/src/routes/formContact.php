@@ -16,7 +16,7 @@ $mail = new PHPMailer(true);
 
 
     $app->POST('/api/contact', function(Request $req, Response $res)
-    { 
+    {         
         $nombre = $req->getParam('name');
         $email = $req->getParam('email');
         $telef = $req->getParam('phone');
@@ -32,7 +32,7 @@ $mail = new PHPMailer(true);
             $mail->Host       = 'smtp.gmail.com';  // Specify main and backup SMTP servers
             $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
             $mail->Username   = 'hydroservice.div@gmail.com';                     // SMTP username
-            $mail->Password   = 'hydro2019';                               // SMTP password
+            $mail->Password   = 'hydro#2019$';                               // SMTP password
             $mail->SMTPSecure = 'tls';                                  // Enable TLS encryption, `ssl` also accepted
             $mail->Port       = 587;                                    // TCP port to connect to
         
@@ -43,7 +43,7 @@ $mail = new PHPMailer(true);
         
             // Content
             $mail->isHTML(true);                                  // Set email format to HTML
-            $mail->Subject = 'Here is the subject';
+            $mail->Subject = "Contacto WEB:" . $asunto;
             
             $body = 
             "<br/>Nombre: "  . $nombre    . 

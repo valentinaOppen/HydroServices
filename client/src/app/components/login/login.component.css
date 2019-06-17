@@ -1,3 +1,9 @@
+.divContainer
+{
+    width: 91vh;
+    margin: 2em auto;
+}
+
 .headerLogin
 {
     color: #DD4343;    
@@ -8,7 +14,7 @@
 .imgLogo
 {
     width:fit-content;
-    margin:1em auto;
+    margin:1vh auto;
     padding-top:3%;
     text-align: center;
 }
@@ -17,8 +23,8 @@
     background-color:#4C4C4C;
     color:#B4B4B4;
     /* padding:2em;     */
-    width: 45%;
-    margin:auto auto;
+    /* width: 45%; */
+    margin:2em auto;
     font-size: 0.6em;
 }
 
@@ -27,6 +33,7 @@
     padding:2em 1em 1em 1em;
     width: fit-content;
     margin:auto auto;
+    font-family: ralewayLight;
 }
 
 .inputWithIcon

@@ -11,6 +11,7 @@ export class NewsService
 {
 
   API_URI = 'http://localhost:8080/HydroServices/server/public/api';
+  // API_URI = 'http://www.hydroservices.com.ar/server/public/api';
   
   constructor(private http:HttpClient) { }
 
@@ -24,6 +25,16 @@ export class NewsService
     return this.http.get(`${this.API_URI}/news`);    
   }
 
+  getNewsTop3()
+  {
+    return this.http.get(`${this.API_URI}/newsTop3`);    
+  }
+
+  getNewsMultimedia()
+  {
+    return this.http.get(`${this.API_URI}/newsMultimedia`);
+  }
+
   getNewsVideos()
   {    
     return this.http.get(`${this.API_URI}/newsVideos`);    
@@ -32,6 +43,21 @@ export class NewsService
   getNewsImgs()
   {    
     return this.http.get(`${this.API_URI}/newsImages`);    
+  }
+
+  getNewsFor(title:string)
+  {
+    return this.http.get(`${this.API_URI}/news/getFor/${title}`);    
+  }
+
+  getTitles()
+  {
+    return this.http.get(`${this.API_URI}/newsTitles`);    
+  }
+
+  getTitlesEng()
+  {
+    return this.http.get(`${this.API_URI}/newsTitlesEng`);    
   }
 
   saveNews(news:News)
@@ -44,5 +70,9 @@ export class NewsService
     return this.http.put(`${this.API_URI}/news/edit/${id}`, news);    
   }
 
+  deleteNews(id:number)
+  {
+    return this.http.delete(`${this.API_URI}/news/delete/${id}`);    
+  }
 
 }

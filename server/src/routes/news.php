@@ -3,7 +3,6 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 
 
-
 $app->get('/api/news', function(Request $req, Response $res)
 {    
     $sql = "SELECT * FROM news";
@@ -53,6 +52,32 @@ $app->get('/api/new/{id}', function(Request $req, Response $res)
     }
 });
 
+// $app->getFor('/api/new/{title,date}', function(Request $req, Response $res)
+// {    
+//     $title = $req->getAttribute('title');
+//     $date = $req->getAttribute('date');
+    
+//     $sql = "SELECT * FROM news WHERE news_title='$title'";    
+//     try {
+//         $db = new db();
+//         $db = $db->connectDB();
+//         $result = $db->query($sql);
+//         if($result->rowCount() > 0)
+//         {
+//             $news = $result->fetchAll(PDO::FETCH_OBJ);
+//             echo utf8_decode(json_encode($news));
+//         }
+//         else{
+//             echo json_encode("No existen novedades en la base de datos");
+//         }
+
+//         $resultado = null;
+//         $db = null;
+//     } catch (PDOException $e) {
+//         echo '{"error : {"text:'.$e->getMessage().'}';
+//     }
+// });
+
 $app->get('/api/newsVideos', function(Request $req, Response $res)
 {    
     $sql = "SELECT * FROM news WHERE news_video != ''";
@@ -99,13 +124,63 @@ $app->get('/api/newsImages', function(Request $req, Response $res)
     }
 });
 
+$app->get('/api/newsTitles', function(Request $req, Response $res)
+{    
+    $sql = "SELECT news_title FROM news";
+    try {
+        $db = new db();
+        $db = $db->connectDB();
+        $result = $db->query($sql);
+        if($result->rowCount() > 0)
+        {
+            $news = $result->fetchAll(PDO::FETCH_OBJ);
+            echo utf8_decode(json_encode($news));
+        }
+        else{
+            echo json_encode("No existen novedades en la base de datos");
+        }
+
+        $resultado = null;
+        $db = null;
+    } catch (PDOException $e) {
+        echo '{"error : {"text:'.$e->getMessage().'}';
+    }
+});
+
+$app->get('/api/newsTitlesEng', function(Request $req, Response $res)
+{    
+    $sql = "SELECT news_title_eng FROM news";
+    try {
+        $db = new db();
+        $db = $db->connectDB();
+        $result = $db->query($sql);
+        if($result->rowCount() > 0)
+        {
+            $news = $result->fetchAll(PDO::FETCH_OBJ);
+            echo utf8_decode(json_encode($news));
+        }
+        else{
+            echo json_encode("No existen novedades en la base de datos");
+        }
+
+        $resultado = null;
+        $db = null;
+    } catch (PDOException $e) {
+        echo '{"error : {"text:'.$e->getMessage().'}';
+    }
+});
+
 $app->POST('/api/news/savenews', function(Request $req, Response $res)
 {        
+    $date = $req->getParam('news_date');
+    $title = $req->getParam('news_title');
+    $title_eng = $req->getParam('news_title_eng');
     $desc = $req->getParam('news_desc');
     $desc_eng = $req->getParam('news_desc_eng');
     $video = $req->getParam('news_video');
     $data = $req->getParam('news_img');   
-    $img_name = $req->getParam('news_img_name');
+    $img_name = $req->getParam('news_title');
+    $pub = "no";
 
     if (preg_match('/^data:image\/(\w+);base64,/', $data, $type)) {
         $data = substr($data, strpos($data, ',') + 1);
@@ -124,12 +199,17 @@ $app->POST('/api/news/savenews', function(Request $req, Response $res)
         throw new \Exception('did not match data URI with image data');
     }
 
-    $urlImage = "../../../assets/NewsImgs/".$img_name.".".$type;
-    
-    file_put_contents('C:\xampp\htdocs\HydroServices\client\src\assets\NewsImgs\\'.$img_name.'.'.$type, $data);
-    
-    $sql = "INSERT INTO news (news_desc, news_desc_eng, news_video, news_img, news_img_name) VALUES ('$desc', '$desc_eng', '$video', '$urlImage', '$img_name')";        
+    $img_name = str_replace(' ','',$img_name);
 
+    $urlImage = "../../../assets/NewsImgs/".$img_name.".".$type;    
+
+    file_put_contents('C:\xampp\htdocs\HydroServices\client\src\assets\NewsImgs\\'.$img_name.'.'.$type, $data);    
+    
+    $sql = "INSERT INTO news (news_date, news_title, news_title_eng, news_desc, news_desc_eng, news_video, news_img, news_img_name) 
+    VALUES (now(), '$title', '$title_eng', '$desc', '$desc_eng', '$video', '$urlImage', '$img_name')";        
+    // $sql = "INSERT INTO news VALUES ('', $date', '$title', '$title_eng', 'no', $desc', '$desc_eng', '$video', '$urlImage', '$img_name')";
+
+    echo $sql;
     try {
         $db = new db();
         $db = $db->connectDB();        

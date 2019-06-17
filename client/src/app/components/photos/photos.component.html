@@ -1,4 +1,4 @@
-<app-principal-header></app-principal-header>
+<app-secondary-header></app-secondary-header>
 <div class="containerPhotos" id="photos">
     <!-- <div class="titlePhotos">{{"FOTOS"|translate}}</div>
     <div class="subtitulePhotos">{{"IMAGENES DE ALGUNOS TRABAJOS" | translate}}</div>     -->
@@ -14,7 +14,7 @@
                 <img src="{{photo.photo_url}}" alt="" class="imgModal">                    
             </div>
             <div class="descr" *ngIf="this.appService.translate.getDefaultLang()=='es'"><p>{{photo.photo_desc}}</p></div>            
-            <div class="descr" *ngIf="this.appService.translate.getDefaultLang()=='en'"><p>{{photo.phto_desc_eng}}</p></div>            
+            <div class="descr" *ngIf="this.appService.translate.getDefaultLang()=='en'"><p>{{photo.photo_desc_eng}}</p></div>            
           </div>
           <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span class="btnClose">{{"CERRAR" | translate}}</span><span class="btnCloseCross">&times;</span>
@@ -25,6 +25,6 @@
     <div class="btnMostrarMas" (click)="getPhotosAll()" *ngIf="this.enableBtn=='true'">{{"CARGAR MAS IMAGENES" | translate}}</div>            
     <div class="btnMostrarMas" (click)="getPhotos()" *ngIf="this.enableBtn=='false'">{{"CARGAR MENOS IMAGENES" | translate}}</div>            
 </div>
-
+<app-footer></app-footer>
 
   

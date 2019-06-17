@@ -53,6 +53,12 @@ a
 {
     min-width: 350px !important;
     max-width: unset !important;
+    border-radius: 0 !important;
+}
+
+.linksPanelMultimedia
+{
+    border-radius: 0 !important;
 }
 
 .mat-button-wrapper
@@ -65,7 +71,7 @@ a
 
 .mat-button
 {
-    padding:0 !important;
+    padding:0 0 !important;
 }
 
 .mat-button-focus-overlay 
@@ -112,4 +118,71 @@ a
     margin:auto auto;
     width:90%;
     height: 100vh;
+    border-radius: 0 !important;
+    border: none !important;
+}
+
+
+  
+@media screen and (max-width: 500px) 
+{   
+
+    .modalMultimedia .modal
+    {
+        height: 40%;
+        top:30%;
+    }
+
+    .modalMultimedia .modal-dialog
+    {        
+        width: 100vw;
+        /* margin:auto; */
+        margin:30% auto;
+        height: 50vh;
+    }
+
+    .modalMultimedia .modal-body
+    {
+        /* width:75vw !important; */
+        width:100% !important;
+        max-width: unset !important;
+        margin: auto;
+        padding-bottom:0rem;
+    }
+
+    .modalMultimedia .modal-content
+    {
+        margin:auto auto;
+        width:100%;
+        height: 100vh;
+    }
+
+    .linksPanelMultimedia
+    {
+        min-width: 280 !important;
+        max-width: unset !important;
+    }
+
+}
+
+.mat-expansion-panel-body 
+{    
+    font-family: ralewayReg !important; 
+}
+
+.mat-expansion-indicator::after, .mat-expansion-panel-header-description 
+{
+    color:white;
+    width:10%;
+}
+
+.mat-expansion-indicator .ng-tns-c13-5 .ng-trigger .ng-trigger-indicatorRotate .ng-star-inserted
+{
+    width:10% !important;
+    color:white !important;
+}
+
+.mat-expansion-panel-header
+{
+    margin-right:0.5em;
 }

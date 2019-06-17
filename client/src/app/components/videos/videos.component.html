@@ -1,10 +1,11 @@
-<app-principal-header></app-principal-header>
+<app-secondary-header></app-secondary-header>
 <div class="containerPhotos" id="photos">    
     <div class="gridPhotosImgs">      
-      <div class="divPhoto" *ngFor="let video of videos" (click)="open(content)">                                           
+      <div class="imgThumbnail" *ngFor="let video of videos" (click)="open(content)">                                           
         <div class="btnModal">
-          <div class="iframe">
-            <iframe [src]="getEmbedUrl(video)" frameborder="0" allowfullscreen></iframe>                   
+            <i class="fab fa-youtube"></i>
+          <div class="iframe">              
+              <img class="imgThumbnail" src={{getUrlImage(video)}} alt="Imagen no disponible">            
           </div>       
         </div>
         <ng-template #content let-modal>
@@ -24,6 +25,7 @@
     <div class="btnMostrarMas" (click)="getVideosAll()" *ngIf="this.enableEdit=='true'">{{"CARGAR MAS VIDEOS" | translate}}</div>            
     <div class="btnMostrarMas" (click)="getVideos()" *ngIf="this.enableEdit=='false'">{{"CARGAR MENOS VIDEOS" | translate}}</div>                  
 </div>
+<app-footer></app-footer>
 
 
 

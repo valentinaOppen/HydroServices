@@ -17,7 +17,7 @@ div
 {
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
-    padding: 1.4em 1.3em 1.4em 1.3em;  
+    padding: 1.4em 1.3em 1.4em 1.3em;      
 }
 
 .numberAchiev
@@ -31,4 +31,23 @@ div
     font-family:RalewayLight;
     word-wrap: break-word;
     word-spacing: 1000px;    
+}
+
+
+@media screen and (max-width: 500px) 
+{
+    .gridAchievements
+    {
+        grid-template-columns: 50% 50%;
+    }
+
+    .divImgAchiv
+    {
+        display: none;
+    }
+
+    .titleAchiev
+    {
+        font-family: RalewayThin;
+    }
 }

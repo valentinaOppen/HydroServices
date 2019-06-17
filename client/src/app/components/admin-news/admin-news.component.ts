@@ -13,6 +13,7 @@ export class AdminNewsComponent implements OnInit {
   // newsVideos: any =[];
   // newsImgs: any =[];
     news: any = [];
+    filterNews:string = "";
 
 
   constructor(private newsService: NewsService,
@@ -22,10 +23,14 @@ export class AdminNewsComponent implements OnInit {
   ngOnInit() 
   {
     this.getNews();
-    // this.getNewsVideos();    
-    // this.getNewsImgs();
-    // console.log(this.newsVideos);
-    // console.log(this.newsImgs);
+    document.getElementById('arrowNews').className="fas fa-chevron-right arrowMenu";  
+    document.getElementById('newsLink').className="itemMenu linkSelected";  
+  }
+
+  ngOnDestroy()
+  {
+    document.getElementById('arrowNews').className="fas fa-chevron-down arrowMenu";  
+    document.getElementById('newsLink').className="itemMenu";  
   }
 
   getNews()
@@ -33,11 +38,32 @@ export class AdminNewsComponent implements OnInit {
     this.newsService.getNews().subscribe(
       res => this.news = res,
       err => console.error(err)
-    );   
+    );       
+  }
+
+  showForm()
+  {
+    document.getElementById('divFormAddNew').style.display="unset";
+    document.getElementById('divBtnAgregarNovedad').style.display="none";    
+    document.getElementById('divBtnAgregarNovedadOcultar').style.display="unset";
+  }
+
+  hideForm()
+  {
+    document.getElementById('divFormAddNew').style.display="none";
+    document.getElementById('divBtnAgregarNovedad').style.display="unset";    
+    document.getElementById('divBtnAgregarNovedadOcultar').style.display="none";
   }
 
   deleteNew(id)
-  {
+  { 
+    this.newsService.deleteNews(id).subscribe
+    (res => 
+      {
+        this.getNews();     
+      },
+      err=> console.error(err)
+    );
     
   }
 

@@ -1,0 +1,272 @@
+div
+{
+    display:block;
+}
+
+.containerNews
+{
+    padding:4em 0 2em 0;
+}
+
+.fa-youtube
+{
+    position: absolute;
+    font-size: 2.5em;    
+    padding: 18% 40%;
+    /* width: 20%;
+    height: 30%;
+    top: 35%;
+    left: 40%; */
+}
+
+.fa-youtube:hover
+{
+    color: red;
+}
+
+.titleNews
+{
+    color:#A3C9DA;  
+    /* padding-top: 2em; */
+    text-align: center;
+    font-size: 1.4em;
+    font-family: RalewayLight;  
+}
+
+.subtituleNews
+{
+    color:#3B78A2;
+    text-align: center;
+    font-size: 0.6em;
+    font-family: RalewayBold;
+}
+
+.desc
+{
+    font-size:0.7em;
+    color:#3874A0;
+    padding: 0.4em;
+}
+
+.gridNewsVideos
+{    
+    padding: 2em 2em 0em 2em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.gridNewsImgs
+{
+    padding:0em 2em 2em 2em;    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.news{
+    padding:0.5em;  
+    /* width: 33.3%; */
+    display: inline-block;
+    /* -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s;
+    -webkit-transition-property: transform;
+    transition-property: transform; */
+}
+
+.imgNews
+{
+    display: inline-block;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+}
+
+.imgNews:hover
+{
+    transform: scale(1.035);
+}
+
+.videoNews{
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+}
+
+.iframe
+{
+    z-index: -1000000;
+    position: relative;
+    width: fit-content;
+    height: fit-content;     
+}
+
+.imgThumbnail
+{
+    width: 100%;
+    margin-top: 0;    
+    position: relative;
+}
+
+
+iframe
+{
+    width: inherit;
+    height: inherit;
+}
+
+.divIframeModal
+{
+    position: absolute;
+    width: 100%;
+    height: 100%; 
+}
+
+img
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;     
+}
+
+.btnMostrarMas
+{
+    background-color:white;
+    border:solid #558CB1 2px;
+    border-radius: 0%;
+    color:#558CB1;
+    padding:0.5em 7vw;
+    font-family:RalewayLight;
+    width:fit-content;
+    margin: 1em auto 0em auto;
+    font-size:0.6em;
+    transition:.3s;
+}
+
+.btnMostrarMas:hover
+{
+    background-color: #193A54;
+    color: #FFFFFF;
+    cursor: pointer;
+    border:solid #193A54 2px;
+}
+
+
+.modal-dialog 
+{
+    max-width:unset !important;
+    width: 75vw !important;    
+}
+
+.modal-header
+{
+    border:none !important;
+}
+
+.modal-body
+{
+    font-family: RalewayReg;
+    font-size: 0.5em;
+    color: #4A92AC;
+    max-width:800px !important;
+}
+
+
+.descr
+{
+    width: 90%;
+    margin: 2% auto;
+}
+
+.btnClose
+{
+    font-size: 0.35em;
+    margin-bottom: 0.6em !important;
+    color: #4A92AC;
+}
+
+.btnCloseCross
+{
+    font-size: 0.5em;
+    padding-left: 0.5em;
+    color: #4A92AC;
+}
+
+
+.close
+{
+    padding-bottom:2vh;
+    border:none !important;
+    width:fit-content ;
+    margin-bottom: 0.2em;
+    outline: none !important;    
+    position: absolute;
+    bottom: 0;
+    right: 50px;
+}
+
+/* .closeTitle
+{
+    margin-right:1em;
+}
+
+.divImgModal
+{
+    text-align: center;
+    height: 70%;
+    margin-top: 3%;
+}
+
+.imgModal
+{
+    width: 90%;
+    height: 100%;
+    
+} */
+
+
+
+.btnModal
+{
+    width: 100%;
+    /* height: 100% !important; */
+    position: relative;
+
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+}
+
+.btnModal:hover
+{
+    transform: scale(1.05);
+}
+
+.titleModal
+{
+    margin: 0.4em 0.2em;
+    font-size: 1.2em;
+    font-family: RalewayBold;
+}
+
+.descrModal
+{
+    margin-left: 0.25em;
+}
+
+@media screen and (max-width: 500px) 
+{
+    .gridNewsVideos
+    {
+        grid-template-columns: 100%;
+        padding: 1em 0.5em 0em 0.5em;
+    }
+}

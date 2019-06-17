@@ -25,7 +25,16 @@ export class AchievementsComponent implements OnInit
   ngOnInit() 
   {
     this.getAchievs();
+    document.getElementById('arrowAchiev').className="fas fa-chevron-right arrowMenu"; 
+    document.getElementById('logrosLink').className="itemMenu linkSelected";  
   }
+
+  ngOnDestroy()
+  {
+    document.getElementById('arrowAchiev').className="fas fa-chevron-down arrowMenu";  
+    document.getElementById('logrosLink').className="itemMenu";  
+  }
+
 
   getAchievs()
   {

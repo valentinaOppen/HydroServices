@@ -1,7 +1,8 @@
+import { NavigationComponent } from './../navigation/navigation.component';
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
-import { ActivatedRoute } from '@angular/router';
+import { Router, RouterModule, ActivatedRoute } from '@angular/router';
 import { AppService } from '../../services/appService.service';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-index',
@@ -10,43 +11,51 @@ import { AppService } from '../../services/appService.service';
 })
 export class IndexComponent implements OnInit {
   
+  link:string;
   language:string;
-  constructor(public route:ActivatedRoute, public appService:AppService) { }
+  redirect:boolean = true;
+  constructor(public route:ActivatedRoute, 
+              public router:Router, 
+              public appService:AppService, 
+              private navigation:NavigationComponent,
+              private location:Location) { }
 
   ngOnInit() 
+  {    
+    this.link = this.route.snapshot.params.link;   
+  }    
+
+  ngAfterViewInit()
   {
-    let lang = +this.route.snapshot.paramMap.get('lang');     
-
-    if(lang == 1)
+     
+    if(this.redirect)
     {
-      console.log("EN");
-      this.appService.translate.setDefaultLang('en');
-      // lang = 0;
-      // location.reload();
-    }
-
-    if(lang == 2)
-    {
-      console.log("ES");
-      this.appService.translate.setDefaultLang('es');
-      // lang = 0;
-      // location.reload();
-    }
-    // if(lang== "ES")
-    // {
-    //   console.log("IF 2");
-    //   if(this.appService.translate.getDefaultLang()=='es')
-    //   {
-    //     console.log("ESP");
-    //     this.appService.translate.setDefaultLang('en');
-    //   }
-    //   else
-    //   {
-    //     console.log("ENG");
-    //     this.appService.translate.setDefaultLang('es');
-    //   }
-    // }
-    // console.log(lang);    
+      this.redirectDiv();
+    }    
   }
+
+  public redirectDiv()
+    {
+      // if(this.redirect)
+      // {
+        switch(this.link)
+        {
+          case 'services':
+          // this.navigation.divServices();   
+          document.getElementById('btnServices').click();
+          this.redirect = false;
+          this.location.replaceState('index');
+          break;
+          case 'clients':this.navigation.divClients();
+          this.redirect = false;
+          this.location.replaceState('index');
+          break;
+          case 'contact':this.navigation.divContact();
+          this.redirect = false;
+          this.location.replaceState('index');
+          break;      
+        }
+      // }
+    }
 
 }

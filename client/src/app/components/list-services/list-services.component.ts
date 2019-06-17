@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ServicesService } from '../../services/services.service';
 import { AppComponent } from '../../app.component';
@@ -20,7 +21,8 @@ export class ListServicesComponent implements OnInit
   constructor(private servicesService:ServicesService,
               private appComponent:AppComponent,
               public appService:AppService,
-              private modalService: NgbModal) 
+              private modalService: NgbModal,
+              private route:Router) 
   { 
     this.appService.language.subscribe(value => {
       this.lang = value;
@@ -29,6 +31,7 @@ export class ListServicesComponent implements OnInit
 
   language:string;
   closeResult: string;
+  description:string = "false";
   
 
   ngOnInit() 
@@ -36,6 +39,22 @@ export class ListServicesComponent implements OnInit
     // this.language = this.appComponent.languageSelected;   
     this.language = this.appComponent.translate.getDefaultLang();     
     this.getServices();    
+    // console.log(this.route.url);
+    // if(this.route.url=='/index/services')
+    // {
+    //   this.divServices();
+    // }
+  }
+
+  divServices()
+  {    
+    var ubic = document.getElementById('services').offsetTop;  
+    console.log("services"+document.getElementById('services').offsetTop)  
+    window.scrollTo(
+      {
+         top: ubic,
+         behavior: "smooth"
+    });    
   }
   
   getServices()
@@ -46,12 +65,25 @@ export class ListServicesComponent implements OnInit
     );        
   }
 
+  showDescription()
+  {
+    this.description = "true";
+  }
+
+  hideDescription()
+  {
+    this.description = "false";
+  }
+
   open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
+    if(window.innerWidth >= 500) 
+    {
+      this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+        this.closeResult = `Closed with: ${result}`;
+      }, (reason) => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      });
+    }    
   }
 
   private getDismissReason(reason: any): string {

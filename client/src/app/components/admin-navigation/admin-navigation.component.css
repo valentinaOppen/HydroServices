@@ -1,18 +1,17 @@
 .sidenav {
     height: 100vh;
-    width: 20%;
-    position: fixed;
-    z-index: -1;
-    top: 8vh;
-    left: 0;
+    width: 20%;    
+    z-index: -1;    
     background-color: white;
     overflow-x: hidden;
     transition: 0.5s;
-    padding-top: 5vh;
-    border-right: solid 1px #EAEAEA;
+    padding-top: 5vh;    
     font-family: RalewayReg;
     font-size:0.8em;
-    color:#808080;    
+    color:#808080;   
+    clear:none;
+    float:left;
+    margin-top:8vh; 
   }
   
   .sidenav a {
@@ -64,6 +63,12 @@
   .arrowMenu
   {
     margin-right:1em;
+  }
+
+  .linkSelected
+  {
+      color:#DD4343 !important;
+      padding-left:15% !important;
   }
 
 /* .containerNavBarGrid

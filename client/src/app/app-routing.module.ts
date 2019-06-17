@@ -22,6 +22,7 @@ import { AdminPhotosComponent } from './components/admin-photos/admin-photos.com
 import { FormPhotosComponent } from './components/form-photos/form-photos.component';
 import { FormVideosComponent } from './components/form-videos/form-videos.component';
 import { AdminIndexComponent } from './components/admin-index/admin-index.component';
+import { NewsComponent } from './components/news/news.component';
 
 const routes: Routes = [
   { 
@@ -29,25 +30,34 @@ const routes: Routes = [
     redirectTo: '/index', 
     pathMatch: 'full' 
   },
+  { 
+    path: 'admin', 
+    redirectTo: 'admin/index', 
+    pathMatch: 'full' 
+  },
   {
     path:'index',
     component: IndexComponent
   },
   {
-    path:'index/:lang',
+    path:'index/:link',
     component: IndexComponent,    
   },
   {
     path:'services',
-    component:ListServicesComponent
+    component:IndexComponent
   },
   {
     path:'clients',
     component: ClientsListComponent
   },
   {
+    path:'novedades',
+    component: NewsComponent
+  },
+  {
     path:'contact',
-    component: ContactComponent
+    component: IndexComponent
   },
   {
     path:'videos',
@@ -64,7 +74,7 @@ const routes: Routes = [
   {
     path:'admin',
     component:AdminComponent,
-    // canActivate: [ AuthService ],    
+    canActivate: [ AuthService ],    
     children:[
     {
       path:'index',
@@ -73,57 +83,57 @@ const routes: Routes = [
     {
       path:'clients',
       component:AdminClientsComponent
-      //,canActivate: [ AuthService ]     
+      ,canActivate: [ AuthService ]     
     },
     {
       path:'logros',
       component: AchievementsComponent
-      // ,canActivate: [ AuthService ]
+      ,canActivate: [ AuthService ]
     },
     {
       path:'novedades',
       component: AdminNewsComponent
-      // ,canActivate: [ AuthService ]      
+      ,canActivate: [ AuthService ]      
     },
     {
       path:'novedades/new',
       component: FormNewsComponent
-      // ,canActivate: [ AuthService ]
+      ,canActivate: [ AuthService ]
     },
     {
       path:'novedades/edit/:id',
       component: FormNewsComponent
-      // ,canActivate: [ AuthService ]
+      ,canActivate: [ AuthService ]
     },
     {
       path:'videos',
-      component: AdminVideosComponent
-      // ,canActivate: [ AuthService ]
+      component: FormVideosComponent
+      ,canActivate: [ AuthService ]
     },
     {
       path:'videos/new',
       component: FormVideosComponent
-      // ,canActivate: [ AuthService ]
+      ,canActivate: [ AuthService ]
     },
     {
       path:'videos/edit/:id',
       component: FormVideosComponent
-      // ,canActivate: [ AuthService ]
+      ,canActivate: [ AuthService ]
     },
     {
       path:'photos',
-      component: AdminPhotosComponent
-      // ,canActivate: [ AuthService ]
+      component: FormPhotosComponent
+      ,canActivate: [ AuthService ]
     },
     {
       path:'photos/new',
       component: FormPhotosComponent
-      // ,canActivate: [ AuthService ]
+      ,canActivate: [ AuthService ]
     },
     {
       path:'photos/edit/:id',
       component: FormPhotosComponent
-      // ,canActivate: [ AuthService ]
+      ,canActivate: [ AuthService ]
     }]
   },
   

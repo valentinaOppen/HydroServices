@@ -17,7 +17,23 @@
     display: grid;
     grid-template-columns: 31.5vw 31.5vw 31.5vw;
     margin: 1em auto;    
-    grid-auto-rows: 20vw;
+    /* grid-auto-rows: 20vw; */
+}
+
+.fa-youtube
+{
+    position: absolute;
+    font-size: 2.5em;    
+    /* width: 20%;
+    height: 30%; */
+    top: 20%;
+    left: 20%;
+    padding:10% 20%;
+}
+
+.fa-youtube:hover
+{
+    color: red;
 }
 
 .divPhoto
@@ -30,6 +46,13 @@ img
     width:80%;
     margin-top:4%;
 }
+
+.imgThumbnail
+{
+    width: 100%;
+    margin-top: 0;
+}
+
 
 .modal-dialog 
 {
@@ -102,14 +125,16 @@ img
 {
     width: 100%;
     height: 100% !important;
+    position: relative;
 }
 
 .iframe
 {
     z-index: -1000000;
     position: relative;
-    width:inherit;
-    height: inherit;
+    width: 100%;
+    padding:0.5em;
+    height: fit-content;
 }
 
 iframe{
@@ -128,4 +153,25 @@ iframe{
     width:fit-content;
     margin: 4em auto 4em auto;
     font-size:0.6em;
+    transition:.3s;
+}
+
+.btnMostrarMas:hover
+{
+    background-color: #193A54;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 500px) 
+{
+    .gridPhotosImgs
+    {
+        grid-template-columns: 100%;            
+    }
+
+    .fa-youtube
+    {
+        color:red;
+    }
 }

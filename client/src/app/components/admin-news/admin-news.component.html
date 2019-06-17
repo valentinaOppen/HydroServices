@@ -2,15 +2,24 @@
   <div class="divHeader">
       <div class="titleNews">Administración de Novedades</div>
       <div class="divBtnAgregarNovedad" [routerLink]="['new']">
+      <!-- <div class="divBtnAgregarNovedad" id="divBtnAgregarNovedad" (click)="showForm()"> -->
           <i class="fas fa-plus"></i>AGREGAR NOVEDAD
-        </div>
+      </div>
+      <!-- <div class="divBtnAgregarNovedad" id="divBtnAgregarNovedadOcultar" (click)="hideForm()" hidden>
+        <i class="fas fa-plus"></i>AGREGAR NOVEDAD
+    </div> -->
+      <div class="divFormAddNew" id="divFormAddNew" style="display:none;">
+        <app-form-news></app-form-news>
+      </div>
       <div class="divBuscarNovedades">
         <div class="textBuscarNovedades"><i class="fas fa-search"></i>BUSCAR NOVEDAD</div>
         <div class="divFormBusqueda">          
             <div class="titleFieldTitulo">Por título</div>          
-            <div class="divInputTitulo"><input type="text" name="" id="" class="inputText"></div>                    
-              <div class="titleFieldDate">Por Fecha</div>          
-              <div class="divInputFecha"><input type="date" name="" id="" class="inputDate"></div>          
+            <div class="divInputTitulo">
+              <input type="text" name="" id="" class="inputText"  name="filterNews" [(ngModel)]="filterNews">
+            </div>                    
+              <!-- <div class="titleFieldDate">Por Fecha</div>          
+              <div class="divInputFecha"><input type="date" name="" id="" class="inputDate"></div>           -->
           <div class="btnBuscar">
               <button class="buscar">BUSCAR</button>
             </div>
@@ -31,7 +40,7 @@
   
   <div class="containerNews">
     
-    <div class="news" *ngFor="let new of news">       
+    <div class="news" *ngFor="let new of news | filterNews:filterNews">       
       <!-- <div class="divVideo" *ngIf="new.news_video">
         <div class="videoNews"><iframe [src]="getEmbedUrl(new)" frameborder="0" allowfullscreen></iframe></div>        
       </div>      -->
@@ -41,13 +50,14 @@
         </div>
       </div> -->
       <div class="divDesc">
-        <div class="desc">{{new.news_desc}}</div>
+        <div class="desc">{{new.news_title}}</div>
         <!-- <div class="desc">{{new.news_desc_eng}}</div> -->
       </div> 
-      <div class="divDate">{{new.news_date}}</div>
+      <div class="divDate">{{new.news_date | date:'dd-MM-yyyy'}}</div>
       <div class="pub">{{new.news_pub}}</div>
       <div class="divBtn">
           <a [routerLink]="['edit', new.news_id]" mat-button><i class="fas fa-edit"></i></a>      
+          <!-- <a (click)="showForm(news.news_id)" mat-button><i class="fas fa-edit"></i></a>                 -->
           <button mat-button (click)="deleteNew(new.news_id)"><i class="fas fa-trash"></i></button>
       </div>             
     </div>

@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
+import {MatAutocompleteModule} from '@angular/material';
+
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -20,7 +22,6 @@ import { WeatherComponent } from './components/weather/weather.component';
 import { WeatherService } from './services/weather.service';
 import { GeolocationService } from './services/geolocation.service';
 
-import { Ng2WeatherIconsModule } from 'ng2-weather-icons';
 import { ServicesComponent } from './components/services/services.component';
 import { ListServicesComponent } from './components/list-services/list-services.component';
 import { AchievementsComponent } from './components/achievements/achievements.component';
@@ -60,6 +61,14 @@ import { FormPhotosComponent } from './components/form-photos/form-photos.compon
 import { FormVideosComponent } from './components/form-videos/form-videos.component';
 import { AdminFooterComponent } from './components/admin-footer/admin-footer.component';
 import { AdminIndexComponent } from './components/admin-index/admin-index.component';
+import { SecondaryHeaderComponent } from './components/secondary-header/secondary-header.component';
+import { NavigationSecondaryComponent } from './components/navigation-secondary/navigation-secondary.component';
+import { NewsService } from './services/news.service';
+import { NewsIndexComponent } from './components/news-index/news-index.component';
+import { FilterNewsPipe } from './pipes/filter-news.pipe';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { CountoModule }  from 'angular2-counto';
+import { RecaptchaModule } from 'ng-recaptcha';
 
 export function HttpLoaderFactory(http:HttpClient)
 {
@@ -68,7 +77,7 @@ export function HttpLoaderFactory(http:HttpClient)
 
 
 @NgModule({
-  declarations: [
+  declarations: [    
     AppComponent,
     NavigationComponent,
     ClientsListComponent,
@@ -100,16 +109,23 @@ export function HttpLoaderFactory(http:HttpClient)
     FormPhotosComponent,
     FormVideosComponent,
     AdminFooterComponent,
-    AdminIndexComponent    
+    AdminIndexComponent,
+    SecondaryHeaderComponent,
+    NavigationSecondaryComponent,    
+    NewsIndexComponent, 
+    FilterNewsPipe    
   ],
   imports: [
+    RecaptchaModule.forRoot(),    
+    CountoModule,
+    MatExpansionModule,
+    MatAutocompleteModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     MatMenuModule,
     MatButtonModule,
-    BrowserAnimationsModule,
-    Ng2WeatherIconsModule,   
+    BrowserAnimationsModule,     
     NgbModule,     
     FormsModule,
     MatFormFieldModule,
@@ -127,7 +143,9 @@ export function HttpLoaderFactory(http:HttpClient)
       apiKey: 'YOUR_KEY'
     })
   ],
-  providers: [GeolocationService, WeatherService, AppService, AuthService, UserService, ServicesComponent, NewsComponent ],
+  providers: [GeolocationService, WeatherService, AppService, 
+              AuthService, UserService, ServicesComponent, NewsComponent,
+              VideosComponent, PhotosComponent, NavigationComponent ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,18 +1,29 @@
 <div class="containerContact" id="contact">
   <div class="titleContact">{{"CONTACTO" | translate}}</div>
   <div class="subtituleContact">{{"ESCRIBINOS TUS CONSULTAS" | translate }}</div>
+  <form [formGroup]="form" (ngSubmit)="sendForm()">  
+  <!-- <form [formGroup]="form" method="POST" action="/server/src/routes/formContact.php">   -->
   <div class="gridContact">
-    <div class="inputText name"><input type="text" placeholder="{{'NOMBRE' | translate}}"></div>
-    <div class="inputText email"><input type="text" placeholder="{{'EMAIL' | translate}}"></div>
-    <div class="inputText phone"><input type="text" placeholder="{{'TELEFONO' | translate}}"></div>
-    <div class="inputText subject"><input type="text" placeholder="{{'ASUNTO' | translate}}"></div>
-    <div class="inputMessage message"><textarea name="message" id="" placeholder="{{'MENSAJE' | translate}}"></textarea></div>
-    <div class="buttons">
-    <button class="btnContact delete">{{"BORRAR" | translate}}</button>
-    <button class="btnContact" (click)="sendForm()">{{"ENVIAR" | translate}}</button>
+    <div class="inputText name">
+      <input id="name" name="name" formControlName="name" type="text" placeholder="{{'NOMBRE' | translate}}" required>      
     </div>
+    <div class="inputText email"><input name="email" formControlName="email" type="text" placeholder="{{'EMAIL' | translate}}" required></div>
+    <div class="inputText phone"><input name="phone" formControlName="phone" type="text" placeholder="{{'TELEFONO' | translate}}" required></div>
+    <div class="inputText subject"><input name="subject" formControlName="subject" type="text" placeholder="{{'ASUNTO' | translate}}" required></div>
+    <div class="inputMessage message"><textarea name="message" formControlName="message" name="message" id="" placeholder="{{'MENSAJE' | translate}}" required></textarea></div>
+    <div class="buttons">
+      <button class="btnContact delete">{{"BORRAR" | translate}}</button>      
+      <button class="btnContact" type="submit">{{"ENVIAR" | translate}}</button>
+      <div *ngIf="enviado =='true'" class="msgEnviado"><p>Su mensaje ha sido enviado.</p></div>   
+    </div>           
+    <!-- <div class="g-recaptcha" data-sitekey="6Ld43KcUAAAAABSvYhRLwkjeEL--g8cbMISrqYG5"></div> -->
+    <div class="captchaRobot" id="captchaRobot">
+      <re-captcha (resolved)="resolved($event)" siteKey="6Ld43KcUAAAAABSvYhRLwkjeEL--g8cbMISrqYG5"></re-captcha>
+      <div *ngIf="this.robot == 'true'" class="ErrorRobot">Demuestra que no eres un robot.</div>
+    </div>
+    <!-- <div class="g-recaptcha-response" data-sitekey="6Ld43KcUAAAAABSvYhRLwkjeEL--g8cbMISrqYG5"></div> -->
     <!-- <div class="mapContact"><img src="../../../assets/img/map.JPG" alt=""></div> -->
     <div class="mapContact"><iframe src="http://maps.google.com/maps?q=-38.045905,-57.535072&z=15&output=embed"></iframe></div>
   </div>
-  
+</form>
 </div>

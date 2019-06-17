@@ -1,0 +1,127 @@
+.containerForm
+{
+    width: 80%;
+    float: right;
+    margin-top: 8vh;
+    border-left: solid 1px #EAEAEA;
+    padding: 1.3em;
+}
+
+
+.titleAdminVideos
+{
+    color: #DD4343;
+    font-size: 0.75em;
+    font-family: RalewayBold;
+    margin-bottom: 0.5em;
+}
+
+.divAgregarVideo
+{
+    color: white;
+    background-color: #4D4D4D;
+    padding: 0.5em;
+    font-family: RalewayLight;
+    font-size: 0.75em;
+    padding-left: 1em;
+    border-bottom: solid 3px #DD4343;
+    border-bottom: solid 1px #EAEAEA;
+    padding-bottom: 0.5em;
+}
+
+
+.fas
+{
+    margin-right: 0.5em;
+}
+
+.fa-trash
+{
+    font-size:3.5em;
+}
+
+.divFormVideos
+{
+    font-family: RalewayLight;
+}
+
+.titleField
+{
+    font-size: 0.75em;
+    font-family: RalewayReg;
+    margin-top: 1em;
+}
+
+.inputText
+{
+    border: solid 1.3px #4D4D4D;
+    width: 100%;
+}
+
+.inputText:focus
+{
+    outline: none;
+}
+
+.inputTextArea
+{
+    outline:none;
+    border: solid 1.3px #4D4D4D;
+    width: 100%;
+}
+
+.headerList
+{
+    background-color:#4D4D4D;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    color: white;
+    font-size: 0.8em;
+    font-family: RalewayLight;
+    padding: 0.5em;
+    padding-left: 1em;
+    margin-top: 0.5em;
+
+}
+
+.containerVideos
+{
+    
+    /* font-size:0.6em;
+    font-size: 0.8em; */
+    font-family: RalewayLight;
+    width: 80%;
+    float: right;
+    padding: 1.3em;
+    border-left: solid 1px #EAEAEA;
+}
+
+.videos
+{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    margin-top: 0.5em;
+}
+
+.containerNews
+{
+    margin-top:1em;    
+    font-size: 0.8em;
+    font-family: RalewayLight;
+}
+
+.divBtn
+{
+    width: 100%;
+    text-align: right;
+}
+
+.btnGuardarVideos
+{
+    background-color: #4d4d4d;
+    color: white;
+    border: none;
+    font-size: 0.6em;
+    padding: 1em 1.5em;
+}

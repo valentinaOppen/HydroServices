@@ -14,7 +14,9 @@ export class AdminPhotosComponent implements OnInit {
 
   ngOnInit() {
     this.getPhotos();
+    
   }
+
 
   getPhotos()
   {

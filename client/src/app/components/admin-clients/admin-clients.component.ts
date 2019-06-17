@@ -12,7 +12,8 @@ import { ActivatedRoute, Router } from '@angular/router'
 })
 
 export class AdminClientsComponent implements OnInit 
-{
+{ 
+
   form: FormGroup;
   loading: boolean = false; 
   id:number;
@@ -39,6 +40,14 @@ export class AdminClientsComponent implements OnInit
   ngOnInit() 
   {
     this.getClients();
+    document.getElementById('arrowClients').className="fas fa-chevron-right arrowMenu";  
+    document.getElementById('clientLink').className="itemMenu linkSelected";  
+  }
+
+  ngOnDestroy()
+  {
+    document.getElementById('arrowClients').className="fas fa-chevron-down arrowMenu";  
+    document.getElementById('clientLink').className="itemMenu"; 
   }
 
   getClients()
@@ -106,8 +115,6 @@ export class AdminClientsComponent implements OnInit
     this.client.clie_name = this.form.get('name').value;
     this.client.clie_img = this.form.get('avatar').value.value;
 
-    console.log(this.form);
-    console.log(this.client);
     setTimeout(() => 
     {
       this.loading = false;

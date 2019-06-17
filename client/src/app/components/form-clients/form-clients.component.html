@@ -10,10 +10,13 @@
             <input type="text" class="inputText" id="name" placeholder="Nombre Cliente" formControlName="name">
         </div>      
     <div class="divInputFile">
-        <label for="file-upload" class="custom-file-upload">
+      <div class="divInputFile">          
+          <input class="inputImg" id="file-upload" type="file" (change)="onFileChange($event)" formControlName="photo_url" #fileInput/>      
+      </div>  
+      <!-- <label for="file-upload" class="custom-file-upload">
             Seleccionar Archivo
         </label>
-        <input id="file-upload" type="file" (change)="onFileChange($event)" #fileInput/>      
+        <input id="file-upload" type="file" (change)="onFileChange($event)" #fileInput/>       -->
     </div>
   </div>
   <div class="divButton">

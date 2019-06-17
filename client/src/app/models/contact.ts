@@ -4,5 +4,6 @@ export interface Contact
     email:string,
     phone:string,
     subject:string,
-    message:string
+    message:string,
+    captcha:string
 }

@@ -1,6 +1,6 @@
 div{
     width:fit-content;
-    display: block !important;
+    display: block;
     margin:auto auto;
 }
 
@@ -11,7 +11,7 @@ div{
     font-size:0.4em;
     /* width: fit-content; */
     position:absolute;
-    top:2em;
+    top:calc(110px + 2em);
     right: 2em;
     /* text-align: center; */
     padding:2em;    
@@ -50,7 +50,7 @@ div{
     font-family:RalewayLight;
     font-size:1.2em;
     white-space: nowrap;
-    margin:0 !important;
+    margin:0;
     padding:1.5em 1.5em 0 0;
 }
 
@@ -66,3 +66,79 @@ div{
     margin:0 0 0 30%;
     /* margin:0 !important; */
 }
+
+.textWeather
+{
+    display:none;
+}
+
+
+
+.elClimaWeather
+{
+    display: none;
+}
+
+
+
+@media screen and (max-width: 500px) 
+{
+    
+
+    .containerWeather
+    {
+        position: relative;
+        margin:0;
+        width:100% !important;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        top: 0;
+        left: 0;        
+    }
+
+    .textWeather
+    {
+        display:relative;
+    }
+
+    .elClimaWeather
+    {
+        display: unset;
+        font-size: 6em;
+        font-family: RalewayThin;
+    }
+
+    .divWeather
+    {
+        border-left: solid 1px white;
+        padding-left: 1.3em;
+        height: 100%;
+
+    }
+
+    .imgWeather
+    {
+        width:60%;
+    }
+
+    .divImgWeather
+    {
+        text-align: center;
+    }
+
+    .weather
+    {
+        margin: 0 0 0 1em;
+    }
+
+    .textWeather
+    {
+        margin:auto auto;
+        padding: 1.5em 0 0 0 !important;
+    }
+
+    .containerWeather
+    {
+        padding: 2em 1em;
+    }
+} 

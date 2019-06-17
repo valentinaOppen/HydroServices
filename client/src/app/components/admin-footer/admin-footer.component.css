@@ -6,8 +6,7 @@
     bottom:0;
     color:white;
     display: grid;
-    grid-template-columns: 20% 20% 20% 20% 20%;        
-    /* padding: 2em 0.5em; */
+    grid-template-columns: 20% 20% 20% 20% 20%;            
     font-size: 0.4em;    
     height: 8vh;
 }

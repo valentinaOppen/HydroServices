@@ -13,11 +13,15 @@ class db
 
     public function connectDB()
     {
-        $mysqlConnect = "mysql:host=$this->dbHost;dbname=$this->dbName";
+        $mysqlConnect = "mysql:host=$this->dbHost;dbname=$this->dbName;charset=utf8";
         $dbConnection = new PDO($mysqlConnect, $this->dbUser,$this->dbPass);
-        $dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);        
+        $dbConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
+        $dbConnection->exec("SET CHARACTER SET utf8");
         return $dbConnection;
     }
+
+    // $this->objetoPDO = new PDO('mysql:host=localhost;dbname=cdcol;charset=utf8', 'root', '', array(PDO::ATTR_EMULATE_PREPARES => false,PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    //         $this->objetoPDO->exec("SET CHARACTER SET utf8");
 }
 
 ?>

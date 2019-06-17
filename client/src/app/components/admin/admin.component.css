@@ -8,14 +8,23 @@
     position: fixed;
     left: 25%;
 }
-/* 
-router-outlet {
-    position: absolute;
-    left:20%;
-    top:10vh;
-  }
 
-app-admin-footer 
-{
-    height: 8vh;
-} */
+
+footer {
+  height: 8vh;
+}
+
+/* header-main,
+router-outlet,
+footer{
+  display: table-row;
+}
+
+header-main {
+ height: 60px;
+}
+
+router-outlet {
+  position: absolute;
+}
+ */

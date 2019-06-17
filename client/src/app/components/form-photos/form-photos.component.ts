@@ -12,7 +12,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 export class FormPhotosComponent implements OnInit 
 {
-
+  photos:any = [];
   form: FormGroup;
 
   photo: Photo = 
@@ -32,7 +32,26 @@ export class FormPhotosComponent implements OnInit
     this.createForm();
   }
 
-  ngOnInit() {
+  ngOnInit() 
+  {
+    this.getPhotos();
+    document.getElementById('arrowPhotos').className="fas fa-chevron-right arrowMenu";  
+    document.getElementById('photosLink').className="itemMenu linkSelected"; 
+  }
+  
+  ngOnDestroy()
+  {
+    document.getElementById('arrowPhotos').className="fas fa-chevron-down arrowMenu";  
+    document.getElementById('photosLink').className="itemMenu"; 
+  }
+
+  getPhotos()
+  {
+    this.service.getPhotosAll().subscribe(
+      res => this.photos = res,
+      err => console.error(err)
+    );   
+    console.log(this.photos);
   }
 
   createForm()
@@ -70,10 +89,8 @@ export class FormPhotosComponent implements OnInit
     delete this.photo.photo_id;    
     this.photo.photo_url = this.form.get('photo_url').value.value;
     this.photo.photo_desc = this.form.get('photo_desc').value;
-    this.photo.photo_desc_eng = this.form.get('photo_desc_eng').value;    
-    this.photo.photo_name = this.form.get('photo_name').value;
-    
-    console.log(this.photo);    
+    this.photo.photo_desc_eng = this.form.get('photo_desc_eng').value;        
+    this.photo.photo_name = (this.form.get('photo_name').value).replace(/\s/g,"_");    
     this.savePhoto();        
   }
 
@@ -88,4 +105,20 @@ export class FormPhotosComponent implements OnInit
     );
   }
 
+  deletePhoto(id)
+  {
+    this.service.deletePhoto(id).subscribe
+    (
+      res => 
+      {
+        this.getPhotos();
+      },
+      err => console.error(err)
+    );
+  }
+
+  public getPhotoName(name)
+  {
+    return name.replace(/_/g," ");
+  }
 }

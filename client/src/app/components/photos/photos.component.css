@@ -34,6 +34,18 @@
 {
     width: 100%;
     height: 100% !important;
+
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+}
+
+.divPhoto:hover
+{
+    transform:scale(1.035);
 }
 
 img
@@ -127,4 +139,22 @@ img
     width:fit-content;
     margin: 4em auto 4em auto;
     font-size:0.6em;
+    transition:.3s;
+}
+
+.btnMostrarMas:hover
+{
+    background-color: #193A54;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 500px) 
+{
+    .gridPhotosImgs
+    {
+        grid-template-columns: 50% 50%;    
+        grid-auto-rows: 30vw;
+    }
 }

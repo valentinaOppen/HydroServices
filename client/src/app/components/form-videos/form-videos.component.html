@@ -1,5 +1,49 @@
-<div class="containerForm"> 
-  <div class="form-group">
+<div class="containerForm">
+  <div class="headerVideos">
+    <div class="titleAdminVideos">Administración de Videos</div>
+    <div class="divAgregarVideo"><i class="fas fa-times"></i>AGREGAR NUEVO VIDEO</div>
+  </div>
+  <div class="divFormVideos">
+    <div class="titleField">URL de Youtube</div>
+    <div class="divInput">
+      <input type="text" name="" id="" class="inputText" [(ngModel)]="video.video_url" >
+    </div>
+    <div class="titleField">Descripción del video</div>
+    <div class="divInput">      
+      <textarea name="" id="" rows="2" class="inputTextArea" [(ngModel)]="video.video_desc" ></textarea>
+    </div>
+    <div class="titleField">Traducción</div>
+    <div class="divInput">      
+      <textarea name="" id="" rows="2" class="inputTextArea" [(ngModel)]="video.video_desc_eng"></textarea>
+    </div>
+    <div class="divBtn">
+        <button class="btnGuardarVideos" (click)="saveVideo()">GUARDAR</button>
+    </div>  
+  </div>
+</div>
+
+
+
+<div class="containerVideos">
+    <div class="divHeaderNews">
+        <div class="titleAdminVideos">Videos cargadas</div>
+        <div class="headerList">
+          <div class="titleListNews">URL</div>      
+          <div class="btns"></div>
+        </div>
+      </div>
+    <div class="videos" *ngFor="let video of videos">       
+      <div class="divVideo">        
+        <div class="urlVideo">https://www.youtube.com/watch?v={{video.video_url}}</div>
+      </div>                 
+      <div class="divBtn">            
+          <button mat-button (click)="deleteVideo(video.video_id)"><i class="fas fa-trash"></i></button>
+      </div>             
+    </div>
+  </div>
+
+
+  <!-- <div class="form-group">
       <label for="exampleInputEmail1">Obras Terminadas</label>
       <div class="youtube">https://www.youtube.com/watch?v=<input type="text" [(ngModel)]="video.video_url" id="news_video" name="news_video"></div>
   </div> 
@@ -15,4 +59,4 @@
   <div class="divBtn">
     <button class="btn btn-primary" (click)="saveVideo()">Guardar</button>
   </div>    
-</div>
+</div> -->

@@ -1,0 +1,125 @@
+<div class="containerNavBarGrid">
+    <div class="containerLogo" routerLink='/index'>
+      <img src="../../../assets/img/logo.JPG" alt="" class="logoNavBar">
+    </div>
+    <div class="containerNavItems">
+      <div class="itemsGrid">
+        <div class="itemNavBar">
+          <a mat-button routerLink='/index'>{{ "INICIO" | translate}}</a>
+        </div>      
+        <div class="itemNavBar">
+          <a mat-button routerLink='/index/services'>{{ "CAPACIDADES" | translate}}</a>
+        </div>      
+        <div class="itemNavBar">
+          <a mat-button routerLink='/index/clients'>{{ "NUESTROS CLIENTES" | translate}}</a>
+        </div>      
+        <div class="itemNavBar">        
+          <a mat-button [matMenuTriggerFor]="belowMenuLinks">{{ "LINKS DE INTERES" | translate}}<i class="fa fa-sort-down"></i></a>
+          <mat-menu class="linksPanel" #belowMenuLinks="matMenu" yPosition="below">
+            <div class="divSelect Links"><a href="http://www.renar-naviera.com.ar/" target="_blank">{{"Renar" | translate}}</a></div>
+            <div class="divSelect Links"><a href="http://www.industrianaval.org.ar/inicio.php" target="_blank">
+              {{"Asociación Bonaerense de la industria Naval"|translate}}
+            </a></div>
+            <div class="divSelect Links"><a href="http://www.histarmar.org/" target="_blank">{{"Histarmar" | translate}}</a></div>
+            <div class="divSelect Links"><a href="http://www.meysupply.net/" target="_blank">{{"Meysupply Representaciones" | translate }}</a></div>
+          </mat-menu>        
+        </div>      
+        <div class="itemNavBar">
+          <a mat-button routerLink='/novedades'>{{ "NOVEDADES" | translate}}</a>
+        </div>      
+        <div class="itemNavBar">
+          <a mat-button [matMenuTriggerFor]="belowMenu">{{ "MULTIMEDIA" | translate}}<i class="fa fa-sort-down"></i></a>
+          <mat-menu class="linksPanel" #belowMenu="matMenu" yPosition="below">
+            <div class="divSelect Links"><a routerLink='/videos'>{{"Videos" | translate}}</a></div>
+            <div class="divSelect Links"><a routerLink='/photos'>{{"Fotos" | translate}}</a></div>
+          </mat-menu>
+        </div>      
+        <div class="itemNavBar">
+          <a mat-button routerLink='/index/contact'>{{ "CONTACTENOS" | translate}}</a>
+        </div>      
+        <div class="itemNavBar itemLang">
+          <!-- <a mat-button class="itemLang" routerLink="/index/2">{{ "EN" | translate}}<i class="fa fa-sort-down"></i></a> -->
+          <!-- <a mat-button [matMenuTriggerFor]="belowMenuLang">{{ "EN" | translate}}<i class="fa fa-sort-down"></i></a>
+          <mat-menu #belowMenuLang="matMenu" yPosition="below">
+            <div class="divSelect"><a routerLink='/index/1'>EN</a></div>
+            <div class="divSelect"><a routerLink='/index/2'>ES</a></div>
+          </mat-menu> -->
+          <a mat-button class="itemLang" (click)="changeLanguage()">{{ "EN" | translate}}<i class="fa fa-sort-down"></i></a>
+        </div>      
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="containerHeaderMobile">
+      <div class="divNavigationContainerMobile">    
+        <div class="divImgHeaderMobile" routerLink='/index'><img src="../../../assets/img/logo.JPG" alt="" class="imgHeaderMobile"></div>
+        <div style="font-size:30px;cursor:pointer" (click)="openNav()" class="titleMenuMobile">&#9776; MENU</div>
+      </div>
+            <div id="mySidenav" class="sidenav">          
+            <!-- <div class="titleMenu">MENU<a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a></div> -->
+            <div><a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a></div>
+            <div class="itemNavBarMobile">
+                <a mat-button routerLink='/index'>{{ "INICIO" | translate}}</a>
+              </div>      
+              <div class="itemNavBarMobile">
+                <a mat-button routerLink='/index/services'>{{ "CAPACIDADES" | translate}}</a>                
+              </div>      
+              <div class="itemNavBarMobile">
+                  <a mat-button routerLink='/index/clients'>{{ "NUESTROS CLIENTES" | translate}}</a>
+              </div>      
+              <div class="itemNavBarMobile">        
+                <a mat-button [matMenuTriggerFor]="belowMenuLinks">{{ "LINKS DE INTERES" | translate}}<i class="fa fa-sort-down"></i></a>
+                <mat-menu class="linksPanel" #belowMenuLinks="matMenu" yPosition="below">
+                  <div class="divSelect Links"><a href="http://www.renar-naviera.com.ar/" target="_blank">{{"Renar" | translate}}</a></div>
+                  <div class="divSelect Links"><a href="http://www.industrianaval.org.ar/inicio.php" target="_blank">
+                    {{"Asociación Bonaerense de la industria Naval"|translate}}
+                  </a></div>
+                  <div class="divSelect Links"><a href="http://www.histarmar.org/" target="_blank">{{"Histarmar" | translate}}</a></div>
+                  <div class="divSelect Links"><a href="http://www.meysupply.net/" target="_blank">{{"Meysupply Representaciones" | translate }}</a></div>
+                </mat-menu>        
+              </div>      
+              <div class="itemNavBarMobile">
+                  <a mat-button routerLink='/novedades'>{{ "NOVEDADES" | translate}}</a>
+              </div>      
+              <div class="itemNavBarMobile">
+                <a mat-button [matMenuTriggerFor]="belowMenu">{{ "MULTIMEDIA" | translate}}<i class="fa fa-sort-down"></i></a>
+                <mat-menu class="linksPanelMultimedia" #belowMenu="matMenu" yPosition="below">
+                  <div class="divSelect Links"><a routerLink='/videos'>{{"Videos" | translate}}</a></div>
+                  <div class="divSelect Links"><a routerLink='/photos'>{{"Fotos" | translate}}</a></div>
+                </mat-menu>
+              </div>      
+              <div class="itemNavBarMobile">
+                  <a mat-button routerLink='/index/contact'>{{ "CONTACTENOS" | translate}}</a>
+              </div>      
+              <div class="itemNavBarMobile itemLangMobile">        
+                <a mat-button class="itemLangMobile" (click)="changeLanguage()">{{ "EN" | translate}}<i class="fa fa-sort-down"></i></a>
+              </div>      
+
+
+
+  <!-- <button mat-button [matMenuTriggerFor]="aboveMenu">Above</button>
+  <mat-menu #aboveMenu="matMenu" yPosition="above">
+    <button mat-menu-item>Item 1</button>
+    <button mat-menu-item>Item 2</button>
+  </mat-menu>
+  
+  <button mat-button [matMenuTriggerFor]="belowMenu">Below</button>
+  <mat-menu #belowMenu="matMenu" yPosition="below">
+    <button mat-menu-item>Item 1</button>
+    <button mat-menu-item>Item 2</button>
+  </mat-menu>
+  
+  <button mat-button [matMenuTriggerFor]="beforeMenu">Before</button>
+  <mat-menu #beforeMenu="matMenu" xPosition="before">
+    <button mat-menu-item>Item 1</button>
+    <button mat-menu-item>Item 2</button>
+  </mat-menu>
+  
+  
+  <button mat-button [matMenuTriggerFor]="afterMenu">After</button>
+  <mat-menu #afterMenu="matMenu" xPosition="after">
+    <button mat-menu-item>Item 1</button>
+    <button mat-menu-item>Item 2</button>
+  </mat-menu> -->
+  

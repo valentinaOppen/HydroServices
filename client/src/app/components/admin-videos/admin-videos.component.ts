@@ -19,6 +19,7 @@ export class AdminVideosComponent implements OnInit {
   ngOnInit() 
   {
     this.getVideos();
+    
   }
 
   getVideos()

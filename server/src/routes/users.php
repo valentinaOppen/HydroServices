@@ -48,6 +48,6 @@ function esValido($email, $pass)
        return false;
     }
    
- }
+}
 
 ?>

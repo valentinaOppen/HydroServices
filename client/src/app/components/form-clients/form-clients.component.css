@@ -71,7 +71,7 @@ form
   }
 
   input[type="file"] {
-    display: none;
+    /* display: none; */
 }
 .custom-file-upload {
     border: 1px solid #ccc;

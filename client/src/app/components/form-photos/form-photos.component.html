@@ -1,4 +1,61 @@
-<div class="divContainerForm">
+<div class="containerForm">
+    <div class="headerVideos">
+      <div class="titleAdminVideos">Administracion de Fotos</div>
+      <div class="divAgregarVideo"><i class="fas fa-times"></i>AGREGAR NUEVA IMAGEN</div>
+    </div>
+    <div class="divFormVideos">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="titleField">Nombre de Imagen</div>
+      <div class="divInput"> 
+        <input type="text" name="photoImagenName" id="" class="inputText" formControlName="photo_name">                
+      </div>
+
+      <div class="divInputFile">          
+          <input class="inputImg" id="file-upload" type="file" (change)="onFileChange($event)" formControlName="photo_url" #fileInput/>      
+      </div>
+
+      <div class="titleField">Descripción de la imagen</div>
+      <div class="divInput">      
+        <textarea name="" id="" rows="2" class="inputTextArea" formControlName="photo_desc"></textarea>
+      </div>
+      <div class="titleField">Traducción</div>
+      <div class="divInput">      
+        <textarea name="" id="" rows="2" class="inputTextArea" formControlName="photo_desc_eng"></textarea>
+      </div>
+      <div class="divBtn">
+          <button class="btnGuardarVideos" type="submit">GUARDAR</button>
+      </div>  
+    </form>
+    </div>
+  </div>
+  
+  
+  
+  <div class="containerVideos">
+      <div class="divHeaderNews">
+          <div class="titleAdminVideos">Imagenes cargadas</div>
+          <div class="headerList">
+            <div class="titleNombre">Nombre</div>    
+            <div class="titleDesc">Descripcion</div>   
+            <div class="btns"></div>
+          </div>
+        </div>
+      <div class="videos" *ngFor="let photo of photos">       
+        <div class="divVideo">        
+          <div class="urlVideo">{{getPhotoName(photo.photo_name)}}</div>
+        </div>    
+        <div class="divVideo">        
+            <div class="descr">{{photo.photo_desc}}</div>
+          </div>              
+        <div class="divBtn">            
+            <button mat-button (click)="deletePhoto(photo.photo_id)"><i class="fas fa-trash"></i></button>
+        </div>             
+      </div>
+    </div>
+  
+
+  
+<!-- <div class="divContainerForm">
   <div class="titleForm">Cargar Foto</div>
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="divImagen">
@@ -21,4 +78,4 @@
     </div>
     <button type="submit" class="btn btn-primary">Guardar</button>  
   </form>
-</div>
+</div> -->

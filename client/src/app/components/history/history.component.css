@@ -6,7 +6,7 @@
 
 .divHistory
 {    
-    padding-top:1em;
+    padding:4em 0 2em 0;
     margin:auto auto;
     height:80%;
     display: grid;
@@ -20,7 +20,7 @@
     background-size:auto;
     background-repeat: no-repeat;
     background-position-x: 20%;
-    background-position-y: 100%;
+    background-position-y: 40%;
 }
 
 .titleHistory
@@ -28,7 +28,7 @@
     color:#79B9D9;
     grid-area:title;    
     font-family: RalewayLight;
-    font-size: 1.5em;
+    font-size: 1.4em;
 }
 
 .subtitleHistory
@@ -60,3 +60,27 @@
     padding-right:0.4em;
 }
 
+
+@media screen and (max-width: 500px) 
+{
+    .titleHistory
+    {
+        font-size: 1.3em;
+        white-space: nowrap;
+    }  
+
+    .divHistory
+    {
+        grid-template-columns: 8% 84% 8%;
+        background-image: url(../../../assets/img/logo_mobile.jpg);
+        background-position-x: 0%;
+        background-position-y: 23%;
+    }
+
+    .divTextHistory
+    {
+        color:#4C99D0;
+        font-size: 1.4em;
+        
+    }
+}

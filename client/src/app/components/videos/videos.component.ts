@@ -27,6 +27,11 @@ export class VideosComponent implements OnInit {
     this.getVideos();
   }
 
+  getUrlImage(video)
+  {    
+    return "http://img.youtube.com/vi/"+ video.video_url +"/maxresdefault.jpg";
+  }
+
   getVideos()
   {
     this.service.getVideos().subscribe(

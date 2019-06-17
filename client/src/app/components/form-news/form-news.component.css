@@ -1,10 +1,23 @@
 .divContainerForm
 {
-    font-size: 0.5em;
+    font-family: RalewayLight;    
     width: 80%;
-    margin: auto auto;
+    margin: 8vh 0 0 0;
+    padding:1em;
+    float:right;
+    border-left: solid 1px #EAEAEA;
+    font-size:0.8em;
     
 }
+
+.titleAdminNoticias
+{
+    color: #DD4343;
+    /* font-size: 0.75em; */
+    font-family: RalewayBold;
+    margin-bottom: 0.5em;
+}
+
 
 .titleForm
 {
@@ -13,24 +26,56 @@
     font-size: 1.5em !important;
 }
 
-textarea
+.titleField
 {
-    width: 90%;
-    height: 40%;
+    font-size: 0.75em;
+    font-family: RalewayReg;
+    margin-top: 1em;
 }
 
-form
+
+textarea
+{
+    width: 100%;
+    /* height: 40%; */
+}
+
+/* form
 {
     display: grid;
     grid-template-columns: 50% 50%;
+} */
+
+.fileInput
+{
+    font-size:0.7em;
 }
 
 .form-group
 {
     display: grid;
+    margin-bottom:0 !important;
 }
 
 .btn
 {
     width:30%;
+}
+
+.divBtnGuardar
+{    
+    font-size:0.6em;        
+    margin-left: 78%;
+    width: 22%;
+}
+
+.btnGuardar
+{
+    background-color: #4D4D4D;
+    color: white;
+    width: 100%;    
+    font-family: ralewayBold;    
+    text-align: center;
+    padding: 0.5em;
+    margin-bottom: 1em;
 }

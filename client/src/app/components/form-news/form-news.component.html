@@ -1,28 +1,32 @@
-<div class="divContainerForm">
-  <div class="titleForm">Cargar Noticia</div>  
+<div class="divContainerForm">    
+    <div class="titleAdminNoticias">Administración de Noticias</div>
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="avatar">Video</label>
-      <div class="youtube">https://www.youtube.com/watch?v=<input type="text" id="news_video" name="news_video" value={{news.news_video}} formControlName="news_video"></div>
+      <div class="titleField">Titulo Noticia</div>
+      <input type="text" id="news_title" formControlName="news_title" value="{{news.news_title}}">       
+      <div class="titleField">Traducción Titulo Noticia</div>
+      <input type="text" id="news_title_eng" formControlName="news_title_eng" value="{{news.news_title_eng}}">       
+      <label class="titleField">URL de Youtube</label>
+      <input type="text" id="news_video" name="news_video" value={{news.news_video}} formControlName="news_video">
     </div>
     <div class="divImagen">
-        <div class="form-group">        
-            <input placeholder="Nombre Foto" type="text" id="newsImagenName" formControlName="news_img_name"  #fileInput>       
-        </div>
         <div class="form-group">
-            <label for="avatar">Imagen</label>
-            <input type="file" id="newsImagen" (change)="onFileChange($event)" formControlName="news_img"  #fileInput>       
+            <!-- <label for="avatar">Foto Noticia</label> -->
+            <div class="titleField">Foto Noticia</div>
+            <input type="file" class="fileInput" id="newsImagen" (change)="onFileChange($event)" formControlName="news_img"  #fileInput>       
         </div>
     </div>
     
     <div class="descr">
-        <label for="avatar">Descripcion</label>
-      <textarea value={{news.news_desc}} cols="30" rows="10"  formControlName="news_desc"></textarea>
+        <label for="avatar" class="titleField">Descripcion</label>
+      <textarea value={{news.news_desc}} cols="30" rows="3"  formControlName="news_desc"></textarea>
     </div>
     <div class="descr">
-        <label for="avatar">Traduccion</label>
-      <textarea  value={{news.news_desc}} cols="30" rows="10" formControlName="news_desc_eng"></textarea>
+        <label for="avatar" class="titleField">Traduccion</label>
+      <textarea  value={{news.news_desc_eng}} cols="30" rows="3" formControlName="news_desc_eng"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Guardar</button>  
+    <div class="divBtnGuardar">
+      <button type="submit" class="btnGuardar">GUARDAR</button>  
+    </div>
   </form>
 </div>

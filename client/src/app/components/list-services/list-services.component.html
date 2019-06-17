@@ -1,15 +1,31 @@
-<div class="containerServices" id="services">
+<div class="containerBackgroundServices">
+    <div class="divBackgroundWaves">
+      <div class="backImg"></div>
+      <div class="backgroundWaves"></div>
+    </div>
+<div class="containerServices" id="services">    
   <div class="capacity">{{"CAPACIDADES" | translate }}</div>
   <div class="textServices">{{"ALGUNOS DE NUESTROS SERVICIOS" | translate }}</div>
-<div class="containerGridServices">
-  <div class="gridServices">
-    <div class="service" *ngFor="let service of services" (click)="open(content)">        
-      <div class="divImgService">
-        <img src="{{service.serv_img}}" alt="">
+<div class="containerGridServices">  
+  <div class="gridServices">    
+    <div class="service" *ngFor="let service of services" (click)="open(content)">              
+      <div class="divTitleImg">
+        <div class="divImgService">
+          <img class="imgService" src="{{service.serv_img}}" alt="">
+        </div>
+        <div class="titleService" *ngIf="this.appService.translate.getDefaultLang()=='es'">{{service.serv_name}}
+            <!-- <span class="divPlus" *ngIf="this.description=='false'" (click)=showDescription()><i class="fas fa-plus"></i></span>
+            <span class="divPlus" *ngIf="this.description=='true'" (click)=hideDescription()><i class="fas fa-minus"></i></span> -->
+        </div>
+        <div class="titleService" *ngIf="this.appService.translate.getDefaultLang()=='en'">{{service.serv_name_eng}}
+            <!-- <span class="divPlus" *ngIf="this.description=='false'" (click)=showDescription()><i class="fas fa-plus"></i></span>
+            <span class="divPlus" *ngIf="this.description=='true'" (click)=hideDescription()><i class="fas fa-minus"></i></span> -->
+        </div>        
       </div>
-      <div class="titleService" *ngIf="this.appService.translate.getDefaultLang()=='es'">{{service.serv_name}}</div>
-      <div class="titleService" *ngIf="this.appService.translate.getDefaultLang()=='en'">{{service.serv_name_eng}}</div>
-
+      <div class="descripService" *ngIf="this.description=='true'">
+          <div *ngIf="this.appService.translate.getDefaultLang()=='es'"><p>{{service.serv_desc_esp}}</p></div>            
+          <div *ngIf="this.appService.translate.getDefaultLang()=='en'"><p>{{service.serv_desc_eng}}</p></div>            
+      </div>
       <ng-template #content let-modal>
           <div class="modal-header">
             <img class="closeTitle" src="{{service.serv_img_ov}}" alt="">
@@ -26,5 +42,19 @@
         </ng-template>  
     </div>
   </div>
+  <div class="accordionServices">
+      <mat-accordion>
+        <mat-expansion-panel *ngFor="let service of services">   
+          <mat-expansion-panel-header>
+            <mat-panel-title><img class="imgService" src="{{service.serv_img}}" alt=""></mat-panel-title>
+            <mat-panel-description *ngIf="this.appService.translate.getDefaultLang()=='es'">{{service.serv_name}}</mat-panel-description>
+            <mat-panel-description *ngIf="this.appService.translate.getDefaultLang()=='en'">{{service.serv_name_eng}}</mat-panel-description>          
+        </mat-expansion-panel-header>                    
+            <div *ngIf="this.appService.translate.getDefaultLang()=='es'"><p>{{service.serv_desc_esp}}</p></div>            
+            <div *ngIf="this.appService.translate.getDefaultLang()=='en'"><p>{{service.serv_desc_eng}}</p></div>                      
+        </mat-expansion-panel>
+      </mat-accordion>
+  </div>
+</div>
 </div>
 </div>

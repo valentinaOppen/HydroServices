@@ -1,4 +1,6 @@
 <div class="containerWeather">
+     <div class="elClimaWeather">{{"EL CLIMA" | translate}}</div>
+     <div class="divWeather">
      <div class="city text-uppercase">{{cityName}}</div>        
      <div class="divImg" [ngSwitch]="weatherCondition">
         <div *ngSwitchCase="'Clear'" class="divImgWeather"><img class="imgWeather" width="90px" src="../../../assets/img/weather/wi-day-sunny.svg" alt=""></div>
@@ -19,7 +21,8 @@
           <div class="weatherTitle">{{"Viento" | translate}}</div><div class="weather">{{wind}} km/h</div>
           <div class="weatherTitle">{{"Humedad" | translate }}</div><div class="weather">{{humidity}} %</div>
           <div class="weatherTitle">{{"Presion" | translate }}</div><div class="weather">{{pressure}} hPa</div>
-          <div class="weatherTitle">{{"Salida sol" | translate }}</div><div class="weather">{{sunrise}} hs</div>
-          <div class="weatherTitle">{{"Puesta sol" | translate }}</div><div class="weather">{{sunset}} hs</div>
+          <!-- <div class="weatherTitle">{{"Salida sol" | translate }}</div><div class="weather">{{sunrise}} hs</div>
+          <div class="weatherTitle">{{"Puesta sol" | translate }}</div><div class="weather">{{sunset}} hs</div> -->
+     </div>
      </div>
 </div>

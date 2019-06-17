@@ -1,6 +1,7 @@
 .principalHeader
 {
     position:relative;    
+    padding-top:110px;
 } 
 
 .imgHeader
@@ -20,4 +21,30 @@
 {
     font-family:RalewayReg;
     font-size:1.6em;
+}
+
+
+
+@media screen and (max-width: 500px) 
+{
+    .principalHeader
+    {        
+        padding-top:0px !important;
+    } 
+
+    .weatherPrincipal
+    {
+        display: none;
+    }
+
+    .titleHeader
+    {
+        font-size:0.7em;
+    }
+
+    .textHeader
+    {
+        bottom:1em;
+        left:1em;
+    }    
 }

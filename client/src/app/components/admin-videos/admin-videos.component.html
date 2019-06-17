@@ -14,7 +14,8 @@
         <div class="desc">{{video.video_desc}}</div>
         <div class="desc">{{video.video_desc_eng}}</div>
       </div> 
-      <div class="divBtn">            
+      <div class="divBtn">        
+          <a [routerLink]="['edit', video.video_id]" mat-button><i class="fas fa-edit"></i></a>          
           <button mat-button (click)="deleteVideo(video.video_id)">Borrar</button>
       </div>             
     </div>

@@ -11,7 +11,8 @@ import { Observable } from 'rxjs';
 export class MultimediaService 
 {
 
-  API_URI = 'http://localhost:8080/HydroServices/server/public/api';
+  // API_URI = 'http://localhost:8080/HydroServices/server/public/api';
+  API_URI = 'http://www.hydroservices.com.ar/server/public/api';
   
   constructor(private http:HttpClient) { }
 

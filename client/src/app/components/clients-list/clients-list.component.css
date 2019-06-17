@@ -5,7 +5,7 @@ div
 
 .containerClients
 {
-    padding:4em 0 3em 0; 
+    padding:4em 0 2em 0; 
     text-align: center;    
 }
 
@@ -20,7 +20,7 @@ div
 {
     color:#3874A0;
     font-family:RalewayBold;
-    font-size:1.2em;
+    font-size:0.6em;
     padding-bottom:2em;
 }
 
@@ -28,8 +28,31 @@ div
 {
     width:80%;
     display:grid;
-    grid-template-columns: 30% 30% 30%;
+    /* grid-template-columns: 30% 30% 30%; */
+    grid-template-columns: 20% 20% 20% 20%;
     column-gap: 5%;
     row-gap: 1em;
     margin: auto auto;
+}
+
+.divImgClient img{
+    width:100%;
+}
+
+@media screen and (max-width: 500px) 
+{
+    .gridClients
+    {
+        grid-template-columns: 50% 50%;
+    }
+
+    .containerClients
+    {
+        padding: 2em 0 3em 0;
+    }
+
+    .subtitleClients
+    {
+        padding-bottom: 1.5em;
+    }
 }
